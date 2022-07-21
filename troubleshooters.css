@@ -8,6 +8,20 @@
 	Bugs & Issues		https://github.com/Gorthian/Roll20_Troubleshooters_CharacterSheet/issues
 */
 
+/*             TABS                               */
+div.sheet-main-tab :is(.sheet-page1,.sheet-page2,.sheet-page3,.sheet-page4) {
+    display: none;
+}
+
+div.sheet-main-tab .sheet-tabstoggle[value="page1"] ~ div.sheet-page1,
+div.sheet-main-tab .sheet-tabstoggle[value="page2"] ~ div.sheet-page2,
+div.sheet-main-tab .sheet-tabstoggle[value="page3"] ~ div.sheet-page3,
+div.sheet-main-tab .sheet-tabstoggle[value="page4"] ~ div.sheet-page4 {
+    display: block;
+}
+
+/* 				LAYOUT							*/
+
 div.sheet-troubleshooters {
 	/* Platz für allgemeine Definitionen */
 	min-width	: 600px;
