@@ -1,0 +1,31 @@
+/*
+	EDITED by 			Gorthian
+	Version				1.0
+	Letzte Änderung		2022-07-21
+	
+	GitHub				https://github.com/Gorthian/Roll20_Troubleshooters_CharacterSheet
+	Wiki				https://github.com/Gorthian/Roll20_Troubleshooters_CharacterSheet/wiki
+	Bugs & Issues		https://github.com/Gorthian/Roll20_Troubleshooters_CharacterSheet/issues
+*/
+
+div.sheet-troubleshooters {
+	/* Platz für allgemeine Definitionen */
+	min-width	: 600px;
+}
+
+div.sheet-passport {
+	display					: grid;
+	grid-template-columns	: 2% 98%;
+	grid-auto-flow			: column dense;
+}
+
+div.sheet-tab-buttons {
+	display					: grid;
+	grid-template-rows		: repeat(4,100px);
+}
+
+div.sheet-tab-buttons button {
+	transform		: rotate(90deg);
+	transform-origin: top left;
+	width			: 85px;
+}
