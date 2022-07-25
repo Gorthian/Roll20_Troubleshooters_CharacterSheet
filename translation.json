@@ -1,2 +1,18 @@
 {
+	"advancement" : "Advancement / Reward Rolls",
+	"advances" : "Advances",
+	"current-vitality" : "Current Vitality",
+	"exploding-pool-title" : "Exploding Dice Pool",
+	"exploding-pool" : "NdX",
+	"how-many-dice" : "How many dice",
+	"logo" : "'The Troubleshooters' logo and the coat of arms are &#169; Helmgast and are used here with their kind permission",
+	"non-exploding-pool-title" : "Non-exploding Dice Pool",
+	"non-exploding-pool" : "NdP",
+	"max-vitality" : "Max Vitality (based on skill values & conditions)",
+	"percentile-dice-title" : "Percentile Dice",
+	"percentile-dice" : "d100",
+	"story-points" : "Story Points",
+	"summing-dice-title" : "Summing Dice",
+	"summing-dice" : "Nd6",
+	"vitality-max" : "Vitality / Max"
 }
