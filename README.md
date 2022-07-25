@@ -24,6 +24,6 @@ This sheet can be edited and improved as long as the copyright statement is reta
 
 # Authors
 
-**v3.0 tu current** - 2022 Gorthian updated the sheet by request of Green Gorilla, the german publisher of The Trobleshooters
+**v3.0 to current** - 2022 Gorthian updated the sheet by request of Green Gorilla, the german publisher of The Trobleshooters
 
 **v1.0 to 2.1** - The sheet was created in 2021 from Richard M. 
