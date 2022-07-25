@@ -312,54 +312,54 @@
 </div>
 
 <div class="sheet-npc" style="padding-left: 10px;">
-	<input type="text" name="attr_character_name" placeholder="Name" style="width:25%"/>
-	<input type="text" name="attr_name" placeholder="Chat Name" style="width:15%"/>
-	<input type="text" name="attr_npcaffiliation" placeholder="Affiliation" style="width:15%"/>
+	<input type="text" name="attr_character_name" placeholder="Name" data-i18n-placeholder="name" style="width:25%"/>
+	<input type="text" name="attr_name" placeholder="Chat Name" data-i18n-placeholder="chatname" style="width:15%"/>
+	<input type="text" name="attr_npcaffiliation" placeholder="Affiliation" data-i18n-placeholder="affiliation" style="width:15%"/>
 	<select name="attr_npclevel" style="width:15%">
-		<option value="" hidden>Rank</option>
-		<option value="Mook" >Mook</option>
-		<option value="Underling" >Underling</option>
-		<option value="Lieutenant" >Lieutenant</option>
-		<option value="Boss" >Boss</option>
+		<option value="" data-i18n="rank" hidden>Rank</option>
+		<option value="Mook" data-i18n="mook">Mook</option>
+		<option value="Underling" data-i18n="underling">Underling</option>
+		<option value="Lieutenant" data-i18n="lieutenant">Lieutenant</option>
+		<option value="Boss" data-i18n="boss">Boss</option>
 	</select>	
 	<div class="sheet-2colrow">
 		<div class="sheet-col" style="width:60%">
-			<label>Stats</label>
-			<label class="sheet-skilllabel">Vitality</label><input type="number" name="attr_vitality" class="sheet-number" min="0" max="20"/>
-			<label class="sheet-skilllabel">          Initiative</label><input type="number" class="sheet-npcskill" name="attr_npcinitiative" value="0"/>
-			<button type="action" class="sheet-npcroll" name="act_init_npcfix" title="NPC fixed initiative" value="3">Fixed</button>		
-			<button type="action" class="sheet-npcroll" name="act_init_npc" title="NPC rolled initiative" value="2">Roll</button><br>			
-			<label class="sheet-skilllabel">Conditional Max</label><input type="number" name="attr_vitality_max_vis" class="sheet-number" value="0" readonly="true"/>
-			<label class="sheet-skilllabel">          Defence</label><input type="number" class="sheet-npcskill" name="attr_npcdefence" value="0"/>
-			<button type="action" class="sheet-npcroll" name="act_def_npc" title="NPC defence" value="3">Roll</button><br>
-			<label class="sheet-skilllabel">Vitality Max</label><input type="number" class="sheet-number" name="attr_vitality_npc_max" title="Overrides calculated values. Should be set to 0 unless NPC" value="0"/>
-			<label class="sheet-skilllabel">          Protection</label><input type="number" name="attr_soakvalue" value="0" min="0" title="Protection value"/>dP
-			<button type="action" class="sheet-npcroll" name="act_soak" title="NPC Protection / Armour">Soak</button><br>
-			<button type="action" class="sheet-cbtroll" name="act_recover" title="Recovery">Recovery</button>			
+			<label data-i18n="stats">Stats</label>
+			<label class="sheet-skilllabel" data-i18n="vitality">Vitality</label><input type="number" name="attr_vitality" class="sheet-number" min="0" max="20"/>
+			<label class="sheet-skilllabel" data-i18n="initiative">Initiative</label><input type="number" class="sheet-npcskill" name="attr_npcinitiative" value="0"/>
+			<button type="action" class="sheet-npcroll" name="act_init_npcfix" title="NPC fixed initiative" data-i18n-title="npc-fixed-initiative" value="3" data-i18n="fixed">Fixed</button>		
+			<button type="action" class="sheet-npcroll" name="act_init_npc" title="NPC rolled initiative" data-i18n-title="npc-rolled-initiative" value="2" data-i18n="roll">Roll</button><br>			
+			<label class="sheet-skilllabel" data-i18n="conditional-max">Conditional Max</label><input type="number" name="attr_vitality_max_vis" class="sheet-number" value="0" readonly="true"/>
+			<label class="sheet-skilllabel" data-i18n="defence">Defence</label><input type="number" class="sheet-npcskill" name="attr_npcdefence" value="0"/>
+			<button type="action" class="sheet-npcroll" name="act_def_npc" title="NPC defence" data-i18n-title="npc-defence" value="3" data-i18n="roll">Roll</button><br>
+			<label class="sheet-skilllabel" data-i18n="vitality-max2">Vitality Max</label><input type="number" class="sheet-number" name="attr_vitality_npc_max" title="Overrides calculated values. Should be set to 0 unless NPC" data-i18n-title="npc-vitality-info" value="0"/>
+			<label class="sheet-skilllabel" data-i18n="protection">Protection</label><input type="number" name="attr_soakvalue" value="0" min="0" title="Protection value" data-i18n-title="protection-value"/><span data-i18n="dP">dP</span>
+			<button type="action" class="sheet-npcroll" name="act_soak" title="NPC Protection / Armour" data-i18n-title="npc-protection" data-i18n="soak">Soak</button><br>
+			<button type="action" class="sheet-cbtroll" name="act_recover" title="Recovery" data-i18n-title="recovery" data-i18n="recovery">Recovery</button>			
 			<br><br>
-			<label>Attacks</label>
+			<label data-i18n="attacks">Attacks</label>
 			<fieldset class="repeating_attacks">
-				<input type="text" name="attr_npcatktxt" placeholder="Attack" style="width:25%"/>
-				<input type="number" name="attr_npcattack" class="sheet-npcskill" value = "15" min="0" title="Attack skill"/>
-				<input type="number" name="attr_npcweapondmg" value="0" min="0" title="Damage dice"/>dX		
-				<input type="text" name="attr_npcweapontags" placeholder="Tags"/>
-				<input type="number" name="attr_npcreloadval" title="Reload: Enter lower tag value OR use 99 for single-shot and melee weapons" value="99" min="0"/>	
-				<button type="action" class="sheet-npcroll" name="act_atknpc" title="NPC attack">Roll</button><br>
+				<input type="text" name="attr_npcatktxt" placeholder="Attack" data-i18n-placeholder="attack" style="width:25%"/>
+				<input type="number" name="attr_npcattack" class="sheet-npcskill" value = "15" min="0" title="Attack skill" data-i18n-title="attack-skill"/>
+				<input type="number" name="attr_npcweapondmg" value="0" min="0" title="Damage dice" data-i18n-title="damage-dice"/><span data-i18n="dX">dX</span>
+				<input type="text" name="attr_npcweapontags" placeholder="Tags" data-i18n-placeholder="tags"/>
+				<input type="number" name="attr_npcreloadval" title="Reload: Enter lower tag value OR use 99 for single-shot and melee weapons" data-i18n-title="npc-reload-info" value="99" min="0"/>	
+				<button type="action" class="sheet-npcroll" name="act_atknpc" title="NPC attack" data-i18n-title="npc-attack" data-i18n="roll">Roll</button><br>
 			</fieldset>	
 		</div>
 		<div class="sheet-col" style="width:35%">
-			<label>Skills</label>
-			<button type="action" class="sheet-skillroll" name="act_gennpc" title="General" value="gives it a go">General</button>
+			<label data-i18n="skills">Skills</label>
+			<button type="action" class="sheet-skillroll" name="act_gennpc" title="General" data-i18n-title="general" value="general-skillroll" data-i18n="general">General</button>
 			<input type="number" name="attr_general" class="sheet-npcskill" value = "15" min="0"/><br>
-			<button type="action" class="sheet-skillroll" name="act_specnpc" title="Special" value="works a little magic">Specialist</button>
+			<button type="action" class="sheet-skillroll" name="act_specnpc" title="Special" data-i18n-title="special" value="special-skillroll" data-i18n="specialist">Specialist</button>
 			<input type="number" name="attr_special" class="sheet-npcskill" value = "15" min="0"/><br>
 			<fieldset class="repeating_skills">
-				<input type="text" class="sheet-skilllabel" name="attr_npcskilltext" placeholder="Skill"/>
+				<input type="text" class="sheet-skilllabel" name="attr_npcskilltext" placeholder="Skill" data-i18n-placeholder="skill" />
 				<input type="number" name="attr_skillnpc" class="sheet-npcskill" value = "15" min="0"/>
-				<button type="action" class="sheet-npcroll" name="act_skillnpc" title="Other skills">Roll</button><br>
+				<button type="action" class="sheet-npcroll" name="act_skillnpc" title="Other skills" data-i18n-title="other-skills" data-i18n="roll">Roll</button><br>
 			</fieldset><br>	
-			<label>Tags</label>			
-			<textarea name="attr_npctags" placeholder="Tags" style="height: 40px"></textarea>
+			<label data-i18n="tags">Tags</label>			
+			<textarea name="attr_npctags" placeholder="Tags" data-i18n-placeholder="tags" style="height: 40px"></textarea>
 			<br>
 
 
@@ -799,9 +799,7 @@ on("sheet:opened", function(eventInfo){
 	});
 
 //Regular skill rolls
-	on('clicked:skillroll clicked:gennpc clicked:specnpc', (event) => {
-		console.log(event.htmlAttributes.value);
-		console.log(getTranslationByKey(event.htmlAttributes.value));
+	on('clicked:skillroll clicked:gennpc clicked:specnpc', (event) => {		
         const rolltext = "&{template:std} {{char=@{name}}} {{skill="+getTranslationByKey(event.htmlAttributes.value)+"}} {{target=[[@{"+event.htmlAttributes.title+"}]]}} {{roll1=[[1d100]]}} {{outcome=[[0]]}} {{karma=[[0]]}} {{pips=[[?{Total Pips|0}]]}}"
 		startRoll(rolltext, (results) => {
             const total = results.results.roll1.result
