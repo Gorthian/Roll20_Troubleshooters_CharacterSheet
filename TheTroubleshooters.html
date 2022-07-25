@@ -184,7 +184,7 @@
 					<button type="action" class="sheet-skillroll" name="act_skillroll" title="Alertness" data-i18n-title="alertness" value="alertness-skillroll" data-i18n="alertness">Alertness</button><input type="number" name="attr_alertness" class="sheet-skill" value = "15" min="0" style="width: 2.5em; text-align: right"/>
 					<input type="checkbox" name="attr_alertnessused" value="1" title="Check when used" data-i18n-title="check-when-used"/>
 					<br />
-					<button type="action" class="sheet-skillroll" name="act_skillroll" title="Charm" data-i18n-title="charm" value="charm_skillroll" data-i18n="charm">Charm</button><input type="number" name="attr_charm" class="sheet-skill" value = "15" min="0" style="width: 2.5em; text-align: right"/>
+					<button type="action" class="sheet-skillroll" name="act_skillroll" title="Charm" data-i18n-title="charm" value="charm-skillroll" data-i18n="charm">Charm</button><input type="number" name="attr_charm" class="sheet-skill" value = "15" min="0" style="width: 2.5em; text-align: right"/>
 					<input type="checkbox" name="attr_charmused" value="1" title="Check when used" data-i18n-title="check-when-used"/>
 					<br />
 					<button type="action" class="sheet-skillroll" name="act_skillroll" title="Contacts" data-i18n-title="contacts" value="contacts-skillroll" data-i18n="contacts">Contacts</button><input type="number" name="attr_contacts" class="sheet-skill" value = "15" min="0" style="width: 2.5em; text-align: right"/>
@@ -235,7 +235,7 @@
 					<button type="action" class="sheet-skillroll" name="act_skillroll" title="RedTape" data-i18n-title="redtape" value="redtape-skillroll" data-i18n="redtape">Red Tape</button><input type="number" name="attr_redtape" class="sheet-skill" value = "15" min="0" style="width: 2.5em; text-align: right"/>
 					<input type="checkbox" name="attr_redtapeused" value="1" title="Check when used" data-i18n-title="check-when-used"/>
 					<br />
-					<button type="action" class="sheet-skillroll" name="act_skillroll" title="Science" data-i18n-title="science" value="sience-skillroll" data-i18n="science">Science</button><input type="number" name="attr_science" class="sheet-skill" value = "15" min="0" style="width: 2.5em; text-align: right"/>
+					<button type="action" class="sheet-skillroll" name="act_skillroll" title="Science" data-i18n-title="science" value="science-skillroll" data-i18n="science">Science</button><input type="number" name="attr_science" class="sheet-skill" value = "15" min="0" style="width: 2.5em; text-align: right"/>
 					<input type="checkbox" name="attr_scienceused" value="1" title="Check when used" data-i18n-title="check-when-used"/>
 					<br />
 					<button type="action" class="sheet-skillroll" name="act_skillroll" title="Search" data-i18n-title="search" value="search-skillroll" data-i18n="search">Search</button><input type="number" name="attr_search" class="sheet-skill" value = "15" min="0" style="width: 2.5em; text-align: right"/>
@@ -426,7 +426,7 @@
 						<input type="number" name="attr_gearcost" title="Cost in Story Points" value="1">
 						<input type="checkbox" name="attr_signatureitem" title="Character's Signature Item?" value="1"/><input type="text" style="width: 25ch; text-align: center; border: none; background-color: #f9f9eb;  font-weight: bold; margin = 0" value="Signature item | Equipped" readonly="true"/>
 						<input type="checkbox" name="attr_equipped" title="Tick if carried" value="1"/></summary>
-						<textarea name="attr_gearcontents" placeholder="Contents" style="height: 60px; width:95%"></textarea>				
+						<textarea name="attr_gearcontents" placeholder="Contents" style="height: 60px; width:95%;"></textarea>				
 						<textarea name="attr_geartags" placeholder="Tags" style="height: 40px; width:95%"></textarea>
 					</details>
 				</fieldset>			
@@ -800,6 +800,8 @@ on("sheet:opened", function(eventInfo){
 
 //Regular skill rolls
 	on('clicked:skillroll clicked:gennpc clicked:specnpc', (event) => {
+		console.log(event.htmlAttributes.value);
+		console.log(getTranslationByKey(event.htmlAttributes.value));
         const rolltext = "&{template:std} {{char=@{name}}} {{skill="+getTranslationByKey(event.htmlAttributes.value)+"}} {{target=[[@{"+event.htmlAttributes.title+"}]]}} {{roll1=[[1d100]]}} {{outcome=[[0]]}} {{karma=[[0]]}} {{pips=[[?{Total Pips|0}]]}}"
 		startRoll(rolltext, (results) => {
             const total = results.results.roll1.result
