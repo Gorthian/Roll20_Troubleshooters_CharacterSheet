@@ -1,4 +1,4 @@
-# Roll20_Troubleshooters_CharacterSheet
+# The Troubleshooters
 Character Sheet for The Troubleshooters by Green Gorilla
 
 This sheet is for the Swedish RPG The Troubleshooters (2021) published by Helmgast. 
