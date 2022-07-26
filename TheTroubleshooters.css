@@ -13,7 +13,7 @@
 
 /* Set the min-width so that when the window is resized the look will stay consistent */
 
-.charsheet {
+div.sheet-ts {
 	min-width: 850px;
 	background: white;
 }
@@ -67,12 +67,12 @@ textarea {
 /* Backgroundimages */
 
 div.sheet-skills, div.sheet-character, div.sheet-gear, div.sheet-journal, div.sheet-combat, div.sheet-npc {
-	width		: 880px;
+	width		: 850px;
 	min-height	: 650px;
 	background-image: url(https://greengorilla.de/wp-content/uploads/The-Troubleshooters-Pass-Hintergrund-linke-Seite.jpg), url(https://greengorilla.de/wp-content/uploads/The-Troubleshooters-Pass-Hintergrund-rechte-Seite.jpg);
 	background-position: left 18px, right 18px;
 	background-repeat: no-repeat, no-repeat;
-	background-size: 440px 100%;
+	background-size: 425px 100%;
 }
 
 
