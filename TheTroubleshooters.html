@@ -508,50 +508,46 @@ calculation in the Custom Roll Parsing reducing the number of values passed.
 <span data-i18n="image-disclaimer">'The Troubleshooters' logo and the coat of arms are &#169; Helmgast and are used here with their kind permission</span>
 </footer>
 
-<!-- ****************** //-->
-<!-- BIS HIER ÜBERSETZT //-->
-<!-- ****************** //-->
-
 <rolltemplate class="sheet-rolltemplate-std">
     <table>
         <caption>{{char}} {{skill}}</caption>
-            <tr><td>Roll: {{roll1}} vs {{target}}</td>
+            <tr><td><span data-i18n="roll">Roll</span>: {{roll1}} <span data-i18n="vs">vs</span> {{target}}</td>
 			{{#rollBetween() computed::outcome 1 1}}
-				<tr><td>&nbsp &nbsp Success!</td>
+				<tr><td><span data-i18n="success">Success!</span></td>
 			{{/rollBetween() computed::outcome 1 1}}
 			{{#rollBetween() computed::outcome 2 2}}
-				<tr><td>&nbsp &nbsp Zut! Failure</td>
+				<tr><td><span data-i18n="failure">Zut! Failure</span></td>
 			{{/rollBetween() computed::outcome 2 2}}
 			{{#rollBetween() computed::outcome 3 3}}
-				<tr><td>Good Karma!</td>
+				<tr><td><span data-i18n="good-karma">Good Karma!</span></td>
 			{{/rollBetween() computed::outcome 3 3}}
 			{{#rollBetween() computed::outcome 4 4}}
-				<tr><td>#$@$*#@! Bad Karma strikes!</td>
+				<tr><td><span data-i18n="bad-karma">#$@$*#@! Bad Karma strikes!</span></td>
 			{{/rollBetween() computed::outcome 4 4}}
 	</table>
 </rolltemplate>
 
 <rolltemplate class="sheet-rolltemplate-init">
 	<table>
-		<caption>{{char}} leaps into action!</caption>
+		<caption>{{char}} <span data-i18n="leaps-action">leaps into action!</span></caption>
 		{{#rollBetween() computed::type 1 2}}
-			<tr><td>Roll: {{roll1}} vs {{computed::target}}</td>
+			<tr><td><span data-i18n="roll">Roll</span>: {{roll1}} <span data-i18n="vs">vs</span> {{computed::target}}</td>
 			{{#rollBetween() computed::outcome 1 1}}
-				<tr><td>&nbsp &nbsp Success!</td>
+				<tr><td><span data-i18n="success">Success!</span></td>
 			{{/rollBetween() computed::outcome 1 1}}
 			{{#rollBetween() computed::outcome 2 2}}
-				<tr><td>&nbsp &nbsp Zut! Failure</td>
+				<tr><td><span data-i18n="failure">Zut! Failure</span></td>
 			{{/rollBetween() computed::outcome 2 2}}			
 			{{#rollBetween() computed::outcome 3 3}}
-				<tr><td>Good Karma!</td>
+				<tr><td><span data-i18n="good-karma">Good Karma!</span></td>
 			{{/rollBetween() computed::outcome 3 3}}
 			{{#rollBetween() computed::outcome 4 4}}
-				<tr><td>#$@$*#@! Bad Karma strikes!</td>
+				<tr><td><span data-i18n="bad-karma">#$@$*#@! Bad Karma strikes!</span></td>
 			{{/rollBetween() computed::outcome 4 4}}			
-			<tr><td>&nbsp &nbsp Initiative {{computed::init}}</td>
+			<tr><td><span data-i18n="initiative">Initiative</span> {{computed::init}}</td>
 		{{/rollBetween() computed::type 1 2}}
 		{{#rollBetween() computed::type 3 3}}
-			<tr><td>&nbsp &nbsp Initiative {{computed::init}}</td>
+			<tr><td><span data-i18n="initiative">Initiative</span> {{computed::init}}</td>
 		{{/rollBetween() computed::type 3 3}}		
 	<table>
 </rolltemplate>
@@ -559,28 +555,28 @@ calculation in the Custom Roll Parsing reducing the number of values passed.
 <rolltemplate class="sheet-rolltemplate-def">
 	<table>
 		{{#rollBetween() computed::type 1 1}}
-			<caption>{{char}} takes cover!</caption>
+			<caption>{{char}} <span data-i18n="takes-cover">takes cover!</span></caption>
 		{{/rollBetween() computed::type 1 1}}
 		{{#rollBetween() computed::type 2 2}}
-			<caption>{{char}} ducks and weaves!</caption>
+			<caption>{{char}} <span data-i18n="ducks-weaves">ducks and weaves!</span></caption>
 		{{/rollBetween() computed::type 2 2}}
 		{{#rollBetween() computed::type 3 3}}
-			<caption>{{char}} defends!</caption>
+			<caption>{{char}} <span data-i18n="defends">defends!</span></caption>
 		{{/rollBetween() computed::type 3 3}}		
-		 <tr><td>Roll: {{roll1}} vs {{computed::target}}</td>
+		 <tr><td><span data-i18n="roll">Roll</span>: {{roll1}} <span data-i18n="vs">vs</span> {{computed::target}}</td>
 		{{#rollBetween() computed::outcome 1 1}}
-			<tr><td>&nbsp &nbsp Success!</td>
+			<tr><td><span data-i18n="success">Success!</span></td>
 		{{/rollBetween() computed::outcome 1 1}}
 		{{#rollBetween() computed::outcome 2 2}}
-			<tr><td>&nbsp &nbsp Zut! Failure</td>
+			<tr><td><span data-i18n="failure">Zut! Failure</span></td>
 		{{/rollBetween() computed::outcome 2 2}}
 		{{#rollBetween() computed::outcome 3 3}}
-			<tr><td>Good Karma!</td>
-			<tr><td>Make a RECOVERY roll after any damage is applied</td>
+			<tr><td><span data-i18n="good-karma">Good Karma!</span></td>
+			<tr><td><span data-i18n="make-recovery-roll">Make a RECOVERY roll after any damage is applied</span></td>
 		{{/rollBetween() computed::outcome 3 3}}
 		{{#rollBetween() computed::outcome 4 4}}
-			<tr><td>#$@$*#@! Bad Karma strikes!</td>
-			<tr><td>Knocked PRONE!</td>
+			<tr><td><span data-i18n="bad-karma">#$@$*#@! Bad Karma strikes!</span></td>
+			<tr><td><span data-i18n="knocked-prone">Knocked PRONE!</span></td>
 		{{/rollBetween() computed::outcome 4 4}}
 	<table>
 </rolltemplate>
@@ -588,138 +584,138 @@ calculation in the Custom Roll Parsing reducing the number of values passed.
 <rolltemplate class="sheet-rolltemplate-atk">
     <table>
 		{{#rollBetween() computed::type 1 1}}		
-			<caption>{{char}} takes aim and...PAM!</caption>
-				<tr><td>Roll: {{roll1}} vs {{target}}</td>
-					<tr><td>&nbsp Reduce initiative score by 2</td>
+			<caption>{{char}} <span data-i18n="takes-aim">takes aim and...PAM!</span></caption>
+				<tr><td><span data-i18n="takes-aim">Roll</span>: {{roll1}} <span data-i18n="vs">vs</span> {{target}}</td>
+					<tr><td><span data-i18n="reduce-ini">Reduce initiative score by 2</span></td>
 					{{#rollBetween() computed::outcome 1 1}}
-						<tr><td>&nbsp &nbsp A hit!</td>
-						<tr><td>&nbsp &nbsp {{computed::bonusdamage}} damage!</td>
+						<tr><td><span data-i18n="a-hit">A hit!</span></td>
+						<tr><td>{{computed::bonusdamage}} <span data-i18n="damage">damage!</span></td>
 					{{/rollBetween() computed::outcome 1 1}}
 					{{#rollBetween() computed::outcome 2 2}}
-						<tr><td>&nbsp &nbsp Zut! A miss</td>
+						<tr><td><span data-i18n="miss">Zut! A miss</span></td>
 					{{/rollBetween() computed::outcome 2 2}}
 					{{#rollBetween() computed::outcome 3 3}}
-						<tr><td>Good Karma! Underlings and Mooks are OUT COLD.</td>
-						<tr><td>&nbsp &nbsp {{computed::bonusdamage}} Damage!</td>
-						<tr><td>Re-roll damage if you wish.</td>
+						<tr><td><span data-i18n="good-karma-underlings">Good Karma! Underlings and Mooks are OUT COLD.</span></td>
+						<tr><td>{{computed::bonusdamage}} <span data-i18n="damage">Damage!</span></td>
+						<tr><td><span data-i18n="reroll-damage">Re-roll damage if you wish.</span></td>
 					{{/rollBetween() computed::outcome 3 3}}
 					{{#rollBetween() computed::outcome 4 4}}
-						<tr><td>#$@$*#@! Bad Karma strikes! your next check is at -2 pips</td>
+						<tr><td><span data-i18n="bad-karma-minus">#$@$*#@! Bad Karma strikes! your next check is at -2 pips</span></td>
 						{{#rollBetween() computed::reload 1 1}}
-							<tr><td>&nbsp &nbsp Weapon jammed!</td>
+							<tr><td><span data-i18n="weapon-jammed">Weapon jammed!</span></td>
 						{{/rollBetween() computed::reload 1 1}}						
 					{{/rollBetween() computed::outcome 4 4}}
 		{{/rollBetween() computed::type 1 1}}
 		{{#rollBetween() computed::type 2 2}}
-			<caption>RATATATAT! {{char}} empties their weapon at the target</caption>
-				<tr><td>Roll: {{roll1}} vs {{target}}</td>
+			<caption><span data-i18n="ratatatat">RATATATAT!</span> {{char}} <span data-i18n="empties-weapon">empties their weapon at the target</span></caption>
+				<tr><td><span data-i18n="roll">Roll</span>: {{roll1}} <span data-i18n="vs">vs</span> {{target}}</td>
 					{{#rollBetween() computed::outcome 1 1}}
-						<tr><td>&nbsp &nbsp A hit! Choose from:</td>
-						<tr><td>&nbsp &nbsp &nbsp &nbsp {{computed::damage}} damage to all targets</td>
-						<tr><td>&nbsp &nbsp or</td>
-						<tr><td>&nbsp &nbsp &nbsp &nbsp {{computed::bonusdamage}} damage to one target</td>
+						<tr><td><span data-i18n="a-hit-choose">A hit! Choose from</span>:</td>
+						<tr><td>{{computed::damage}} <span data-i18n="damage-all">damage to all targets</span></td>
+						<tr><td><span data-i18n="or">or</span></td>
+						<tr><td>{{computed::bonusdamage}} <span data-i18n="damage-one">damage to one target</span></td>
 					{{/rollBetween() computed::outcome 1 1}}
 					{{#rollBetween() computed::outcome 2 2}}
-						<tr><td>&nbsp &nbsp Zut! a miss</td>
+						<tr><td><span data-i18n="miss">Zut! a miss</span></td>
 					{{/rollBetween() computed::outcome 2 2}}
 					{{#rollBetween() computed::outcome 3 3}}
-						<tr><td>Good Karma! Underlings and Mooks are OUT COLD.</td>
-						<tr><td>&nbsp &nbsp Choose from:</td>
-						<tr><td>&nbsp &nbsp &nbsp &nbsp {{computed::damage}} damage to all targets</td>
-						<tr><td>&nbsp &nbsp or</td>
-						<tr><td>&nbsp &nbsp &nbsp &nbsp {{computed::bonusdamage}} damage to one target</td>
-						<tr><td>Re-roll damage if you wish.</td>
+						<tr><td><span data-i18n="good-karma-underlings">Good Karma! Underlings and Mooks are OUT COLD.</span></td>
+						<tr><td><span data-i18n="choose">Choose from</span>:</td>
+						<tr><td>{{computed::damage}} <span data-i18n="damage-all">damage to all targets</span></td>
+						<tr><td><span data-i18n="or">or</span></td>
+						<tr><td>{{computed::bonusdamage}} <span data-i18n="damage-one">damage to one target</span></td>
+						<tr><td><span data-i18n="reroll-damage">Re-roll damage if you wish.</span></td>
 					{{/rollBetween() computed::outcome 3 3}}
 					{{#rollBetween() computed::outcome 4 4}}
-						<tr><td>#$@$*#@! Bad Karma strikes! your next check is at -2 pips</td>
+						<tr><td><span data-i18n="bad-karma-minus">#$@$*#@! Bad Karma strikes! your next check is at -2 pips</span></td>
 						{{#rollBetween() computed::reload 1 1}}
-							<tr><td>&nbsp &nbsp Weapon jammed!</td>
+							<tr><td><span data-i18n="weapon-jammed">Weapon jammed!</span></td>
 						{{/rollBetween() computed::reload 1 1}}						
 					{{/rollBetween() computed::outcome 4 4}}
 		{{/rollBetween() computed::type 2 2}}
 		{{#rollBetween() computed::type 3 3}}
-			<caption>{{char}} attacks!</caption>
-				<tr><td>Roll: {{roll1}} vs {{target}}</td>
+			<caption>{{char}} <span data-i18n="attacks!">attacks!</span></caption>
+				<tr><td><span data-i18n="roll">Roll</span>: {{roll1}} <span data-i18n="vs">vs</span> {{target}}</td>
 					{{#rollBetween() computed::outcome 1 1}}
-						<tr><td>&nbsp &nbsp A hit!</td>
-						<tr><td>&nbsp &nbsp {{computed::damage}} damage!</td>
+						<tr><td><span data-i18n="a-hit">A hit!</span></td>
+						<tr><td>{{computed::damage}} <span data-i18n="damage">damage!</span></td>
 						{{#rollBetween() computed::reload 1 1}}
-							<tr><td>&nbsp &nbsp Out of ammo!</td>
+							<tr><td><span data-i18n="out-of-ammo">Out of ammo!</span></td>
 						{{/rollBetween() computed::reload 1 1}}
 					{{/rollBetween() computed::outcome 1 1}}
 					{{#rollBetween() computed::outcome 2 2}}
-						<tr><td>&nbsp &nbsp Zut! A miss</td>
+						<tr><td><span data-i18n="miss">Zut! A miss</span></td>
 						{{#rollBetween() computed::reload 1 1}}
-							<tr><td>&nbsp &nbsp Out of ammo!</td>
+							<tr><td><span data-i18n="out-of-ammo">Out of ammo!</span></td>
 						{{/rollBetween() computed::reload 1 1}}						
 					{{/rollBetween() computed::outcome 2 2}}
 					{{#rollBetween() computed::outcome 3 3}}
-						<tr><td>Good Karma! Underlings and Mooks are OUT COLD.</td>
-						<tr><td>&nbsp &nbsp {{computed::damage}} Damage!</td>
-						<tr><td>Re-roll damage if you wish.</td>
+						<tr><td><span data-i18n="good-karma-underlings">Good Karma! Underlings and Mooks are OUT COLD.</span></td>
+						<tr><td>{{computed::damage}} <span data-i18n="damage">damage!</span></td>
+						<tr><td><span data-i18n="reroll-damage">Re-roll damage if you wish.</span></td>
 						{{#rollBetween() computed::reload 1 1}}
-							<tr><td>&nbsp &nbsp Out of ammo!</td>
+							<tr><td><span data-i18n="out-of-ammo">Out of ammo!</span></td>
 						{{/rollBetween() computed::reload 1 1}}						
 					{{/rollBetween() computed::outcome 3 3}}
 					{{#rollBetween() computed::outcome 4 4}}
-						<tr><td>#$@$*#@! Bad Karma strikes! your next check is at -2 pips</td>
+						<tr><td><span data-i18n="bad-karma-minus">#$@$*#@! Bad Karma strikes! your next check is at -2 pips</span></td>
 						{{#rollBetween() computed::reload 1 1}}
-							<tr><td>&nbsp &nbsp Weapon jammed!</td>
+							<tr><td><span data-i18n="weapon-jammed">Weapon jammed!</span></td>
 						{{/rollBetween() computed::reload 1 1}}
 					{{/rollBetween() computed::outcome 4 4}}
 		{{/rollBetween() computed::type 3 3}}
 		{{#rollBetween() computed::type 4 4}}
-			<caption>WHUMP! {{char}} attempts a takedown</caption>
-				<tr><td>Roll: {{roll1}} vs {{target}}</td>			
+			<caption><span data-i18n="whump!">WHUMP!</span> {{char}} <span data-i18n="attempts-takedown">attempts a takedown</span></caption>
+				<tr><td><span data-i18n="roll">Roll</span>: {{roll1}} <span data-i18n="vs">vs</span> {{target}}</td>			
 					{{#rollBetween() computed::outcome 1 1}}
-						<tr><td>&nbsp &nbsp Success! Choose two from:</td>
-						<tr><td>&nbsp &nbsp &nbsp &nbsp {{computed::wdamage}} damage!</td>
-						<tr><td>&nbsp &nbsp &nbsp &nbsp The target is RESTRAINED</td>
-						<tr><td>&nbsp &nbsp &nbsp &nbsp The target is PRONE</td>
+						<tr><td><span data-i18n="success-choose-two">Success! Choose two from</span>:</td>
+						<tr><td>{{computed::wdamage}} <span data-i18n="damage">damage!</span></td>
+						<tr><td><span data-i18n="target-restrained">The target is RESTRAINED</span></td>
+						<tr><td><span data-i18n="target-prone">The target is PRONE</span></td>
 					{{/rollBetween() computed::outcome 1 1}}
 					{{#rollBetween() computed::outcome 2 2}}
-						<tr><td>&nbsp &nbsp Zut! Failure</td>
+						<tr><td><span data-i18n="failure">Zut! Failure</span></td>
 					{{/rollBetween() computed::outcome 2 2}}
 					{{#rollBetween() computed::outcome 3 3}}
-						<tr><td>Good Karma! Underlings and Mooks are OUT COLD.</td>
-						<tr><td>&nbsp &nbsp Choose two from:</td>
-						<tr><td>&nbsp &nbsp &nbsp &nbsp {{computed::wdamage}} damage!</td>
-						<tr><td>&nbsp &nbsp &nbsp &nbsp The target is RESTRAINED</td>
-						<tr><td>&nbsp &nbsp &nbsp &nbsp The target is PRONE</td>
-						<tr><td>Re-roll damage if you wish.</td>
+						<tr><td><span data-i18n="good-karma-underlings">Good Karma! Underlings and Mooks are OUT COLD.</span></td>
+						<tr><td><span data-i18n="choose-two">Choose two from</span>:</td>
+						<tr><td>{{computed::wdamage}} <span data-i18n="damage">damage!</span></td>
+						<tr><td><span data-i18n="target-restrained">The target is RESTRAINED</span></td>
+						<tr><td><span data-i18n="target-prone">The target is PRONE</span></td>
+						<tr><td><span data-i18n="reroll-damage">Re-roll damage if you wish.</span></td>
 					{{/rollBetween() computed::outcome 3 3}}
 					{{#rollBetween() computed::outcome 4 4}}
-						<tr><td>#$@$*#@! Bad Karma strikes! your next check is at -2 pips</td>
+						<tr><td><span data-i18n="bad-karma-minus">#$@$*#@! Bad Karma strikes! your next check is at -2 pips</span></td>
 					{{/rollBetween() computed::outcome 4 4}}
 		{{/rollBetween() computed::type 4 4}}
 		{{#rollBetween() computed::type 5 5}}
-			<caption>{{char}} attacks with {{atktxt}}!</caption>
-				<tr><td>Roll: {{roll1}} vs {{target}}</td>
+			<caption>{{char}} <span data-i18n="attacks-with">attacks with</span> {{atktxt}}!</caption>
+				<tr><td><span data-i18n="roll">Roll</span>: {{roll1}} <span data-i18n="vs">vs</span> {{target}}</td>
 					{{#rollBetween() computed::outcome 1 1}}
-						<tr><td>&nbsp &nbsp A hit!</td>
-						<tr><td>&nbsp &nbsp {{computed::damage}} damage!</td>
+						<tr><td><span data-i18n="a-hit">A hit!</span></td>
+						<tr><td>{{computed::damage}} <span data-i18n="damage">damage!</span></td>
 						{{#rollBetween() computed::reload 1 1}}
-							<tr><td>&nbsp &nbsp Out of ammo!</td>
+							<tr><td><span data-i18n="out-of-ammo">Out of ammo!</span></td>
 						{{/rollBetween() computed::reload 1 1}}
 					{{/rollBetween() computed::outcome 1 1}}
 					{{#rollBetween() computed::outcome 2 2}}
-						<tr><td>&nbsp &nbsp Zut! A miss</td>
+						<tr><td><span data-i18n="miss">Zut! A miss</span></td>
 						{{#rollBetween() computed::reload 1 1}}
-							<tr><td>&nbsp &nbsp Out of ammo!</td>
+							<tr><td><span data-i18n="out-of-ammo">Out of ammo!</span></td>
 						{{/rollBetween() computed::reload 1 1}}						
 					{{/rollBetween() computed::outcome 2 2}}
 					{{#rollBetween() computed::outcome 3 3}}
-						<tr><td>Good Karma! Underlings and Mooks are OUT COLD.</td>
-						<tr><td>&nbsp &nbsp {{computed::damage}} Damage!</td>
-						<tr><td>Re-roll damage if you wish.</td>
+						<tr><td><span data-i18n="good-karma-underlings">Good Karma! Underlings and Mooks are OUT COLD.</span></td>
+						<tr><td>{{computed::damage}} <span data-i18n="damage">damage!</span></td>
+						<tr><td><span data-i18n="reroll-damage">Re-roll damage if you wish.</span></td>
 						{{#rollBetween() computed::reload 1 1}}
-							<tr><td>&nbsp &nbsp Out of ammo!</td>
+							<tr><td><span data-i18n="out-of-ammo">Out of ammo!</span></td>
 						{{/rollBetween() computed::reload 1 1}}						
 					{{/rollBetween() computed::outcome 3 3}}
 					{{#rollBetween() computed::outcome 4 4}}
-						<tr><td>#$@$*#@! Bad Karma strikes! your next check is at -2 pips</td>
+						<tr><td><span data-i18n="bad-karma-minus">#$@$*#@! Bad Karma strikes! your next check is at -2 pips</span></td>
 						{{#rollBetween() computed::reload 1 1}}
-							<tr><td>&nbsp &nbsp Weapon jammed!</td>
+							<tr><td><span data-i18n="weapon-jammed">Weapon jammed!</span></td>
 						{{/rollBetween() computed::reload 1 1}}
 					{{/rollBetween() computed::outcome 4 4}}
 		{{/rollBetween() computed::type 5 5}}		
@@ -730,10 +726,10 @@ calculation in the Custom Roll Parsing reducing the number of values passed.
     <table>
         <caption>{{char}}</caption>
 			{{#rollBetween() computed::type 1 1}}
-				<tr><td>Soaks {{computed::soak}} points of damage</td>
+				<tr><td><span data-i18n="soaks">Soaks</span> {{computed::soak}} <span data-i18n="points-of-damage">points of damage</span></td>
 			{{/rollBetween() computed::type 1 1}}
 			{{#rollBetween() computed::type 2 2}}
-				<tr><td>Recovers {{computed::recover}} points of vitality</td>
+				<tr><td><span data-i18n="recovers">Recovers</span> {{computed::recover}} <span data-i18n="points-of-vitality">points of vitality</span></td>
 			{{/rollBetween() computed::type 2 2}}
     <table>
 </rolltemplate>
