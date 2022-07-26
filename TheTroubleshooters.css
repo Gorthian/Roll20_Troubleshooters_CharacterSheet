@@ -80,6 +80,13 @@ div.sheet-skills, div.sheet-character, div.sheet-gear, div.sheet-journal, div.sh
 	grid-template-columns	: 300px 160px auto;
 }
 
+.sheet-ts div.sheet-passport {
+	display					: grid;
+	grid-template-columns	: repeat(2, 50%);
+	width					: 100%;
+	padding					: 10px;
+}
+
 /* Targetted styling that only effects elements with these classes */
 
 img.sheet-shield {

@@ -34,25 +34,23 @@
 				&emsp;<button type="roll" class="sheet-blank-button" value="&{template:default} {{name=@{name}}} {{result=[[1d100]]}}" title="Percentile Dice" data-i18n-title="percentile-dice-title" data-i18n="percentile-dice">d100</button>
 		</div>
 	</div>	
-	<br />
-
-		<input type="radio" class="sheet-page1" name="attr_page" value="1" checked="checked" id="sheet-page1">
-			<label for="sheet-page1" class="sheet-pagetab" data-i18n="cover">COVER</label>
-		<input type="radio" class="sheet-page2" name="attr_page" value="2" id="sheet-page2">
-			<label for="sheet-page2" data-i18n="character">CHARACTER</label>
-		<input type="radio" class="sheet-page3" name="attr_page" value="3" id="sheet-page3">
-			<label for="sheet-page3" data-i18n="skills">SKILLS</label>
-		<input type="radio" class="sheet-page4" name="attr_page" value="4" id="sheet-page4">
-			<label for="sheet-page4" data-i18n="gear-visas">GEAR / VISAS</label>
-		<input type="radio" class="sheet-page5" name="attr_page" value="5" id="sheet-page5">
-			<label for="sheet-page5" data-i18n="journal">JOURNAL</label>
-		<input type="radio" class="sheet-page6" name="attr_page" value="6" id="sheet-page6">
-			<label for="sheet-page6" data-i18n="combat">COMBAT</label>	
-		<input type="radio" class="sheet-page7" name="attr_page" value="7" id="sheet-page7">
-			<label for="sheet-page7" data-i18n="npc">NPC</label>
+	<br/>
+	<input type="radio" class="sheet-page1" name="attr_page" value="1" checked="checked" id="sheet-page1">
+		<label for="sheet-page1" class="sheet-pagetab" data-i18n="cover">COVER</label>
+	<input type="radio" class="sheet-page2" name="attr_page" value="2" id="sheet-page2">
+		<label for="sheet-page2" data-i18n="character">CHARACTER</label>
+	<input type="radio" class="sheet-page3" name="attr_page" value="3" id="sheet-page3">
+		<label for="sheet-page3" data-i18n="skills">SKILLS</label>
+	<input type="radio" class="sheet-page4" name="attr_page" value="4" id="sheet-page4">
+		<label for="sheet-page4" data-i18n="gear-visas">GEAR / VISAS</label>
+	<input type="radio" class="sheet-page5" name="attr_page" value="5" id="sheet-page5">
+		<label for="sheet-page5" data-i18n="journal">JOURNAL</label>
+	<input type="radio" class="sheet-page6" name="attr_page" value="6" id="sheet-page6">
+		<label for="sheet-page6" data-i18n="combat">COMBAT</label>	
+	<input type="radio" class="sheet-page7" name="attr_page" value="7" id="sheet-page7">
+		<label for="sheet-page7" data-i18n="npc">NPC</label>
 
 	<div class="sheet-cover">
-
 		<img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/The Troubleshooters/Achievement_col.png" class="sheet-shield" title="" data-i18n-title="image-disclaimer">
 		<br />	
 
@@ -65,14 +63,11 @@
 		<br />
 		<input class="sheet-coverfluff" type="text" name="attr_nationality" placeholder="Nationality" data-i18n-placeholder="nationality"/><br /><h3 data-i18n="national-status">National status / Nationalité / Staatsangehörigkeit</h3>
 		<br />
-
 	</div>
 
 	<div class="sheet-character">
-
-		<div class="sheet-2colrow">
-
-			<div class="sheet-col" style="width: 400px; padding-left: 10px; border-right: 3px dashed #f2f2f2">
+		<div class="sheet-passport">
+			<div>
 
 				<h3 data-i18n="description-title">Description / Description / Beschreibung</h3>	
 				<br />
@@ -103,7 +98,7 @@
 		
 			</div>
 		
-			<div class="sheet-col" style="width: 400px">
+			<div>
 				<div class="sheet-mugshot">
 					<img class="sheet-portrait" name="attr_character_avatar" height="350px" width="auto"/>
 					<div class="sheet-caption" data-i18n="photo-title">Photo of holder/Photo du titulaire/Foto des Passinhabers</div>
@@ -138,9 +133,9 @@
 
 	<div class="sheet-skills">
 
-		<div class="sheet-2colrow">
+		<div class="sheet-passport">
 
-			<div class="sheet-col" style="width: 400px; padding-left: 10px; border-right: 3px dashed #f2f2f2">
+			<div>
 
 				<h3 data-i18n="complications-title">Complications / Desavantages / Komplikationen</h3>
 				<br/>			
@@ -171,7 +166,7 @@
 				
 			</div>
 
-			<div class="sheet-col" style="width: 400px">
+			<div>
 
 				<div class="sheet-2colrow">
 
@@ -312,110 +307,108 @@
 		</div>
 	</div>
 
-	<div class="sheet-npc" style="padding-left: 10px;">
-		<input type="text" name="attr_character_name" placeholder="Name" data-i18n-placeholder="name" style="width:25%"/>
-		<input type="text" name="attr_name" placeholder="Chat Name" data-i18n-placeholder="chatname" style="width:15%"/>
-		<input type="text" name="attr_npcaffiliation" placeholder="Affiliation" data-i18n-placeholder="affiliation" style="width:15%"/>
-		<select name="attr_npclevel" style="width:15%">
-			<option value="" data-i18n="rank" hidden>Rank</option>
-			<option value="Mook" data-i18n="mook">Mook</option>
-			<option value="Underling" data-i18n="underling">Underling</option>
-			<option value="Lieutenant" data-i18n="lieutenant">Lieutenant</option>
-			<option value="Boss" data-i18n="boss">Boss</option>
-		</select>	
-		<div class="sheet-2colrow">
-			<div class="sheet-col" style="width:60%">
-				<label data-i18n="stats">Stats</label>
-				<label class="sheet-skilllabel" data-i18n="vitality">Vitality</label><input type="number" name="attr_vitality" class="sheet-number" min="0" max="20"/>
-				<label class="sheet-skilllabel" data-i18n="initiative">Initiative</label><input type="number" class="sheet-npcskill" name="attr_npcinitiative" value="0"/>
-				<button type="action" class="sheet-npcroll" name="act_init_npcfix" title="NPC fixed initiative" data-i18n-title="npc-fixed-initiative" value="3" data-i18n="fixed">Fixed</button>		
-				<button type="action" class="sheet-npcroll" name="act_init_npc" title="NPC rolled initiative" data-i18n-title="npc-rolled-initiative" value="2" data-i18n="roll">Roll</button><br>			
-				<label class="sheet-skilllabel" data-i18n="conditional-max">Conditional Max</label><input type="number" name="attr_vitality_max_vis" class="sheet-number" value="0" readonly="true"/>
-				<label class="sheet-skilllabel" data-i18n="defence">Defence</label><input type="number" class="sheet-npcskill" name="attr_npcdefence" value="0"/>
-				<button type="action" class="sheet-npcroll" name="act_def_npc" title="NPC defence" data-i18n-title="npc-defence" value="3" data-i18n="roll">Roll</button><br>
-				<label class="sheet-skilllabel" data-i18n="vitality-max2">Vitality Max</label><input type="number" class="sheet-number" name="attr_vitality_npc_max" title="Overrides calculated values. Should be set to 0 unless NPC" data-i18n-title="npc-vitality-info" value="0"/>
-				<label class="sheet-skilllabel" data-i18n="protection">Protection</label><input type="number" name="attr_soakvalue" value="0" min="0" title="Protection value" data-i18n-title="protection-value"/><span data-i18n="dP">dP</span>
-				<button type="action" class="sheet-npcroll" name="act_soak" title="NPC Protection / Armour" data-i18n-title="npc-protection" data-i18n="soak">Soak</button><br>
-				<button type="action" class="sheet-cbtroll" name="act_recover" title="Recovery" data-i18n-title="recovery" data-i18n="recovery">Recovery</button>			
-				<br><br>
-				<label data-i18n="attacks">Attacks</label>
-				<fieldset class="repeating_attacks">
-					<input type="text" name="attr_npcatktxt" placeholder="Attack" data-i18n-placeholder="attack" style="width:25%"/>
-					<input type="number" name="attr_npcattack" class="sheet-npcskill" value = "15" min="0" title="Attack skill" data-i18n-title="attack-skill"/>
-					<input type="number" name="attr_npcweapondmg" value="0" min="0" title="Damage dice" data-i18n-title="damage-dice"/><span data-i18n="dX">dX</span>
-					<input type="text" name="attr_npcweapontags" placeholder="Tags" data-i18n-placeholder="tags"/>
-					<input type="number" name="attr_npcreloadval" title="Reload: Enter lower tag value OR use 99 for single-shot and melee weapons" data-i18n-title="npc-reload-info" value="99" min="0"/>	
-					<button type="action" class="sheet-npcroll" name="act_atknpc" title="NPC attack" data-i18n-title="npc-attack" data-i18n="roll">Roll</button><br>
-				</fieldset>	
+	<div class="sheet-npc">
+		<div class="sheet-passport">
+			<div>
+				<input type="text" name="attr_character_name" placeholder="Name" data-i18n-placeholder="name" style="width:25%"/>
+				<input type="text" name="attr_name" placeholder="Chat Name" data-i18n-placeholder="chatname" style="width:15%"/>
+				<input type="text" name="attr_npcaffiliation" placeholder="Affiliation" data-i18n-placeholder="affiliation" style="width:15%"/>
+				<select name="attr_npclevel" style="width:15%">
+					<option value="" data-i18n="rank" hidden>Rank</option>
+					<option value="Mook" data-i18n="mook">Mook</option>
+					<option value="Underling" data-i18n="underling">Underling</option>
+					<option value="Lieutenant" data-i18n="lieutenant">Lieutenant</option>
+					<option value="Boss" data-i18n="boss">Boss</option>
+				</select>	
+				<div>
+					<label data-i18n="stats">Stats</label>
+					<label class="sheet-skilllabel" data-i18n="vitality">Vitality</label><input type="number" name="attr_vitality" class="sheet-number" min="0" max="20"/>
+					<label class="sheet-skilllabel" data-i18n="initiative">Initiative</label><input type="number" class="sheet-npcskill" name="attr_npcinitiative" value="0"/>
+					<button type="action" class="sheet-npcroll" name="act_init_npcfix" title="NPC fixed initiative" data-i18n-title="npc-fixed-initiative" value="3" data-i18n="fixed">Fixed</button>		
+					<button type="action" class="sheet-npcroll" name="act_init_npc" title="NPC rolled initiative" data-i18n-title="npc-rolled-initiative" value="2" data-i18n="roll">Roll</button><br>			
+					<label class="sheet-skilllabel" data-i18n="conditional-max">Conditional Max</label><input type="number" name="attr_vitality_max_vis" class="sheet-number" value="0" readonly="true"/>
+					<label class="sheet-skilllabel" data-i18n="defence">Defence</label><input type="number" class="sheet-npcskill" name="attr_npcdefence" value="0"/>
+					<button type="action" class="sheet-npcroll" name="act_def_npc" title="NPC defence" data-i18n-title="npc-defence" value="3" data-i18n="roll">Roll</button><br>
+					<label class="sheet-skilllabel" data-i18n="vitality-max2">Vitality Max</label><input type="number" class="sheet-number" name="attr_vitality_npc_max" title="Overrides calculated values. Should be set to 0 unless NPC" data-i18n-title="npc-vitality-info" value="0"/>
+					<label class="sheet-skilllabel" data-i18n="protection">Protection</label><input type="number" name="attr_soakvalue" value="0" min="0" title="Protection value" data-i18n-title="protection-value"/><span data-i18n="dP">dP</span>
+					<button type="action" class="sheet-npcroll" name="act_soak" title="NPC Protection / Armour" data-i18n-title="npc-protection" data-i18n="soak">Soak</button><br>
+					<button type="action" class="sheet-cbtroll" name="act_recover" title="Recovery" data-i18n-title="recovery" data-i18n="recovery">Recovery</button>			
+					<br><br>
+					<label data-i18n="attacks">Attacks</label>
+					<fieldset class="repeating_attacks">
+						<input type="text" name="attr_npcatktxt" placeholder="Attack" data-i18n-placeholder="attack" style="width:25%"/>
+						<input type="number" name="attr_npcattack" class="sheet-npcskill" value = "15" min="0" title="Attack skill" data-i18n-title="attack-skill"/>
+						<input type="number" name="attr_npcweapondmg" value="0" min="0" title="Damage dice" data-i18n-title="damage-dice"/><span data-i18n="dX">dX</span>
+						<input type="text" name="attr_npcweapontags" placeholder="Tags" data-i18n-placeholder="tags"/>
+						<input type="number" name="attr_npcreloadval" title="Reload: Enter lower tag value OR use 99 for single-shot and melee weapons" data-i18n-title="npc-reload-info" value="99" min="0"/>	
+						<button type="action" class="sheet-npcroll" name="act_atknpc" title="NPC attack" data-i18n-title="npc-attack" data-i18n="roll">Roll</button><br>
+					</fieldset>	
+				</div>
+				<div>
+					<label data-i18n="skills">Skills</label>
+					<button type="action" class="sheet-skillroll" name="act_gennpc" title="General" data-i18n-title="general" value="general-skillroll" data-i18n="general">General</button>
+					<input type="number" name="attr_general" class="sheet-npcskill" value = "15" min="0"/><br>
+					<button type="action" class="sheet-skillroll" name="act_specnpc" title="Special" data-i18n-title="special" value="special-skillroll" data-i18n="specialist">Specialist</button>
+					<input type="number" name="attr_special" class="sheet-npcskill" value = "15" min="0"/><br>
+					<fieldset class="repeating_skills">
+						<input type="text" class="sheet-skilllabel" name="attr_npcskilltext" placeholder="Skill" data-i18n-placeholder="skill" />
+						<input type="number" name="attr_skillnpc" class="sheet-npcskill" value = "15" min="0"/>
+						<button type="action" class="sheet-npcroll" name="act_skillnpc" title="Other skills" data-i18n-title="other-skills" data-i18n="roll">Roll</button><br>
+					</fieldset><br>	
+					<label data-i18n="tags">Tags</label>			
+					<textarea name="attr_npctags" placeholder="Tags" data-i18n-placeholder="tags" style="height: 40px"></textarea>
+					<br>
+				</div>			
 			</div>
-			<div class="sheet-col" style="width:35%">
-				<label data-i18n="skills">Skills</label>
-				<button type="action" class="sheet-skillroll" name="act_gennpc" title="General" data-i18n-title="general" value="general-skillroll" data-i18n="general">General</button>
-				<input type="number" name="attr_general" class="sheet-npcskill" value = "15" min="0"/><br>
-				<button type="action" class="sheet-skillroll" name="act_specnpc" title="Special" data-i18n-title="special" value="special-skillroll" data-i18n="specialist">Specialist</button>
-				<input type="number" name="attr_special" class="sheet-npcskill" value = "15" min="0"/><br>
-				<fieldset class="repeating_skills">
-					<input type="text" class="sheet-skilllabel" name="attr_npcskilltext" placeholder="Skill" data-i18n-placeholder="skill" />
-					<input type="number" name="attr_skillnpc" class="sheet-npcskill" value = "15" min="0"/>
-					<button type="action" class="sheet-npcroll" name="act_skillnpc" title="Other skills" data-i18n-title="other-skills" data-i18n="roll">Roll</button><br>
-				</fieldset><br>	
-				<label data-i18n="tags">Tags</label>			
-				<textarea name="attr_npctags" placeholder="Tags" data-i18n-placeholder="tags" style="height: 40px"></textarea>
-				<br>
-
-
-			</div>
-		</div>
-	</div>
-
-	<div class="sheet-npc" style="padding-left: 10px;">
-		<div class="sheet-3colrow">
-			<h3 data-i18n="conditions-title">Conditions</h3>
-			<div class="sheet-col" style="width:28%;">
-				<label class="sheet-conditionlabel" title="All checks to notice something by sight automatically fail. All checks for Search and Investigation, and all Attack checks and Defence checks are at −5 pips. Many actions, like reading, are impossible. If the cause of the blindness is due to darkness, drop the Blinded Condition when light is restored. If the cause of the blindness is temporary, drop the Blinded Condition after the scene." data-i18n-title="blinded-info" data-i18n="blinded">Blinded</label><input class="sheet-showcondition" type="checkbox" name="attr_blinded" value="1"/>
-				<br/>
-				<label class="sheet-conditionlabel" title="All checks to notice something by hearing automatically fail. Checks for Charm, Languages, Entertainment and even Contacts and Sneak can be at −2 or −5 pips. If the cause of the deafness is a sudden loud sound, drop the Deaf Condition after the scene." data-i18n-title="deaf-info" data-i18n="deaf">Deaf</label><input class="sheet-showcondition" type="checkbox" name="attr_deaf" value="2"/>
-				<br/>
-				<label class="sheet-conditionlabel" title="Temporarily halve your Max Vitality. If your vitality exceeds the temporary Max Vitality, your current Vitality is equal to your temporary Max Vitality. Exhausted Conditions stack. Drop one Exhausted Condition after eating, rehydrating and having a good night’s sleep." data-i18n-title="exhausted-info" data-i18n="exhausted">Exhausted</label><input class="sheet-showcondition" type="checkbox" name="attr_exhausted1" value="3"/><input class="sheet-showcondition" type="checkbox" name="attr_exhausted2" value="3"/><input class="sheet-showcondition" type="checkbox" name="attr_exhausted3" value="3"/>
-				<br/>
-				<label class="sheet-conditionlabel" title="You cannot enter the same zone as the source of your fright. Attack checks are at −2 pips. Drop the Frightened Condition by making a successful Willpower task check as your main action." data-i18n-title="frightened-info" data-i18n="frightened">Frightened</label><input class="sheet-showcondition" type="checkbox" name="attr_frightened" value="4"/>
-				<br/>
-				<label class="sheet-conditionlabel" title="All task checks are at −2 pips. You can’t take defence actions at all. You gain 1d6 Protection. The Intoxicated Condition stacks up to three times. You don’t get a fourth Intoxicated Condition, but instead collapse and fall unconscious (counts as Out Cold). Drop one Intoxicated Condition the next morning, and then another at each six-hour interval thereafter." data-i18n-title="intoxicated-info" data-i18n="intoxicated">Intoxicated</label><input class="sheet-showcondition" type="checkbox" name="attr_intoxicated1" value="5"/><input class="sheet-showcondition" type="checkbox" name="attr_intoxicated2" value="5"/><input class="sheet-showcondition" type="checkbox" name="attr_intoxicated3" value="5"/>
-				<br/>
-				<label class="sheet-conditionlabel" title="Take the Mortal Peril Condition instead of Vitality loss. You can only take the Mortal Peril Condition if you do not already have the Mortal Peril Condition. Flip any Attack check for the remainder of the fight. If Vitality runs out in the current fight, you die, unconditionally." data-i18n-title="mortalperil-info" data-i18n="mortalperil">Mortal Peril</label><input class="sheet-showcondition" type="checkbox" name="attr_mortalperil" value="6"/>
-				<br/>					
-				<label class="sheet-conditionlabel" title="At the start of your turn, take 1dX Damage. If you are Out Cold at the start of your turn and still On Fire, take one Wounded Condition. You can take a Main action to try to put out the fire if you are in a zone that is not on fire. Make an Agility task check. If successful, drop the On Fire Condition. Someone else can also put out the fire in the same way on their turn. If you have a blanket or other fire-extinguishing tool, the task check is at +2 pips or more." data-i18n-title="onfire-info" data-i18n="onfire">On Fire</label><input class="sheet-showcondition" type="checkbox" name="attr_onfire" value="7"/>
-				<br/>
-				<label class="sheet-conditionlabel" title="When Vitality runs out, you’re Out Cold and you are no longer in the fight. Drop the Out Cold Condition at the start of the next scene if another character makes a successful Medicine task check. Drop the Condition at the start of the scene after that if the task check failed or if there was no Medicine task check." data-i18n-title="outcold-info" data-i18n="outcold">Out Cold</label><input class="sheet-showcondition" type="checkbox" name="attr_outcold" value="8"/>
-			</div>
-			<div class="sheet-col" style="width:28%;">
-				<label class="sheet-conditionlabel" title="When Overburdened, movement and attack checks are at −2 pips. Drop the Overburdened Condition as a Free action if you can put down or drop the items that make you Overburdened. Drop the Overburdened Condition as a main action if you have to wriggle out of a harness to put down the items that make you Overburdened." data-i18n-title="overburdened-info" data-i18n="overburdened">Overburdened</label><input class="sheet-showcondition" type="checkbox" name="attr_overburdened" value="9"/>
-				<br/>
-				<label class="sheet-conditionlabel" title="You can’t take any actions on your turn. At the end of your turn, make an Endurance task check. If successful, “unlock” one kind of action (Free, Move, Main or Bonus) for the rest of the scene. Depending on the reason for the paralysis, there may be a modifier on the task check. Drop the Paralysed Condition when the source of the paralysis says it should be dropped." data-i18n-title="paralysed-info" data-i18n="paralysed">Paralysed</label><input class="sheet-showcondition" type="checkbox" name="attr_paralysed" value="10"/>
-				<br/>
-				<label class="sheet-conditionlabel" title="You can’t take a Move action. You can take a Sprint action, but it requires an Agility task check. Ranged Attack checks made against you from another zone are at −2 pips. Your Defence checks against melee attacks or ranged attacks from the same zone are at −2 pips. At the end of your turn, you may get up and drop the Prone Condition as a bonus action." data-i18n-title="prone-info" data-i18n="prone">Prone</label><input class="sheet-showcondition" type="checkbox" name="attr_prone" value="11"/>
-				<br/>
-				<label class="sheet-conditionlabel" title="You cannot take a Move action or Sprint action. Drop the Restrained Condition by making a successful Unarmed Melee, Strength or Agility task check as your Main action. The check is opposed if another character is holding you. If the check fails, or if you lose, you’re still Restrained." data-i18n-title="restrained-info" data-i18n="restrained">Restrained</label><input class="sheet-showcondition" type="checkbox" name="attr_restrained" value="12"/>
-				<br/>
-				<label class="sheet-conditionlabel" title="Attack checks are at −5 pips. Sprint or Move actions that normally require a task check are also at −5 pips. Regular Sprint or Move actions now require a task check. Other task checks are at −2 pips. Unless being Stunned is the result of poison or illness, you can often use your Main action to make a Willpower task check. If successful, drop the Stunned Condition. Drop the Stunned Condition at the start of the next scene if it is still in effect." data-i18n-title="stunned-info" data-i18n="stunned">Stunned</label><input class="sheet-showcondition" type="checkbox" name="attr_stunned" value="13"/>
-				<br/>
-				<label class="sheet-conditionlabel" title="Whenever you are surprised, caught unprepared, or otherwise not ready for action, you get the Surprised Condition. You can only take a Free action on your turn. Drop the Surprised Condition at the end of your turn." data-i18n-title="surprised-info" data-i18n="surprised">Surprised</label><input class="sheet-showcondition" type="checkbox" name="attr_surprised" value="14"/>
-				<br/>
-				<label class="sheet-conditionlabel" title="All checks are at −2 pips. Attack checks against the source of your terror are at −5 pips. You cannot move closer to the source of your terror. At the start of your turn, if you are in the same zone as the source of your terror, make a Willpower task check as a Free action. If it fails, you must move out of the zone before doing anything else. Replace the Terrified Condition with the Frightened Condition by making a successful Willpower task check as your Main action." data-i18n-title="terrified-info" data-i18n="terrified">Terrified</label><input class="sheet-showcondition" type="checkbox" name="attr_terrified" value = "15" min="0"/>
-				<br/>		
-				<label class="sheet-conditionlabel" title="Take the Wounded Condition instead of Vitality loss. You don’t have to take the Wounded Condition if you don’t want to. You can only take the Wounded Condition if you do not already have the Wounded Condition. Once the fight ends, all further task checks are at −2 pips until the Wounded Condition heals. Ignore the effects of the Wounded Condition for one scene if someone else makes a successful Medicine task check. Drop the Wounded Condition after a two-day recuperating scene and a successful Medicine, Credits or Contacts task check (and possibly some uncomfortable questions from the police), or by spending downtime on Mend and Recuperate." data-i18n-title="wounded-info" data-i18n="wounded">Wounded</label><input class="sheet-showcondition" type="checkbox" name="attr_wounded" value="16"/>
-			</div>
-			<div class="sheet-col" style="width: 35%">
-				<label data-i18n="notes">Notes</label>
-				<textarea name="attr_npcnotes" placeholder="Notes" data-i18n-placeholder="notes" style="height:60px;"></textarea>		
+			<div>
+				<div class="sheet-2colrow">
+					<h3 data-i18n="conditions-title">Conditions</h3>
+					<div class="sheet-col">
+						<label class="sheet-conditionlabel" title="All checks to notice something by sight automatically fail. All checks for Search and Investigation, and all Attack checks and Defence checks are at −5 pips. Many actions, like reading, are impossible. If the cause of the blindness is due to darkness, drop the Blinded Condition when light is restored. If the cause of the blindness is temporary, drop the Blinded Condition after the scene." data-i18n-title="blinded-info" data-i18n="blinded">Blinded</label><input class="sheet-showcondition" type="checkbox" name="attr_blinded" value="1"/>
+						<br/>
+						<label class="sheet-conditionlabel" title="All checks to notice something by hearing automatically fail. Checks for Charm, Languages, Entertainment and even Contacts and Sneak can be at −2 or −5 pips. If the cause of the deafness is a sudden loud sound, drop the Deaf Condition after the scene." data-i18n-title="deaf-info" data-i18n="deaf">Deaf</label><input class="sheet-showcondition" type="checkbox" name="attr_deaf" value="2"/>
+						<br/>
+						<label class="sheet-conditionlabel" title="Temporarily halve your Max Vitality. If your vitality exceeds the temporary Max Vitality, your current Vitality is equal to your temporary Max Vitality. Exhausted Conditions stack. Drop one Exhausted Condition after eating, rehydrating and having a good night’s sleep." data-i18n-title="exhausted-info" data-i18n="exhausted">Exhausted</label><input class="sheet-showcondition" type="checkbox" name="attr_exhausted1" value="3"/><input class="sheet-showcondition" type="checkbox" name="attr_exhausted2" value="3"/><input class="sheet-showcondition" type="checkbox" name="attr_exhausted3" value="3"/>
+						<br/>
+						<label class="sheet-conditionlabel" title="You cannot enter the same zone as the source of your fright. Attack checks are at −2 pips. Drop the Frightened Condition by making a successful Willpower task check as your main action." data-i18n-title="frightened-info" data-i18n="frightened">Frightened</label><input class="sheet-showcondition" type="checkbox" name="attr_frightened" value="4"/>
+						<br/>
+						<label class="sheet-conditionlabel" title="All task checks are at −2 pips. You can’t take defence actions at all. You gain 1d6 Protection. The Intoxicated Condition stacks up to three times. You don’t get a fourth Intoxicated Condition, but instead collapse and fall unconscious (counts as Out Cold). Drop one Intoxicated Condition the next morning, and then another at each six-hour interval thereafter." data-i18n-title="intoxicated-info" data-i18n="intoxicated">Intoxicated</label><input class="sheet-showcondition" type="checkbox" name="attr_intoxicated1" value="5"/><input class="sheet-showcondition" type="checkbox" name="attr_intoxicated2" value="5"/><input class="sheet-showcondition" type="checkbox" name="attr_intoxicated3" value="5"/>
+						<br/>
+						<label class="sheet-conditionlabel" title="Take the Mortal Peril Condition instead of Vitality loss. You can only take the Mortal Peril Condition if you do not already have the Mortal Peril Condition. Flip any Attack check for the remainder of the fight. If Vitality runs out in the current fight, you die, unconditionally." data-i18n-title="mortalperil-info" data-i18n="mortalperil">Mortal Peril</label><input class="sheet-showcondition" type="checkbox" name="attr_mortalperil" value="6"/>
+						<br/>					
+						<label class="sheet-conditionlabel" title="At the start of your turn, take 1dX Damage. If you are Out Cold at the start of your turn and still On Fire, take one Wounded Condition. You can take a Main action to try to put out the fire if you are in a zone that is not on fire. Make an Agility task check. If successful, drop the On Fire Condition. Someone else can also put out the fire in the same way on their turn. If you have a blanket or other fire-extinguishing tool, the task check is at +2 pips or more." data-i18n-title="onfire-info" data-i18n="onfire">On Fire</label><input class="sheet-showcondition" type="checkbox" name="attr_onfire" value="7"/>
+						<br/>
+						<label class="sheet-conditionlabel" title="When Vitality runs out, you’re Out Cold and you are no longer in the fight. Drop the Out Cold Condition at the start of the next scene if another character makes a successful Medicine task check. Drop the Condition at the start of the scene after that if the task check failed or if there was no Medicine task check." data-i18n-title="outcold-info" data-i18n="outcold">Out Cold</label><input class="sheet-showcondition" type="checkbox" name="attr_outcold" value="8"/>
+					</div>
+					<div class="sheet-col">
+						<label class="sheet-conditionlabel" title="When Overburdened, movement and attack checks are at −2 pips. Drop the Overburdened Condition as a Free action if you can put down or drop the items that make you Overburdened. Drop the Overburdened Condition as a main action if you have to wriggle out of a harness to put down the items that make you Overburdened." data-i18n-title="overburdened-info" data-i18n="overburdened">Overburdened</label><input class="sheet-showcondition" type="checkbox" name="attr_overburdened" value="9"/>
+						<br/>
+						<label class="sheet-conditionlabel" title="You can’t take any actions on your turn. At the end of your turn, make an Endurance task check. If successful, “unlock” one kind of action (Free, Move, Main or Bonus) for the rest of the scene. Depending on the reason for the paralysis, there may be a modifier on the task check. Drop the Paralysed Condition when the source of the paralysis says it should be dropped." data-i18n-title="paralysed-info" data-i18n="paralysed">Paralysed</label><input class="sheet-showcondition" type="checkbox" name="attr_paralysed" value="10"/>
+						<br/>
+						<label class="sheet-conditionlabel" title="You can’t take a Move action. You can take a Sprint action, but it requires an Agility task check. Ranged Attack checks made against you from another zone are at −2 pips. Your Defence checks against melee attacks or ranged attacks from the same zone are at −2 pips. At the end of your turn, you may get up and drop the Prone Condition as a bonus action." data-i18n-title="prone-info" data-i18n="prone">Prone</label><input class="sheet-showcondition" type="checkbox" name="attr_prone" value="11"/>
+						<br/>
+						<label class="sheet-conditionlabel" title="You cannot take a Move action or Sprint action. Drop the Restrained Condition by making a successful Unarmed Melee, Strength or Agility task check as your Main action. The check is opposed if another character is holding you. If the check fails, or if you lose, you’re still Restrained." data-i18n-title="restrained-info" data-i18n="restrained">Restrained</label><input class="sheet-showcondition" type="checkbox" name="attr_restrained" value="12"/>
+						<br/>
+						<label class="sheet-conditionlabel" title="Attack checks are at −5 pips. Sprint or Move actions that normally require a task check are also at −5 pips. Regular Sprint or Move actions now require a task check. Other task checks are at −2 pips. Unless being Stunned is the result of poison or illness, you can often use your Main action to make a Willpower task check. If successful, drop the Stunned Condition. Drop the Stunned Condition at the start of the next scene if it is still in effect." data-i18n-title="stunned-info" data-i18n="stunned">Stunned</label><input class="sheet-showcondition" type="checkbox" name="attr_stunned" value="13"/>
+						<br/>
+						<label class="sheet-conditionlabel" title="Whenever you are surprised, caught unprepared, or otherwise not ready for action, you get the Surprised Condition. You can only take a Free action on your turn. Drop the Surprised Condition at the end of your turn." data-i18n-title="surprised-info" data-i18n="surprised">Surprised</label><input class="sheet-showcondition" type="checkbox" name="attr_surprised" value="14"/>
+						<br/>
+						<label class="sheet-conditionlabel" title="All checks are at −2 pips. Attack checks against the source of your terror are at −5 pips. You cannot move closer to the source of your terror. At the start of your turn, if you are in the same zone as the source of your terror, make a Willpower task check as a Free action. If it fails, you must move out of the zone before doing anything else. Replace the Terrified Condition with the Frightened Condition by making a successful Willpower task check as your Main action." data-i18n-title="terrified-info" data-i18n="terrified">Terrified</label><input class="sheet-showcondition" type="checkbox" name="attr_terrified" value = "15" min="0"/>
+						<br/>		
+						<label class="sheet-conditionlabel" title="Take the Wounded Condition instead of Vitality loss. You don’t have to take the Wounded Condition if you don’t want to. You can only take the Wounded Condition if you do not already have the Wounded Condition. Once the fight ends, all further task checks are at −2 pips until the Wounded Condition heals. Ignore the effects of the Wounded Condition for one scene if someone else makes a successful Medicine task check. Drop the Wounded Condition after a two-day recuperating scene and a successful Medicine, Credits or Contacts task check (and possibly some uncomfortable questions from the police), or by spending downtime on Mend and Recuperate." data-i18n-title="wounded-info" data-i18n="wounded">Wounded</label><input class="sheet-showcondition" type="checkbox" name="attr_wounded" value="16"/>
+					</div>
+				</div>
+				<div>
+					<label data-i18n="notes">Notes</label>
+					<textarea name="attr_npcnotes" placeholder="Notes" data-i18n-placeholder="notes" style="height:60px;"></textarea>		
+				</div>
 			</div>
 		</div>
 	</div>
 
 	<div class="sheet-gear">
-
-		<div class="sheet-2colrow">
-			<div class="sheet-col" style="width: 400px; padding-left: 10px; border-right: 3px dashed #f2f2f2;">
+		<div class="sheet-passport">
+			<div>
 				<h3 data-i18n="licenses-title">Licences for dangerous items /<br/>Permis pour objets reglementes /<br/>Lizenzen fur verbotene gegenstande</h3>
 				<hr />
 					<fieldset class="repeating_gearkits">
@@ -429,7 +422,7 @@
 						</details>
 					</fieldset>			
 			</div>
-			<div class="sheet-col" style="width: 400px">
+			<div>
 				<h3 data-i18n="visa-title">Visa Stamps /<br/>Visas /<br/>Visastempel</h3>
 				<hr/>
 					<textarea name="attr_journal" placeholder="Notes" data-i18n-placeholder="notes"></textarea>		
@@ -438,9 +431,15 @@
 	</div>
 
 	<div class="sheet-journal">
-		<div class="sheet-col" style="width:100%;padding-left: 10px;">
-			<h3 data-i18n="visa-title-nowrap">Visa Stamps / Visas / Visastempel</h3>
-			<textarea name="attr_journal" placeholder="Notes" data-i18n-placeholder="notes"></textarea>
+		<div class="sheet-passport">
+			<div>
+				<h3 data-i18n="visa-title-nowrap">Visa Stamps / Visas / Visastempel</h3>
+				<textarea name="attr_journal" placeholder="Notes" data-i18n-placeholder="notes" style="height:500px;"></textarea>
+			</div>
+			<div>
+				<h3>&nbsp;</h3>
+				<textarea name="attr_journal2" placeholder="Notes" data-i18n-placeholder="notes" style="height:500px;"></textarea>
+			</div>
 		</div>
 	</div>
 
@@ -451,55 +450,58 @@
 	Things seem out of order, but it allows this value to be used for the bonus damage 
 	calculation in the Custom Roll Parsing reducing the number of values passed.
 	-->
-		<h2 data-i18n="combat-rolls">Combat rolls</h2> 	
-			<button type="action" class="sheet-cbtroll" name="act_init_pc" title="Initiative" data-i18n-title="initiative" value="1" data-i18n="initiative">Initiative</button>
-			<button type="action" class="sheet-cbtroll" name="act_defend_ranged" title="Defend with AGILITY" data-i18n-title="defend-agility" value="1" data-i18n="take-cover">Take Cover!</button>
-			<button type="action" class="sheet-cbtroll" name="act_defend_melee" title="Defend with MELEE" data-i18n-title="defend-melee" value="2" data-i18n="parry">Parry!</button>
-			<button type="action" class="sheet-cbtroll" name="act_recover" title="Recovery" data-i18n-title="recovery" data-i18n="recovery">Recovery</button>		
-			<br />
-			<hr/>
+		<div class="sheet-passport">
+			<div>
+				<h2 data-i18n="combat-rolls">Combat rolls</h2> 	
+				<button type="action" class="sheet-cbtroll" name="act_init_pc" title="Initiative" data-i18n-title="initiative" value="1" data-i18n="initiative">Initiative</button>
+				<button type="action" class="sheet-cbtroll" name="act_defend_ranged" title="Defend with AGILITY" data-i18n-title="defend-agility" value="1" data-i18n="take-cover">Take Cover!</button>
+				<button type="action" class="sheet-cbtroll" name="act_defend_melee" title="Defend with MELEE" data-i18n-title="defend-melee" value="2" data-i18n="parry">Parry!</button>
+				<button type="action" class="sheet-cbtroll" name="act_recover" title="Recovery" data-i18n-title="recovery" data-i18n="recovery">Recovery</button>		
+				<br />
+				<hr/>
 			
-			<input type="text" name="attr_armour" class="sheet-short" placeholder="Armour" data-i18n-placeholder="armour"/>
-			<input type="number" name="attr_soakvalue" title="Protection value" data-i18n-title="protection-value" value="0" min="0"/><span data-i18n="dP">dP</span>
-			<input name="attr_armourtags" placeholder="Tags" data-i18n-placeholder="tags" style="width: 40ch"/>
-			<button type="action" class="sheet-cbtroll" name="act_soak" title="Soak damage" data-i18n-title="soak-damage" value="soak" data-i18n="soak">Soak</button>	
-			<br/>
-			<br/>
-			<input type="text" name="attr_weapon" class="sheet-short" value="Unarmed attack" readonly="true"/>
-			<input name="attr_unarmedskill" class="sheet-shorter" value="Melee" readonly="true"/>
-			<input type="number" name="attr_weapondmg" value="2" min="0" title="Damage Dice" data-i18n-title="damage-dice"/><span data-i18n="dX">dX</span>
-			<input type="text" name="attr_unarmedtags" placeholder="Tags" data-i18n-placeholder="tags" style="width: 40ch"/>
-			
-			<button type="action" class="sheet-cbtroll" name="act_attack_unarmed" title="Attack!" data-i18n-title="attack!" value="3" data-i18n="attack!">Attack!</button>
-			<button type="action" class="sheet-cbtroll" name="act_whump_unarmed" title="Whump!" data-i18n-title="whump!" value="4" data-i18n="whump!">Whump!</button>
-			<br />
-			<br />
-			
-			<fieldset class="repeating_attacks">
-				<input type="text" name="attr_weapon" class="sheet-short" placeholder="Weapon" data-i18n-placeholder="weapon" /> 
-				<select name="attr_weaponskill" class="sheet-shorter" style="width: 9%">
-					<option value="0" data-i18n="skill">Skill</option>
-					<option value="1" data-i18n="melee">Melee</option>
-					<option value="2" data-i18n="ranged">Ranged</option>
-				</select>
-				<input class="sheet-revealbuttons" type="checkbox" name="attr_weaponskill" value="1" style="display: none"/>
-				<input class="sheet-revealbuttons" type="checkbox" name="attr_weaponskill" value="2" style="display: none"/>
-				<input type="number" name="attr_weapondmg" value="0" min="0" title="Damage Dice" data-i18n-title="damage-dice"><span data-i18n="dX">dX</span>
-
-				<div class="sheet-meleebuttons">
-					<input type="text" name="attr_weapontags" placeholder="Tags" data-i18n-placeholder="tags" style="width: 40ch"/>
-					<button type="action" class="sheet-cbtroll" name="act_melee" title="Attack!" data-i18n-title="attack!" value="3" data-i18n="attack!">Attack!</button>
-					<button type="action" class="sheet-cbtroll" name="act_whump" title="Whump!" data-i18n-title="whump!"value="4" data-i18n="whump!">Whump!</button>
-				</div>
+				<input type="text" name="attr_armour" class="sheet-short" placeholder="Armour" data-i18n-placeholder="armour"/>
+				<input type="number" name="attr_soakvalue" title="Protection value" data-i18n-title="protection-value" value="0" min="0"/><span data-i18n="dP">dP</span>
+				<input name="attr_armourtags" placeholder="Tags" data-i18n-placeholder="tags" style="width: 40ch"/>
+				<button type="action" class="sheet-cbtroll" name="act_soak" title="Soak damage" data-i18n-title="soak-damage" value="soak" data-i18n="soak">Soak</button>	
+				<br/>
+				<br/>
+				<input type="text" name="attr_weapon" class="sheet-short" value="Unarmed attack" readonly="true"/>
+				<input name="attr_unarmedskill" class="sheet-shorter" value="Melee" readonly="true"/>
+				<input type="number" name="attr_weapondmg" value="2" min="0" title="Damage Dice" data-i18n-title="damage-dice"/><span data-i18n="dX">dX</span>
+				<input type="text" name="attr_unarmedtags" placeholder="Tags" data-i18n-placeholder="tags" style="width: 40ch"/>
 				
-				<div class="sheet-rangedbuttons">
-					<input type="text" name="attr_weapontags" placeholder="Tags" data-i18n-placeholder="tags" style="width: 33ch"/>				
-					<input type="number" name="attr_reloadval" title="Reload: Enter lower tag value OR use 99 for single-shot" data-i18n-title="reload-info" value="99" min="0"/>				
-					<button type="action" class="sheet-cbtroll" name="act_ranged" title="Attack!" data-i18n-title="attack!" value="3" data-i18n="attack!">Attack!</button>
-					<button type="action" class="sheet-cbtroll" name="act_pam" title="Aimed Shot!" data-i18n-title="aimed-shot" value="1" data-i18n="pam!">Pam!</button>				
-					<button type="action" class="sheet-cbtroll" name="act_rat" title="Empty the magazine!" data-i18n-title="empty" value="2" data-i18n="ratatatat!">Ratatatat!</button>					
-				</div>
-			</fieldset>
+				<button type="action" class="sheet-cbtroll" name="act_attack_unarmed" title="Attack!" data-i18n-title="attack!" value="3" data-i18n="attack!">Attack!</button>
+				<button type="action" class="sheet-cbtroll" name="act_whump_unarmed" title="Whump!" data-i18n-title="whump!" value="4" data-i18n="whump!">Whump!</button>
+			</div>
+			<div>
+				<fieldset class="repeating_attacks">
+					<input type="text" name="attr_weapon" class="sheet-short" placeholder="Weapon" data-i18n-placeholder="weapon" /> 
+					<select name="attr_weaponskill" class="sheet-shorter" style="width: 9%">
+						<option value="0" data-i18n="skill">Skill</option>
+						<option value="1" data-i18n="melee">Melee</option>
+						<option value="2" data-i18n="ranged">Ranged</option>
+					</select>
+					<input class="sheet-revealbuttons" type="checkbox" name="attr_weaponskill" value="1" style="display: none"/>
+					<input class="sheet-revealbuttons" type="checkbox" name="attr_weaponskill" value="2" style="display: none"/>
+					<input type="number" name="attr_weapondmg" value="0" min="0" title="Damage Dice" data-i18n-title="damage-dice"><span data-i18n="dX">dX</span>
+
+					<div class="sheet-meleebuttons">
+						<input type="text" name="attr_weapontags" placeholder="Tags" data-i18n-placeholder="tags" style="width: 40ch"/>
+						<button type="action" class="sheet-cbtroll" name="act_melee" title="Attack!" data-i18n-title="attack!" value="3" data-i18n="attack!">Attack!</button>
+						<button type="action" class="sheet-cbtroll" name="act_whump" title="Whump!" data-i18n-title="whump!"value="4" data-i18n="whump!">Whump!</button>
+					</div>
+					
+					<div class="sheet-rangedbuttons">
+						<input type="text" name="attr_weapontags" placeholder="Tags" data-i18n-placeholder="tags" style="width: 33ch"/>				
+						<input type="number" name="attr_reloadval" title="Reload: Enter lower tag value OR use 99 for single-shot" data-i18n-title="reload-info" value="99" min="0"/>				
+						<button type="action" class="sheet-cbtroll" name="act_ranged" title="Attack!" data-i18n-title="attack!" value="3" data-i18n="attack!">Attack!</button>
+						<button type="action" class="sheet-cbtroll" name="act_pam" title="Aimed Shot!" data-i18n-title="aimed-shot" value="1" data-i18n="pam!">Pam!</button>				
+						<button type="action" class="sheet-cbtroll" name="act_rat" title="Empty the magazine!" data-i18n-title="empty" value="2" data-i18n="ratatatat!">Ratatatat!</button>					
+					</div>
+				</fieldset>
+			</div>
+		</div>
 	</div>
 
 	<footer>
