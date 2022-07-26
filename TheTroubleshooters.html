@@ -2,7 +2,7 @@
 	CREATED by 			Richard M
 	EDITED by 			Gorthian
 	Version				3.0a
-	Letzte Änderung		2022-07-22
+	Letzte Änderung		2022-07-26
 	
 	GitHub				https://github.com/Gorthian/Roll20_Troubleshooters_CharacterSheet
 	Wiki				https://github.com/Gorthian/Roll20_Troubleshooters_CharacterSheet/wiki
@@ -412,46 +412,41 @@
 	</div>
 </div>
 
-<!-- ****************** //-->
-<!-- BIS HIER ÜBERSETZT //-->
-<!-- ****************** //-->
-
 <div class="sheet-gear">
 
 	<div class="sheet-2colrow">
 		<div class="sheet-col" style="width: 400px; padding-left: 10px; border-right: 3px dashed #f2f2f2;">
-			<h3>Licences for dangerous items /</h3> 
-			<h3>Permis pour objets reglementes /</h3>
-			<h3>Lizenzen fur verbotene gegenstande</h3>
+			<h3 data-i18n="licenses-title">Licences for dangerous items /<br/>Permis pour objets reglementes /<br/>Lizenzen fur verbotene gegenstande</h3>
 			<hr />
 				<fieldset class="repeating_gearkits">
 					<details>
-						<summary><input type="text" name="attr_gearkit" placeholder="Gear kit"/> 
-						<input type="number" name="attr_gearcost" title="Cost in Story Points" value="1">
-						<input type="checkbox" name="attr_signatureitem" title="Character's Signature Item?" value="1"/><input type="text" style="width: 25ch; text-align: center; border: none; background-color: #f9f9eb;  font-weight: bold; margin = 0" value="Signature item | Equipped" readonly="true"/>
-						<input type="checkbox" name="attr_equipped" title="Tick if carried" value="1"/></summary>
-						<textarea name="attr_gearcontents" style="height:60px; width:95%;" placeholder="Contents"></textarea>				
-						<textarea name="attr_geartags" placeholder="Tags" style="height: 40px; width:95%"></textarea>
+						<summary><input type="text" name="attr_gearkit" placeholder="Gear kit" data-i18n-title="gear-kit"/> 
+						<input type="number" name="attr_gearcost" title="Cost in Story Points" data-i18n-title="cost-in" value="1">
+						<input type="checkbox" name="attr_signatureitem" title="Character's Signature Item?" data-i18n-title="signature-item" value="1"/><input type="text" style="width: 25ch; text-align: center; border: none; background-color: #f9f9eb;  font-weight: bold; margin = 0" value="Signature item | Equipped" readonly="true"/>
+						<input type="checkbox" name="attr_equipped" title="Tick if carried" data-i18n-title="tick" value="1"/></summary>
+						<textarea name="attr_gearcontents" style="height:60px; width:95%;" placeholder="Contents" data-i18n-placeholder="contents" ></textarea>				
+						<textarea name="attr_geartags" placeholder="Tags" data-i18n-placeholder="tags" style="height: 40px; width:95%"></textarea>
 					</details>
 				</fieldset>			
 		</div>
 		<div class="sheet-col" style="width: 400px">
-			<h3>Visa Stamps /</h3>
-			<h3>Visas /</h3>
-			<h3>Visastempel</h3>
+			<h3 data-i18n="visa-title">Visa Stamps /<br/>Visas /<br/>Visastempel</h3>
 			<hr/>
-				<textarea name="attr_journal" placeholder="Notes"></textarea>		
+				<textarea name="attr_journal" placeholder="Notes" data-i18n-placeholder="notes"></textarea>		
 		</div>
 	</div>
 </div>
 
-<div class="sheet-journal" style="padding-left: 10px;">
-
-	<h3>Visa Stamps / Visas / Visastempel</h3> 	
-
-	<textarea name="attr_journal" placeholder="Notes"></textarea>
-
+<div class="sheet-journal">
+	<div class="sheet-col" style="width:100%;padding-left: 10px;">
+		<h3 data-i18n="visa-title-nowrap">Visa Stamps / Visas / Visastempel</h3>
+		<textarea name="attr_journal" placeholder="Notes" data-i18n-placeholder="notes"></textarea>
+	</div>
 </div>
+
+<!-- ****************** //-->
+<!-- BIS HIER ÜBERSETZT //-->
+<!-- ****************** //-->
 
 <div class="sheet-combat">
 <!--
