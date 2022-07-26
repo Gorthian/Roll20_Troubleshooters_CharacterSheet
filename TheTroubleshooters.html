@@ -444,10 +444,6 @@
 	</div>
 </div>
 
-<!-- ****************** //-->
-<!-- BIS HIER ÜBERSETZT //-->
-<!-- ****************** //-->
-
 <div class="sheet-combat">
 <!--
 Set the 'value' for the PAM and RATATATAT buttons to 1 and 2 respectively and 3 and 4 for the
@@ -455,53 +451,53 @@ Set the 'value' for the PAM and RATATATAT buttons to 1 and 2 respectively and 3 
 Things seem out of order, but it allows this value to be used for the bonus damage 
 calculation in the Custom Roll Parsing reducing the number of values passed.
 -->
-	<h2>Combat rolls</h2> 	
-		<button type="action" class="sheet-cbtroll" name="act_init_pc" title="Initiative" value="1">Initiative</button>
-		<button type="action" class="sheet-cbtroll" name="act_defend_ranged" title="Defend with AGILITY" value="1">Take Cover!</button>
-		<button type="action" class="sheet-cbtroll" name="act_defend_melee" title="Defend with MELEE" value="2">Parry!</button>
-		<button type="action" class="sheet-cbtroll" name="act_recover" title="Recovery">Recovery</button>		
+	<h2 data-i18n="combat-rolls">Combat rolls</h2> 	
+		<button type="action" class="sheet-cbtroll" name="act_init_pc" title="Initiative" data-i18n-title="initiative" value="1" data-i18n="initiative">Initiative</button>
+		<button type="action" class="sheet-cbtroll" name="act_defend_ranged" title="Defend with AGILITY" data-i18n-title="defend-agility" value="1" data-i18n="take-cover">Take Cover!</button>
+		<button type="action" class="sheet-cbtroll" name="act_defend_melee" title="Defend with MELEE" data-i18n-title="defend-melee" value="2" data-i18n="parry">Parry!</button>
+		<button type="action" class="sheet-cbtroll" name="act_recover" title="Recovery" data-i18n-title="recovery" data-i18n="recovery">Recovery</button>		
 		<br />
 		<hr/>
 		
-		<input type="text" name="attr_armour" class="sheet-short" placeholder="Armour"/>
-		<input type="number" name="attr_soakvalue" title="Protection value" value="0" min="0"/>dP
-		<input name="attr_armourtags" placeholder="Tags" style="width: 40ch"/>
-		<button type="action" class="sheet-cbtroll" name="act_soak" title="Soak damage" value="soak">Soak</button>	
+		<input type="text" name="attr_armour" class="sheet-short" placeholder="Armour" data-i18n-placeholder="armour"/>
+		<input type="number" name="attr_soakvalue" title="Protection value" data-i18n-title="protection-value" value="0" min="0"/><span data-i18n="dP">dP</span>
+		<input name="attr_armourtags" placeholder="Tags" data-i18n-placeholder="tags" style="width: 40ch"/>
+		<button type="action" class="sheet-cbtroll" name="act_soak" title="Soak damage" data-i18n-title="soak-damage" value="soak" data-i18n="soak">Soak</button>	
 		<br/>
 		<br/>
 		<input type="text" name="attr_weapon" class="sheet-short" value="Unarmed attack" readonly="true"/>
 		<input name="attr_unarmedskill" class="sheet-shorter" value="Melee" readonly="true"/>
-		<input type="number" name="attr_weapondmg" value="2" min="0" title="Damage Dice"/>dX	
-		<input type="text" name="attr_unarmedtags" placeholder="Tags" style="width: 40ch"/>
+		<input type="number" name="attr_weapondmg" value="2" min="0" title="Damage Dice" data-i18n-title="damage-dice"/><span data-i18n="dX">dX</span>
+		<input type="text" name="attr_unarmedtags" placeholder="Tags" data-i18n-placeholder="tags" style="width: 40ch"/>
 		
-		<button type="action" class="sheet-cbtroll" name="act_attack_unarmed" title="Attack!" value="3">Attack!</button>
-		<button type="action" class="sheet-cbtroll" name="act_whump_unarmed" title="Whump!" value="4">Whump!</button>
+		<button type="action" class="sheet-cbtroll" name="act_attack_unarmed" title="Attack!" data-i18n-title="attack!" value="3" data-i18n="attack!">Attack!</button>
+		<button type="action" class="sheet-cbtroll" name="act_whump_unarmed" title="Whump!" data-i18n-title="whump!" value="4" data-i18n="whump!">Whump!</button>
 		<br />
 		<br />
 		
 		<fieldset class="repeating_attacks">
-			<input type="text" name="attr_weapon" class="sheet-short" placeholder="Weapon"/> 
+			<input type="text" name="attr_weapon" class="sheet-short" placeholder="Weapon" data-i18n-placeholder="weapon" /> 
 			<select name="attr_weaponskill" class="sheet-shorter" style="width: 9%">
-				<option value="0">Skill</option>
-				<option value="1">Melee</option>
-				<option value="2">Ranged</option>
+				<option value="0" data-i18n="skill">Skill</option>
+				<option value="1" data-i18n="melee">Melee</option>
+				<option value="2" data-i18n="ranged">Ranged</option>
 			</select>
 			<input class="sheet-revealbuttons" type="checkbox" name="attr_weaponskill" value="1" style="display: none"/>
 			<input class="sheet-revealbuttons" type="checkbox" name="attr_weaponskill" value="2" style="display: none"/>
-			<input type="number" name="attr_weapondmg" value="0" min="0" title="Damage Dice">dX
+			<input type="number" name="attr_weapondmg" value="0" min="0" title="Damage Dice" data-i18n-title="damage-dice"><span data-i18n="dX">dX</span>
 
 			<div class="sheet-meleebuttons">
-				<input type="text" name="attr_weapontags" placeholder="Tags" style="width: 40ch"/>
-				<button type="action" class="sheet-cbtroll" name="act_melee" title="Attack!" value="3">Attack!</button>
-				<button type="action" class="sheet-cbtroll" name="act_whump" title="Whump!" value="4">Whump!</button>
+				<input type="text" name="attr_weapontags" placeholder="Tags" data-i18n-placeholder="tags" style="width: 40ch"/>
+				<button type="action" class="sheet-cbtroll" name="act_melee" title="Attack!" data-i18n-title="attack!" value="3" data-i18n="attack!">Attack!</button>
+				<button type="action" class="sheet-cbtroll" name="act_whump" title="Whump!" data-i18n-title="whump!"value="4" data-i18n="whump!">Whump!</button>
 			</div>
 			
 			<div class="sheet-rangedbuttons">
-				<input type="text" name="attr_weapontags" placeholder="Tags" style="width: 33ch"/>				
-				<input type="number" name="attr_reloadval" title="Reload: Enter lower tag value OR use 99 for single-shot" value="99" min="0"/>				
-				<button type="action" class="sheet-cbtroll" name="act_ranged" title="Attack!" value="3">Attack!</button>
-				<button type="action" class="sheet-cbtroll" name="act_pam" title="Aimed Shot!" value="1">Pam!</button>				
-				<button type="action" class="sheet-cbtroll" name="act_rat" title="Empty the magazine!" value="2">Ratatatat!</button>					
+				<input type="text" name="attr_weapontags" placeholder="Tags" data-i18n-placeholder="tags" style="width: 33ch"/>				
+				<input type="number" name="attr_reloadval" title="Reload: Enter lower tag value OR use 99 for single-shot" data-i18n-title="reload-info" value="99" min="0"/>				
+				<button type="action" class="sheet-cbtroll" name="act_ranged" title="Attack!" data-i18n-title="attack!" value="3" data-i18n="attack!">Attack!</button>
+				<button type="action" class="sheet-cbtroll" name="act_pam" title="Aimed Shot!" data-i18n-title="aimed-shot" value="1" data-i18n="pam!">Pam!</button>				
+				<button type="action" class="sheet-cbtroll" name="act_rat" title="Empty the magazine!" data-i18n-title="empty" value="2" data-i18n="ratatatat!">Ratatatat!</button>					
 			</div>
 		</fieldset>			
 
@@ -509,8 +505,12 @@ calculation in the Custom Roll Parsing reducing the number of values passed.
 
 <footer>
 <hr/>
-'The Troubleshooters' logo and the coat of arms are &#169; Helmgast and are used here with their kind permission
+<span data-i18n="image-disclaimer">'The Troubleshooters' logo and the coat of arms are &#169; Helmgast and are used here with their kind permission</span>
 </footer>
+
+<!-- ****************** //-->
+<!-- BIS HIER ÜBERSETZT //-->
+<!-- ****************** //-->
 
 <rolltemplate class="sheet-rolltemplate-std">
     <table>
