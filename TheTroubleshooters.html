@@ -795,7 +795,7 @@ on("sheet:opened", function(eventInfo){
 
 //Regular skill rolls
 	on('clicked:skillroll clicked:gennpc clicked:specnpc', (event) => {		
-        const rolltext = "&{template:std} {{char=@{name}}} {{skill="+getTranslationByKey(event.htmlAttributes.value)+"}} {{target=[[@{"+event.htmlAttributes.title+"}]]}} {{roll1=[[1d100]]}} {{outcome=[[0]]}} {{karma=[[0]]}} {{pips=[[?{Total Pips|0}]]}}"
+        const rolltext = "&{template:std} {{char=@{name}}} {{skill="+getTranslationByKey(event.htmlAttributes.value)+"}} {{target=[[@{"+event.htmlAttributes.title+"}]]}} {{roll1=[[1d100]]}} {{outcome=[[0]]}} {{karma=[[0]]}} {{pips=[[?{"+getTranslationByKey("total-pips")+"|0}]]}}"
 		startRoll(rolltext, (results) => {
             const total = results.results.roll1.result
             const tens = Math.floor(total / 10);
@@ -850,7 +850,7 @@ on("sheet:opened", function(eventInfo){
         let txtPart = txtVal.replaceAll('@{', `@{${prefix}`);		
 		let tgtVal = "@{skillnpc}";
         let tgtPart = tgtVal.replaceAll('@{', `@{${prefix}`);
-        const rolltext = "&{template:std} {{char=@{character_name}}} {{skill= rolls to "+txtPart+"}} {{target=[["+tgtPart+"]]}} {{roll1=[[1d100]]}} {{outcome=[[0]]}} {{pips=[[?{Total Pips|0}]]}}"
+        const rolltext = "&{template:std} {{char=@{character_name}}} {{skill="+getTranslationByKey("rolls-to")+" "+txtPart+"}} {{target=[["+tgtPart+"]]}} {{roll1=[[1d100]]}} {{outcome=[[0]]}} {{pips=[[?{"+getTranslationByKey("total-pips")+"|0}]]}}"
 		startRoll(rolltext, (results) => {
             const total = results.results.roll1.result
             const tens = Math.floor(total / 10);
@@ -904,7 +904,7 @@ on("sheet:opened", function(eventInfo){
 		const prefix = trigger.startsWith('repeating_') ? trigger.split('_').slice(0,3).join('_') + '_' : '' // prefix gets an empty string for normal attributes, and repeating_section_ID_ for repeating attributes 
 		let dmgVal = "@{weapondmg}";
         let dmgPart = dmgVal.replaceAll('@{', `@{${prefix}`);
-		const rolltext = "&{template:atk} {{char=@{name}}} {{target=[[@{melee}]]}} {{roll1=[[1d100]]}} {{outcome=[[0]]}} {{pips=[[?{Total Pips|0}]]}} {{type=[["+event.htmlAttributes.value+"]]}} {{damage=[["+dmgPart+"d6!>6>4]]}} {{wdamage=[[1d6!>6>4]]}} {{reload=[[0]]}}"
+		const rolltext = "&{template:atk} {{char=@{name}}} {{target=[[@{melee}]]}} {{roll1=[[1d100]]}} {{outcome=[[0]]}} {{pips=[[?{"+getTranslationByKey("total-pips")+"|0}]]}} {{type=[["+event.htmlAttributes.value+"]]}} {{damage=[["+dmgPart+"d6!>6>4]]}} {{wdamage=[[1d6!>6>4]]}} {{reload=[[0]]}}"
 		startRoll(rolltext, (results) => {
 			const total = results.results.roll1.result;
             const tens = Math.floor(total / 10);
@@ -962,7 +962,7 @@ on("sheet:opened", function(eventInfo){
         let dmgPart = dmgVal.replaceAll('@{', `@{${prefix}`);
 		let relVal = "@{reloadval}";
 		let relPart = relVal.replaceAll('@{', `@{${prefix}`);
-		const rolltext = "&{template:atk} {{char=@{name}}} {{target=[[@{rangedcombat}]]}} {{roll1=[[1d100]]}} {{outcome=[[0]]}} {{pips=[[?{Total Pips|0}]]}} {{type=[["+event.htmlAttributes.value+"]]}} {{damage=[["+dmgPart+"d6!>6>4]]}} {{bonusdamage=[["+event.htmlAttributes.value+"d6!>6>4]]}} {{reload=[["+relPart+"]]}}"
+		const rolltext = "&{template:atk} {{char=@{name}}} {{target=[[@{rangedcombat}]]}} {{roll1=[[1d100]]}} {{outcome=[[0]]}} {{pips=[[?{"+getTranslationByKey("total-pips")+"|0}]]}} {{type=[["+event.htmlAttributes.value+"]]}} {{damage=[["+dmgPart+"d6!>6>4]]}} {{bonusdamage=[["+event.htmlAttributes.value+"d6!>6>4]]}} {{reload=[["+relPart+"]]}}"
 		startRoll(rolltext, (results) => {
 			const total = results.results.roll1.result;
             const tens = Math.floor(total / 10);
@@ -1033,7 +1033,7 @@ on("sheet:opened", function(eventInfo){
 		let tgtPart = tgtVal.replaceAll('@{', `@{${prefix}`);
 		let txtVal = "@{npcatktxt}";
 		let txtPart = txtVal.replaceAll('@{', `@{${prefix}`);		
-		const rolltext = "&{template:atk} {{char=@{name}}} {{atktxt="+txtPart+"}} {{target=[["+tgtPart+"]]}} {{roll1=[[1d100]]}} {{outcome=[[0]]}} {{pips=[[?{Total Pips|0}]]}} {{type=[[5]]}} {{damage=[["+dmgPart+"d6!>6>4]]}} {{reload=[["+relPart+"]]}}"
+		const rolltext = "&{template:atk} {{char=@{name}}} {{atktxt="+txtPart+"}} {{target=[["+tgtPart+"]]}} {{roll1=[[1d100]]}} {{outcome=[[0]]}} {{pips=[[?{"+getTranslationByKey("total-pips")+"|0}]]}} {{type=[[5]]}} {{damage=[["+dmgPart+"d6!>6>4]]}} {{reload=[["+relPart+"]]}}"
 		startRoll(rolltext, (results) => {
 			const total = results.results.roll1.result;
             const tens = Math.floor(total / 10);
@@ -1101,7 +1101,7 @@ on("sheet:opened", function(eventInfo){
     });
 
 	on('clicked:recover', (info) => {
-        const rolltext = "&{template:soakrecover} {{char=@{name}}} {{recover=[[?{How many Recovery dice}d6>4]]}}  {{type=[[2]]}}"
+        const rolltext = "&{template:soakrecover} {{char=@{name}}} {{recover=[[?{"+getTranslationByKey("how-many-recovery-dice")+"}d6>4]]}}  {{type=[[2]]}}"
 		startRoll(rolltext, (results) => {
             const recovered = results.results.recover.result;
             finishRoll(
@@ -1115,7 +1115,7 @@ on("sheet:opened", function(eventInfo){
 
 //Defence rolls
 	on('clicked:defend_ranged clicked:defend_melee clicked:def_npc', (event) => {
-		const rolltext = "&{template:def} {{char=@{name}}} {{targetm=[[@{melee}]]}} {{targetr=[[@{agility}]]}} {{targetn=[[@{npcdefence}]]}} {{target=[[0]]}} {{roll1=[[1d100]]}} {{outcome=[[0]]}} {{pips=[[?{Total Pips|0}]]}} {{type=[["+event.htmlAttributes.value+"]]}}"
+		const rolltext = "&{template:def} {{char=@{name}}} {{targetm=[[@{melee}]]}} {{targetr=[[@{agility}]]}} {{targetn=[[@{npcdefence}]]}} {{target=[[0]]}} {{roll1=[[1d100]]}} {{outcome=[[0]]}} {{pips=[[?{"+getTranslationByKey("total-pips")+"|0}]]}} {{type=[["+event.htmlAttributes.value+"]]}}"
 		startRoll(rolltext, (results) => {
 			const total = results.results.roll1.result;
             const tens = Math.floor(total / 10);
@@ -1175,7 +1175,7 @@ on("sheet:opened", function(eventInfo){
 //Initiative rolls	
 	
 	on('clicked:init_pc clicked:init_npc',async (event)=>{
-	const rollText = "&{template:init} {{char=@{character_name}}} {{target=[[@{alertness}]]}}  {{target2=[[@{npcinitiative}]]}} {{type=[["+event.htmlAttributes.value+"]]}} {{roll1=[[1d100]]}} {{outcome=[[0]]}} {{init=[[0]]}} {{pips=[[?{Total Pips|0}]]}}"
+	const rollText = "&{template:init} {{char=@{character_name}}} {{target=[[@{alertness}]]}}  {{target2=[[@{npcinitiative}]]}} {{type=[["+event.htmlAttributes.value+"]]}} {{roll1=[[1d100]]}} {{outcome=[[0]]}} {{init=[[0]]}} {{pips=[[?{"+getTranslationByKey("total-pips")+"|0}]]}}"
 	const displayRoll = await startRoll(rollText);
             const total = displayRoll.results.roll1.result
             const tens = Math.floor(total / 10); //Tens
