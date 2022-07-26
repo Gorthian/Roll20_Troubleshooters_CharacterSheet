@@ -75,6 +75,10 @@ div.sheet-skills, div.sheet-character, div.sheet-gear, div.sheet-journal, div.sh
 	background-size: 425px 100%;
 }
 
+.sheet-ts div.sheet-header {
+	display					: grid;
+	grid-template-columns	: 300px 160px auto;
+}
 
 /* Targetted styling that only effects elements with these classes */
 
