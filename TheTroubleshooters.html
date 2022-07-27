@@ -31,7 +31,7 @@
 				&emsp;<button type="roll" class="sheet-blank-button" value="&{template:default} {{name=@{name}}} {{total=[[?{@{how_many_dice}|1}d6 ]]}}" title="Summing Dice" data-i18n-title="summing-dice-title" data-i18n="summing-dice">Nd6</button>
 				&emsp;<button type="roll" class="sheet-blank-button" value="&{template:default} {{name=@{name}}} {{result=[[?{@{how_many_dice}|1}d6>4 ]]}}" title="Non-exploding Dice Pool" data-i18n-title="non-exploding-pool-title" data-i18n="non-exploding-pool">NdP</button>
 				&emsp;<button type="roll" class="sheet-blank-button" value="&{template:default} {{name=@{name}}} {{result=[[?{@{how_many_dice}|1}d6!>6>4 ]]}}" title="Exploding Dice Pool" data-i18n-title="exploding-pool-title" data-i18n="exploding-pool">NdX</button>
-				&emsp;<button type="roll" class="sheet-blank-button" value="&{template:default} {{name=@{name}}} {{result=[[1d100]]}}" title="Percentile Dice" data-i18n-title="percentile-dice-title" data-i18n="percentile-dice">d100</button>
+				&emsp;<button type="roll" class="sheet-blank-button" value="&{template:basic-d100} {{name=@{name}}} {{result=[[1d100]]}}" title="Percentile Dice" data-i18n-title="percentile-dice-title" data-i18n="percentile-dice">d100</button>
 		</div>
 	</div>	
 	<br/>
@@ -509,6 +509,17 @@
 		<span data-i18n="image-disclaimer">'The Troubleshooters' logo and the coat of arms are &#169; Helmgast and are used here with their kind permission</span>
 	</footer>
 </div>
+
+<rolltemplate class="sheet-rolltemplate-basic-d100">
+    <div class="sheet-template-container">
+		<div class="sheet-template-speechbubble">
+			{{result}}
+		</div>
+		<div class="sheet-template-character">
+			{{name}}
+		</div>
+	</div>
+</rolltemplate>
 
 <rolltemplate class="sheet-rolltemplate-std">
     <table>
