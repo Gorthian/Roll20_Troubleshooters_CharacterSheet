@@ -1,0 +1,305 @@
+Platzhalter;Standard;Deutsch
+abilities-title;Abilities / Capacites / Fahigkeiten;Fähigkeiten / Abilities / Capacites
+ability;Ability;Fähigkeit
+advancement;Advancement / Reward Rolls;Aufstiege / Belohnungsmarker
+advances;Advances;Aufstiege
+affiliation;Affiliation;Zugehörigkeit
+agility;Agility;Beweglichkeit
+agility-skillroll;limbers up;macht sich locker
+a-hit;A hit!;Treffer!
+a-hit-choose;A hit! Choose from;Treffer! Wähle aus
+aimed-shot;Aimed Shot!;Peng! Sorgfältig gezielt
+alertness;Alertness;Aufmerksamkeit
+alertness-skillroll;is on the alert;hält die Augen offen
+armour;Armour;Rüstung
+attack;Attack;Angriff
+attack!;Attack!;Angriff!
+attacks;Attacks;greift an
+attacks!;attacks!;greift an!
+attack-skill;Attack skill;Kampfkompetenz
+attacks-with;attacks with;greift mit ... an
+attempts-takedown;attempts a takedown;versucht jemanden niederzuringen
+bad-karma;#$@$*#@! Bad Karma strikes!;#$@$*#@! Schlechtes Karma
+bad-karma-minus;#$@$*#@! Bad Karma strikes! your next check is at -2 pips;#$@$*#@! Schlechtes Karma! Deine nächste Probe erhält -2 Pips
+birthplace;Birthplace;Geburtsort
+birthplace-title;Place of birth / Lieu de naissance / Geburtsort;Geburtsort / Place of birth / Lieu de naissance
+blinded;Blinded;Blind
+blinded-info;All checks to notice something by sight automatically fail. All checks for Search and Investigation, and all Attack checks and Defence checks are at ?5 pips. Many actions, like reading, are impossible. If the cause of the blindness is due to darkness, drop the Blinded Condition when light is restored. If the cause of the blindness is temporary, drop the Blinded Condition after the scene.;"Alle Proben, etwas mit Hilfe des Sehens zu bemerken, scheitern automatisch. Proben auf Suchen und Nachforschungen sowie alle Angriffs- und Verteidigungsproben sind um ?5 Pips erschwert. Viele Handlungen, wie zum Beispiel Lesen, sind unmöglich.
+Wenn Dunkelheit die Ursache für die Blindheit ist, wird der Zustand Blind aufgehoben, sobald es wieder hell ist.
+Wenn die Ursache der Blindheit vorübergehend ist, wird der Zustand Blind nach der Szene aufgehoben."
+boss;Boss;Boss
+character;CHARACTER;Charakter
+charm;Charm;Charme
+charm-skillroll;turns on the charm;zeigt sich von seiner besten Seite
+chatname;Chat name;Chat Name
+check-when-used;Check when used;Markiere, wenn benutzt
+choose;Choose from;Wähle aus
+choose-two;Choose two from;Wähle zwei von
+combat;COMBAT;Kampf
+combat-rolls;Combat rolls;Kampfwürfe
+complication;Complication;Komplikation
+complications-title;Complications / Desavantages / Komplikationen;Komplikationen / Complications / Desavantages
+conditional-max;Conditional Max;Max. Zustände
+conditions-title;Conditions;Zustände
+contacts;Contacts;Kontakte
+contacts-skillroll;calls in a favour;fordert einen Gefallen sein
+contacts-title;Contacts;Kontakte
+contents;Contents;Beinhaltet
+cost;Cost;Kosten
+cost-in;Cost ind Story Points;Kosten in Storypunkten
+cover;COVER;Deckung
+credit;Credit;Kreditwürdigkeit
+credit-skillroll;flashes some cash;wedelt mit der Kohle
+current-vitality;Current Vitality;Vitalität
+damage;damage!;Schaden!
+damage-all;damage to all targets;Schaden für alle Ziele
+damage-dice;Damage dice;Schadenswürfel
+damage-one;damage to one target;Schaden an einem Ziel
+date-of-birth;Date of birth;Geburtsdatum
+date-of-birth-title;Date of birth / Date de naissance / Geburtsdatum;Geburtsdatum / Date of birth / Date de naissance
+deaf;Deaf;Taub
+deaf-info;All checks to notice something by hearing automatically fail. Checks for Charm, Languages, Entertainment and even Contacts and Sneak can be at ?2 or ?5 pips. If the cause of the deafness is a sudden loud sound, drop the Deaf Condition after the scene.;"Alle Proben, etwas mit Hilfe des Hörens zu bemerken, scheitern automatisch. Proben auf Charme, Sprachen, Unterhaltung und sogar Kontakte und Schleichen sind um ?2 bis ?5 Pips erschwert.
+Wenn die Ursache der Taubheit ein plötzliches lautes Geräusch war, wird der Zustand Taub nach der Szene aufgehoben."
+defence;Defence;Verteidigung
+defend-agility;Defend with AGILITY;Verteidigung mit BEWEGLICHKEIT
+defend-melee;Defend with MELEE;Verteidigung mit NAHKAMPF
+defends;defends!;verteidigt!
+description;Description;Beschreibung
+description-title;Description / Description / Beschreibung;Beschreibung / Description / Description
+distinguishing-marks;Distinguishing marks;Unveränderliche Kennzeichen
+distinguishing-marks-title;Distinguishing marks / Signes particuliers / Unveränderliche Kennzeichen;Unveränderliche Kennzeichen / Distinguishing marks / Signes particuliers
+dP;dP;WP
+ducks-weaves;ducks an weaves!;duckt sich
+dX;dX;WX
+electronics;Electronics;Elektronik
+electronics-skillroll;tinkers with the wiring;fummelt in der Kabelage rum
+emergency-passport;EMERGENCY PASSPORT<br/>PASSEPORT TEMPORAIRE<br/>PASSERSATZ;NOTFALLPASS<br/>EMERGENCY PASSPORT<br/>PASSEPORT TEMPORAIRE
+empties-weapon;empties their weapon at the target;leert das gesamte Magazin
+empty;Empty the magazine!;Ratatatat! Leere dein Magazin
+endurance;Endurance;Ausdauer
+endurance-skillroll;digs deep;verausgabt sich
+engineering;Engineering;Ingenieurwesen
+engineering-skillroll;checks the blueprints;schaut noch mal ins Handbuch
+entertainment;Entertainment;Unterhaltung
+entertainment-skillroll;puts on a show;zeigt was ganz großes Kino ist
+exhausted;Exhausted;Erschöpft
+exhausted-info;Temporarily halve your Max Vitality. If your vitality exceeds the temporary Max Vitality, your current Vitality is equal to your temporary Max Vitality. Exhausted Conditions stack. Drop one Exhausted Condition after eating, rehydrating and having a good night’s sleep.;"Halbiere vorübergehend deine Maximale Vitalität (aufgerundet). Wenn deine aktuelle Vitalität größer ist als die halbierte Maximale Vitalität, dann passe deine Vitalität entsprechend auf diesen Wert an.
+Der Zustand Erschöpft kann gestapelt werden.
+Hebe einen Zustand Erschöpft auf, nachdem du gegessen, getrunken und ausgeschlafen hast.
+"
+exploding-pool;NdX;n WX
+exploding-pool-title;Exploding Dice Pool;Explodierender Würfelpool
+eye-color;Eye colour;Augenfarbe
+eye-color-title;Colour of eyes / Couleur des yeux / Augenfarbe;Augenfarbe / Colour of eyes / Couleur des yeux
+failure;Zut! Failure;Mist! Fehlschlag
+family-name;Family name;Nachname
+family-name-title;Name / Nom / Name;Name / Name / Nom
+fixed;Fixed;fixiert
+fluent-language-title;Fluent languages;Fließende Sprache
+frightened;Frightened;Verängstigt
+frightened-info;You cannot enter the same zone as the source of your fright. Attack checks are at ?2 pips. Drop the Frightened Condition by making a successful Willpower task check as your main action.;"Du kannst die Zone, in der sich die Ursache deiner Verängstigung befindet, nicht betreten, insofern sie sich nicht sowieso schon in deiner Zone befindet. Angriffsproben sind mit ?2 Pips erschwert.
+Hebe den Zustand Verängstigt auf, indem du eine erfolgreiche Probe auf Willenskraft als Hauptaktion durchführst.
+"
+gear-kit;Gear kit;Ausrüstungskit
+gear-visas;GEAR / VISAS;AUSRÜSTUNGSKITS / GEAR / VISAS
+general;General;Grundkompetenzen
+general-skillroll;gives it a go;probiert es
+given-name;Given name;Vorname
+given-name-title;Given name / Prénom / Vornamen;Vornamen / Given name / Prénom
+good-karma;Good Karma!;Gutes Karma!
+good-karma-underlings;Good Karma! Underlings and Mooks are OUT COLD.;Gutes Karma! Handlanger und Untergebene sind AUßER GEFECHT
+hair-color;Hair colour;Haarfarbe
+hair-color-title;Colour of hair / Couleur des cheveux / Haarfarbe;Haarfarbe / Colour of hair / Couleur des cheveux
+height;Height;Größe
+height-title;Height / Taille / Größe;Größe / Height / Taille
+how-many-dice;How many dice;Wie viele Würfel
+how-many-recovery-dice;How many Recovery dice;Wie viele Würfel
+humanities;Humanities;Geisteswissenschaften
+humanities-skillroll;ponders the meaning;überlegt, was wohl dahintersteckt
+image-disclaimer;"'The Troubleshooters' logo and the coat of arms are &#169; Helmgast and Green Gorilla and are used here with their kind permission";"Das Logo und das Emblem der Troubleshooters sind &#169; Helmgast und Green Gorilla und werden hier mit deren freundlicher Genehmigung verwendet."
+initiative;Initiative;Initiative
+intoxicated;Intoxicated;Berauscht
+intoxicated-info;All task checks are at ?2 pips. You can’t take defence actions at all. You gain 1d6 Protection. The Intoxicated Condition stacks up to three times. You don’t get a fourth Intoxicated Condition, but instead collapse and fall unconscious (counts as Out Cold). Drop one Intoxicated Condition the next morning, and then another at each six-hour interval thereafter.;"Alle Aufgabenproben sind um ?2 Pips erschwert. Du kannst überhaupt keine Verteidigungsaktionen durchführen. Du erhältst 1?WP Absorption.
+Der Zustand Berauscht ist bis zu dreimal stapelbar. Statt dem vierten Berauscht-Zustand, brichst du zusammen und wirst bewusstlos (zählt als Außer Gefecht).
+Hebe einen Berauscht-Zustand am nächsten Morgen auf und danach alle sechs Stunden einen weiteren.
+"
+investigation;Investigation;Nachforschungen
+investigation-skillroll;tries to put two and two together;versucht die Zusammenhänge zu finden
+journal;JOURNAL;JOURNAL
+knocked-prone;Knocked PRONE!;Am Boden!
+language;Language;Sprache
+languages;Languages;Sprachen
+languages-skillroll;attempts to communicate;versucht sich verständlich zu machen
+language-title;Native language(s);Muttersprache/n
+leaps-action;leaps into action!;springt mitten ins Geschehen
+licenses-title;Licences for dangerous items /<br/>Permis pour objets reglementes /<br/>Lizenzen fur verbotene Gegenstände;Lizenzen fur verbotene Gegenstände /<br/>Licences for dangerous items /<br/>Permis pour objets reglementes
+lieutenant;Lieutenant;Leutnant
+machinery;Machinery;Maschinen
+machinery-skillroll;powers it up;bringt es zum Laufen
+make-recovery-roll;Make a RECOVERY roll after any damage is applied;Mach einen Erholungswurf, nachdem der Schaden ermittelt wurde
+max-vitality;Max Vitality (based on skill values & conditions);Maximale Vitalität (basierend auf Kompetenzen und zuständen)
+medicine;Medicine;Medizin
+medicine-skillroll;tends to the patient;kümmert sich um den Patienten
+melee;Melee;Nahkampf
+melee-skillroll;gets stuck in;hängt sich rein
+miss;Zut! A miss;Mist! Ein Fehlschlag
+mook;Mook;Handlanger
+mortalperil;Mortal Peril;In tödlicher Gefahr
+mortalperil-info;Take the Mortal Peril Condition instead of Vitality loss. You can only take the Mortal Peril Condition if you do not already have the Mortal Peril Condition. Flip any Attack check for the remainder of the fight. If Vitality runs out in the current fight, you die, unconditionally.;"Du kannst den Zustand In tödlicher Gefahr annehmen anstelle Vitalität zu verlieren, wenn du ihn nicht bereits hast.
+Du darfst für den Rest des Kampfes beliebig viele Angriffsproben flippen.
+Wenn dir im laufenden Kampf die Vitalität ausgeht, stirbst du ohne Wenn und Aber.
+Du kannst wählen, den Zustand In tödlicher Gefahr anzunehmen – es ist immer deine freie Entscheidung. Die Gründe, diesen Zustand anzunehmen, sind in der Regel: 
+Du möchtest verhindern, Außer Gefecht zu geraten, weil du schon Verwundet bist.
+Du möchtest in einem kritischen Kampf die Möglichkeit haben, Angriffsproben zu flippen.
+Du möchtest ein Statement setzen, dass dir dieser Kampf wichtig ist.
+Lege den Zustand In tödlicher Gefahr ab, sobald die Kampfszene vorbei ist.
+"
+name;Name;Name
+name-of-bearer;Name of bearer / Nom du titulaire / Name des Passinhabers;Name des Passinhabers / Name of bearer / Nom du titulaire
+nationality;Nationality;Staatsangehörigkeit
+national-status;National status / Nationalité / Staatsangehörigkeit;Staatsangehörigkeit / National status / Nationalité
+non-exploding-pool;NdP;n WP
+non-exploding-pool-title;Non-exploding Dice Pool;Nichtexplodierende Würfelpool
+no-of-passport;No of Passport / No du Passeport / Nummer des Reisepasses;Nummer des Reisepasses / No of Passport / No du Passeport
+notes;Notes;Notizen
+npc;NPC;Charakter der Einsatzleitung
+npc-attack;NPC attack;Charakter der Einsatzleitung greift an
+npc-defence;NPC defence;Charakter der Einsatzleitung verteidigt sich
+npc-fixed-initiative;NPC fixed initiative;Charakter der Einsatzleitung festgelegte Initiative
+npc-protection;NPC Protection / Armour;Charakter der Einsatzleitung Rüstung / Schutz
+npc-reload-info;Reload: Enter lower tag value OR use 99 for single-shot and melee weapons;Nachladen: Geben Sie den niedrigeren Eigenschaftswert ein ODER verwenden Sie 99 für Einzelschuss- und Nahkampfwaffen
+npc-rolled-initiative;NPC rolled initiative;Charakter der Einsatzleitung gewürfelte Initiative
+npc-vitality-info;Overrides calculated values. Should be set to 0 unless NPC;Überschreibungen berechnete Werte. Sollte auf 0 eingestellt werden, es sei denn es ist ein Charakter der Einsatzleitung.
+onfire;On Fire;Brennend
+onfire-info;At the start of your turn, take 1dX Damage. If you are Out Cold at the start of your turn and still On Fire, take one Wounded Condition. You can take a Main action to try to put out the fire if you are in a zone that is not on fire. Make an Agility task check. If successful, drop the On Fire Condition. Someone else can also put out the fire in the same way on their turn. If you have a blanket or other fire-extinguishing tool, the task check is at +2 pips or more.;Zu Beginn deines Zuges erleidest du 1?WX nicht zu absorbierenden Schaden. Wenn du zu Beginn deines Zuges Außer Gefecht und Brennend bist, erleidest du den Zustand Verwundet.
+other-skills;Other skills;Andere Kompetenzen
+outcold;Out Cold;Außer Gefecht
+outcold-info;When Vitality runs out, you’re Out Cold and you are no longer in the fight. Drop the Out Cold Condition at the start of the next scene if another character makes a successful Medicine task check. Drop the Condition at the start of the scene after that if the task check failed or if there was no Medicine task check.;"Wenn dir die Vitalität ausgeht, bist du Außer Gefecht und nimmst nicht mehr am Kampf teil. 
+Der Zustand Außer Gefecht wird zu Beginn der nächsten Szene aufgehoben, wenn ein anderer Charakter eine erfolgreiche Probe auf Medizin durchführt.
+Wenn die Probe auf Medizin fehlgeschlagen ist oder dir niemand helfen konnte, wird der Zustand zu Beginn der darauffolgenden Szene aufgehoben.
+"
+out-of-ammo;Out of ammo!;Keine Munition mehr!
+overburdened;Overburdened;Überladen
+overburdened-info;When Overburdened, movement and attack checks are at ?2 pips. Drop the Overburdened Condition as a Free action if you can put down or drop the items that make you Overburdened. Drop the Overburdened Condition as a main action if you have to wriggle out of a harness to put down the items that make you Overburdened.;"Wenn du Überladen bist, sind Bewegungs- und Angriffswürfe um ?2 Pips erschwert.
+Beende den Zustand Überladen als Freie Aktion, indem du die Gegenstände, die zu schwer sind, ablegst oder fallen lässt.
+Beende den Zustand Überladen als Hauptaktion, wenn du dich aus einem Gurt befreien musst, um die zu schweren Gegenstände abzulegen.
+"
+pam;Pam!;Peng!
+paralysed;Paralysed;Paralysiert
+paralysed-info;You can’t take any actions on your turn. At the end of your turn, make an Endurance task check. If successful, “unlock” one kind of action (Free, Move, Main or Bonus) for the rest of the scene. Depending on the reason for the paralysis, there may be a modifier on the task check. Drop the Paralysed Condition when the source of the paralysis says it should be dropped.;"Du kannst in deinem Zug keine Aktionen ausführen.
+Am Ende deines Zuges führst du eine Probe auf Ausdauer durch. Wenn diese erfolgreich ist, schaltest du bis zum Ende der Szene eine Art von Aktion frei (Freie, Bewegungs-, Haupt- oder Bonusaktion). Je nach Ursache der Paralyse kann es einen Modifikator auf die Probe für diese Aktion geben.
+Hebe den Zustand Paralysiert auf, sobald es entsprechend der Ursache der Paralyse plausibel ist.
+"
+parry;Parry!;Pariert!
+passport-number;Passport Number;Passnummer
+percentile-dice;d100;W100
+percentile-dice-title;Percentile Dice;Prozentwürfel
+photo-title;Photo of holder/Photo du titulaire/Foto des Passinhabers;Foto des Passinhabers/Photo of holder/Photo du titulaire
+plot-hook;Plot hook;Plot-Aufhänger
+points-of-damage;points of damage;Punkte Schaden
+points-of-vitality;points of vitality;Punkte Vitalität
+prestidigitation;Prestidigitation;Fingerfertigkeit
+prestidigitation-skillroll;Prestidigitation;Fingerfertigkeit
+profession;Profession;Beruf
+profession-title;Profession / Profession / Beruf;Beruf / Profession / Profession
+prone;Prone;Am Boden
+prone-info;You can’t take a Move action. You can take a Sprint action, but it requires an Agility task check. Ranged Attack checks made against you from another zone are at ?2 pips. Your Defence checks against melee attacks or ranged attacks from the same zone are at ?2 pips. At the end of your turn, you may get up and drop the Prone Condition as a bonus action.;"Du kannst keine Bewegungsaktion ausführen. Du kannst eine Sprint-Aktion durchführen, aber sie erfordert eine Probe auf Beweglichkeit. Fernkampfangriffe gegen dich aus einer anderen Zone sind mit ?2 Pips erschwert. Deine Verteidigungsproben gegen Nahkampfangriffe oder Fernkampfangriffe aus derselben Zone sind mit ?2 Pips erschwert.
+Am Ende deines Zuges kannst du den Zustand Am Boden als Bonusaktion ablegen und aufstehen."
+protection;Protection;Schutz
+protection-value;Protection value;Schutzwert
+ranged;Ranged;entfernt
+rangedcombat;Ranged Combat;Fernkampf
+rangedcombat-skillroll;lets fly;lässt Kugeln fliegen
+rank;Rank;Rang
+ratatatat!;Ratatatat!;Ratatatat!
+recovers;Recovers;Erholt sich
+recovery;Recovery;Erholung
+redtape;Red tape;Bürokratie
+redtape-skillroll;tries to cut through the red tape;zähmt den Amtsschimmel
+reduce-ini;Reduce initiative score by 2;Reduziere die Initiative um 2
+reload-info;Reload: Enter lower tag value OR use 99 for single-shot;Nachladen: Geben Sie den niedrigeren Eigenschaftswert ein ODER verwenden Sie 99 für Einzelschuss.
+reroll-damage;Re-roll damage if you wish.;Du darfst den Schaden neuwürfeln
+residence;Place of residence;Wohnort
+residence-title;Residence / Domicile / Wohnort;Wohnort / Residence / Domicile
+restrained;Restrained;Bewegungsunfähig
+restrained-info;You cannot take a Move action or Sprint action. Drop the Restrained Condition by making a successful Unarmed Melee, Strength or Agility task check as your Main action. The check is opposed if another character is holding you. If the check fails, or if you lose, you’re still Restrained.;"Du kannst weder eine Bewegungs- noch eine Sprintaktion durchführen.
+Hebe den Zustand Bewegungsunfähig auf, indem du als Hauptaktion eine erfolgreiche Probe auf unbewaffneten Nahkampf, Stärke oder Beweglichkeit durchführst. Es handelt sich um eine vergleichende Probe, wenn ein anderer Charakter dich festhält. Wenn die Probe fehlschlägt oder du im Vergleich unterliegst, bist du immer noch Bewegungsunfähig.
+"
+roll;Roll;Wurf
+rolls-to;rolls to;Würfelt um
+science;Science;Naturwissenschaften
+science-skillroll;puts on a lab coat;zieht sich den Labormantel an
+search;Search;Suchen
+search-skillroll;searches high and low;durchsucht die hintersten Ecken
+security;Security;Sicherheitssysteme
+security-skillroll;attempts a bit of breaking and entering;hackt sich durch die Sicherheit
+signature;Signature;Unterschrift
+signature-item;Character's Signature Item?;Markenzeichen
+signature-title;Holder's signature/ Signature du titulaire / Unterschrift des Passinhabers;Unterschrift des Passinhabers / Holder's signature/ Signature du titulaire
+skill;Skill;Kompetenz
+skills;SKILLS;KOMPETENZEN
+skills-title;Skills / Competences / Kompetenzen;Kompetenzen / Skills / Competences
+sneak;Sneak;Schleichen
+sneak-skillroll;tries to be inconspicuous;versucht nicht aufzufallen
+soak;Soak;Absorbtion
+soak-damage;Soak damage;absorviert Schaden
+soaks;Soaks;absorbiert
+special;Special;Speziell
+specialist;Specialist;Spezialist
+special-skillroll;works a little magic;versucht den Zauber wirken zu lassen
+stats;Stats;Attribute
+status;Status;Status
+status-skillroll;asks 'Don't you know who I am?';"""Kennen wir uns nicht von irgendwoher?"""
+story-points;Story Points;Storypunkte
+strength;Strength;Stärke
+strength-skillroll;applies the elbow grease;lässt die Muskeln spielen
+stunned;Stunned;Benommen
+stunned-info;Attack checks are at ?5 pips. Sprint or Move actions that normally require a task check are also at ?5 pips. Regular Sprint or Move actions now require a task check. Other task checks are at ?2 pips. Unless being Stunned is the result of poison or illness, you can often use your Main action to make a Willpower task check. If successful, drop the Stunned Condition. Drop the Stunned Condition at the start of the next scene if it is still in effect.;"Angriffsproben sind um ?5 Pips erschwert. Sprint- oder Bewegungsaktionen, die eine Aufgabenprobe erfordern, sind ebenfalls um ?5 Pips erschwert. Reguläre Sprint- oder Bewegungsaktionen erfordern jetzt eine Aufgabenprobe.
+Andere Aufgabenproben sind um ?2 Pips erschwert.
+Insofern der Zustand Benommen nicht durch ein Gift oder eine Krankheit verursacht wurde, kannst du deine Hauptaktion nutzen, um einen Probe auf Willenskraft durchzuführen. Bei Erfolg wird der Zustand Benommen aufgehoben.
+Ansonsten wird der Zustand in der darauffolgenden Szene abgelegt.
+"
+subterfuge;Subterfuge;Täuschung
+subterfuge-skillroll;employs some trickery;versucht einen Bluff
+success;Success!;Erfolg!
+success-choose-two;Success! Choose two from;Erfolg! Wähle zwei
+summing-dice;Nd6;n W6
+summing-dice-title;Summing Dice;Würfel zusammenzählen
+surprised;Surprised;Überrascht
+surprised-info;Whenever you are surprised, caught unprepared, or otherwise not ready for action, you get the Surprised Condition. You can only take a Free action on your turn. Drop the Surprised Condition at the end of your turn.;"Immer wenn du überrascht bist, auf dem falschen Fuß erwischt wirst oder aus anderen Gründen nicht in der Lage bist zu handeln, erhältst du den Zustand Überrascht.
+Du kannst in deinem Zug lediglich die Freie Aktion ausführen.
+Lege den Zustand Überrascht am Ende deines Zuges ab.
+"
+survival;Survival;Überleben
+survival-skillroll;channels their wild side;zeigt seine natürlichen Instinkte
+tags;Tags;Eigenschaften
+take-cover;Take Cover!;In Deckung gehen!
+takes-aim;takes aim and...PAM!;zielt und ... PENG!
+takes-cover;takes cover!;geht in Deckung
+target-prone;The target is PRONE;Das Ziel ist AM BODEN
+target-restrained;The target is RESTRAINED;Das Ziel ist BEWEGUNGSUNFÄHIG
+terrified;Terrified;Panisch
+terrified-info;All checks are at ?2 pips. Attack checks against the source of your terror are at ?5 pips. You cannot move closer to the source of your terror. At the start of your turn, if you are in the same zone as the source of your terror, make a Willpower task check as a Free action. If it fails, you must move out of the zone before doing anything else. Replace the Terrified Condition with the Frightened Condition by making a successful Willpower task check as your Main action.;"Alle Aufgabenproben sind mit ?2 Pips erschwert. Angriffsproben gegen den Ursprung deiner Panik sind mit ?5 Pips erschwert. Du kannst dich nicht näher an den Ursprung deiner Panik heranbewegen. Wenn du dich zu Beginn deines Zuges in derselben Zone wie der Ursprung deiner Panik befindest, führe eine Probe auf Willenskraft als Freie Aktion durch. Schlägt sie fehl, musst du dich aus der Zone herausbewegen, bevor du etwas anderes tun kannst.
+Ersetze den Zustand Panisch durch den Zustand Verängstigt, indem du als Hauptaktion eine erfolgreiche Probe auf Willenskraft ablegst.
+"
+tick;Tick if carried;Markiere, wenn getragen
+total-pips;Total Pips;Summe Pips
+underling;Underling;Untergebene
+vehicles;Vehicles;Fahrzeuge
+vehicles-skillroll;sees what this baby can do;schaut, was das Baby so kann
+visa-title;Visa Stamps /<br/>Visas /<br/>Visastempel;Visastempel /<br/>Visa Stamps /<br/>Visas
+visa-title-nowrap;Visa Stamps / Visas / Visastempel;Visastempel / Visa Stamps / Visas
+vitality;Vitality;Vitalität
+vitality-max;Vitality / Max;Max. Vitalität
+vitality-max2;Vitality Max;Max. Vitalität
+vs;vs;gegen
+weapon;Weapon;Waffe
+weapon-jammed;Weapon jammed!;Waffe klemmt!
+whump!;Whump!;Whump!
+willpower;Willpower;Willenskraft
+willpower-skillroll;attempts to get a grip;versucht den Schwachpunkt zu finden
+wounded;Wounded;Verwundet
+wounded-info;Take the Wounded Condition instead of Vitality loss. You don’t have to take the Wounded Condition if you don’t want to. You can only take the Wounded Condition if you do not already have the Wounded Condition. Once the fight ends, all further task checks are at ?2 pips until the Wounded Condition heals. Ignore the effects of the Wounded Condition for one scene if someone else makes a successful Medicine task check. Drop the Wounded Condition after a two-day recuperating scene and a successful Medicine, Credits or Contacts task check (and possibly some uncomfortable questions from the police), or by spending downtime on Mend and Recuperate.;"Nimm den Zustand Verwundet an statt Vitalität zu verlieren. Du musst den Zustand Verwundet nicht annehmen, wenn du nicht möchtest. Du kannst den Zustand Verwundet nur annehmen, wenn du ihn noch nicht hast.
+Nach dem Kampf sind alle deine Aufgabenproben um ?2 Pips erschwert, bis deine Wunden geheilt sind. Ignoriere die Auswirkungen des Zustands Verwundet für eine Szene, wenn jemand anderes eine erfolgreiche Probe auf Medizin ablegt.
+Hebe den Zustand Verwundet auf nach einer zweitägigen Genesungsszene oder indem du die Zeit zwischen den Abenteuern damit verbringst, dich zu erholen. Bei der Genesungsszene kann es sich um einen Krankenhausbesuch handeln (inklusive unangenehmer Fragen der Polizei), einen Besuch bei einem mit angemessener Bestechung zur Verschwiegenheit verpflichteten Arzt (Probe auf Kreditwürdigkeit bzw. Kontakte) oder die Versorgung durch einen anderen Charakter (Probe auf Medizin).
+"
