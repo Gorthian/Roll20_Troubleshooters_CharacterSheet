@@ -1,10 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Parisienne&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation:wght@500&display=swap');
 
 /* Set the min-width so that when the window is resized the look will stay consistent */
 
 div.sheet-ts {
 	min-width: 850px;
 	background: white;
+
+	--comic-font		: 'Edu NSW ACT Foundation', cursive;
+	--comic-font-size	: 14px;
 }
 
 /* Universal styling applied to all elements of these types */
@@ -498,6 +502,7 @@ input.sheet-gearcheck:checked {
   	padding			: 24px;
   	text-align		: center;
   	color			: #000;
+	font-family		: 'Edu NSW ACT Foundation', cursive;
 
   	display 				: grid;
   	grid-template-columns	: repeat(2,50%);
@@ -518,8 +523,17 @@ input.sheet-gearcheck:checked {
 
 .sheet-rolltemplate-basic div.sheet-template-container div.sheet-template-result {
 	border			: 1px solid red;
+	font-family		: 'Edu NSW ACT Foundation', cursive;
+	font-size		: 18px;
 }
 
 .sheet-rolltemplate-basic div.sheet-template-container div.sheet-template-character {
 	margin-top 		: 20px;
+	font-family		: 'Edu NSW ACT Foundation', cursive;
+	font-size		: 18px;
+}
+
+.sheet-rolltemplate-basic div.sheet-template-container p {
+	font-family		: 'Edu NSW ACT Foundation', cursive;
+	font-size		: 18px;
 }
