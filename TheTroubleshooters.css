@@ -486,7 +486,8 @@ input.sheet-gearcheck:checked {
 .sheet-rolltemplate-basic div.sheet-template-container {
 	background-image		: url(https://greengorilla.de/wp-content/uploads/rahmen_260x260.png);
 	background-repeat		: no-repeat;
-	background-size			: 260px 100%;
+	background-origin		: border-box;
+	background-size			: 100% 100%;
 	background-color		: whitesmoke;
 	margin					: 0;
 	padding-top				: 25px;
