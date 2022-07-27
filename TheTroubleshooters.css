@@ -486,7 +486,6 @@ input.sheet-gearcheck:checked {
   	background-color: #e0d8d8;
   	border			: 3px solid black;
   	border-radius	: 15px;
-	font-family		: comic-sans;
 }
 
 .sheet-rolltemplate-basic div.sheet-template-container div.sheet-template-speechbubble {
@@ -515,6 +514,10 @@ input.sheet-gearcheck:checked {
   	border-bottom	: 20px solid transparent;
   	left			: 32px;
   	bottom			: -24px;
+}
+
+.sheet-rolltemplate-basic div.sheet-template-container div.sheet-template-result {
+	border			: 1px solid red;
 }
 
 .sheet-rolltemplate-basic div.sheet-template-container div.sheet-template-character {
