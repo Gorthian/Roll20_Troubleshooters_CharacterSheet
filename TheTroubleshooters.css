@@ -521,6 +521,8 @@ input.sheet-gearcheck:checked {
 	font-size		: 20px;
 }
 
-div.sheet-template-result .inlineroleresult {
+.sheet-rolltemplate-basic div.sheet-template-result .inlinerollresult {
 	all: unset;
+	background-color: transparent;
+	border: none;
 }
