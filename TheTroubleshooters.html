@@ -117,11 +117,14 @@
 					<fieldset class="repeating_languages">
 						<input class="sheet-fluff" type="text" name="attr_language" placeholder="Language" data-i18n-placeholder="language" style="width: 45%"/>
 						<input class="sheet-skill" type="text" placeholder="Cost" data-i18n-placeholder="cost" style="width: 8ch"/>
-						<input type="checkbox" name="attr_languagetick1" value="1"/>
-						<input type="checkbox" name="attr_languagetick2" value="1"/>
-						<input type="checkbox" name="attr_languagetick3" value="1"/>
-						<input type="checkbox" name="attr_languagetick4" value="1"/>
-						<input type="checkbox" name="attr_languagetick5" value="1"/>
+						<div class="radiocontainer">
+							<input type="radio" checked="checked" class="radiobox reset" name="attr_languagetick" value="0">
+							<input type="radio" class="radiobox" name="attr_languagetick" value="1">
+							<input type="radio" class="radiobox" name="attr_languagetick" value="2">
+							<input type="radio" class="radiobox" name="attr_languagetick" value="3">
+							<input type="radio" class="radiobox" name="attr_languagetick" value="4">
+							<input type="radio" class="radiobox" name="attr_languagetick" value="5">
+						</div>
 					</fieldset>
 				<br />
 				<h3 data-i18n="contacts-title">Contacts / Contacts / Kontakte</h3>

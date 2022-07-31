@@ -552,3 +552,39 @@ input.sheet-gearcheck:checked {
 	background-color	: transparent;
 	border				: none;
 }
+
+/* Fill Radiobuttons from left to right */
+.radiocontainer {
+	display	: inline-flex;
+	gap		: 10px;
+}
+
+.radiocontainer input[type=radio].radiobox {
+	display				: block;  
+	order				: 1;
+	border				: 1px solid black;
+	border-radius		: 50%;
+	background			: grey;
+	height				: 2rem;
+	width				: 2rem;
+	appearance			: none;
+	-webkit-appearance	: none;
+	cursor				: pointer;
+	z-index				: 1;
+}
+
+.radiocontainer input[type=radio].radiobox:checked {
+	opacity		: 0;
+	z-index		: 0;
+	position	: absolute;
+}
+
+.radiocontainer input[type=radio].radiobox:checked ~ .radiobox {
+	order				: 3;
+	background-color	: transparent;
+}
+
+.radiocontainer input[type=radio].radiobox.reset {
+	order				: 2;
+	background-color	: black;
+}
