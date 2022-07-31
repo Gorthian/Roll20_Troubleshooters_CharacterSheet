@@ -104,6 +104,32 @@ div.sheet-skills, div.sheet-character, div.sheet-gear, div.sheet-journal, div.sh
 	float	: left;
 }
 
+:is(.lang-undefined, .lang-de) div.sheet-conditions {
+	display					: grid;
+	grid-template-areas		: 
+		"prone			mortalperil"
+		"outcold		terrified"
+		"stunned		paralysed"
+		"intoxicated 	deaf"
+		"restrained 	overburdened"
+		"blinded		surprised"
+		"onfire 		frightend"
+		"exhausted 		wounded";
+}
+
+.lang-en div.sheet-conditions {
+	display					: grid;
+	grid-template-areas		: 
+		"blinded		overburdened"
+		"deaf			paralysed"
+		"exhausted		prone"
+		"frightend 		restrained"
+		"intoxicated 	stunned"
+		"mortalperil 	surprised"
+		"onfire 		terrified"
+		"outcold 		wounded";
+}
+
 /* Targetted styling that only effects elements with these classes */
 
 img.sheet-shield {
