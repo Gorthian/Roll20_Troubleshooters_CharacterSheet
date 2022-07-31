@@ -242,16 +242,11 @@ select.sheet-shorter {
 	color: white;
 }
 
-.charsheet button[type="action"].sheet-cbtroll {
-	width: 12ch;
-}
-
-.charsheet button[type="action"].sheet-npcroll {
-	width: 6ch;
-}
-
 .charsheet button[type="action"].sheet-cbtroll,
-.charsheet button[type="action"].sheet-npcroll {
+.charsheet button[type="action"].sheet-npcroll,
+.charsheet .repcontrol button.repcontrol_edit,
+.charsheet .repcontrol button.repcontrol_add,
+.charsheet button[type="roll"].sheet-blank-button {
 	border: 1px solid black;
 	background-color: silver;
 	background-image: linear-gradient(to top, silver, white);
@@ -260,7 +255,10 @@ select.sheet-shorter {
 }
 
 .charsheet button[type="action"].sheet-cbtroll:hover,
-.charsheet button[type="action"].sheet-npcroll:hover {
+.charsheet button[type="action"].sheet-npcroll:hover
+.charsheet .repcontrol button.repcontrol_edit:hover,
+.charsheet .repcontrol button.repcontrol_add:hover,
+.charsheet button[type="roll"].sheet-blank-button:hover {
 	background-color: purple;
 	background-image: linear-gradient(to top, purple, white);
 	color: white;
