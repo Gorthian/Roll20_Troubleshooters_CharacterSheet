@@ -230,11 +230,12 @@ select.sheet-shorter {
 }
 
 .charsheet button[type="action"].sheet-skillroll {
-	width: 15ch;
-	border: none;
-	background-color: white;
-	text-align: left;
-	font-weight: 550;
+	width				: 69%;
+	border				: none;
+	background-color	: white;
+	text-align			: left;
+	font-weight			: 550;
+	font-size			: 12px;
 }
 
 .charsheet button[type="action"].sheet-skillroll:hover {
