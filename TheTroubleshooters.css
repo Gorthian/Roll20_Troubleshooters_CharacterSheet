@@ -159,11 +159,11 @@ label.sheet-gearcheck {
 }
 
 label.sheet-conditionlabel {
-	display: inline-block;
-	white-space: pre;
-	font-size: 1em;
-	font-weight: 550;
-	width: 13ch;
+	display		: inline-block;
+	white-space	: pre;
+	font-size	: 1em;
+	font-weight	: 550;
+	width		: auto;
 }
 
 label.sheet-skilllabel {
@@ -581,8 +581,10 @@ input.sheet-gearcheck:checked {
 
 /* Fill Radiobuttons from left to right */
 .radiocontainer {
-	display	: inline-flex;
-	gap		: 10px;
+	display			: inline-flex;
+	gap				: 10px;
+	float			: right;
+	padding-right	: 20px;
 }
 
 .radiocontainer input[type=radio].radiobox {
