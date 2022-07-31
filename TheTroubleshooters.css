@@ -83,7 +83,7 @@ div.sheet-skills, div.sheet-character, div.sheet-gear, div.sheet-journal, div.sh
 	width		: 850px;
 	min-height	: 650px;
 	background-image: url(https://greengorilla.de/wp-content/uploads/The-Troubleshooters-Pass-Hintergrund-linke-Seite.jpg), url(https://greengorilla.de/wp-content/uploads/The-Troubleshooters-Pass-Hintergrund-rechte-Seite.jpg);
-	background-position: left 18px, right 18px;
+	background-position: left top, right top;
 	background-repeat: no-repeat, no-repeat;
 	background-size: 425px 100%;
 }
@@ -98,6 +98,10 @@ div.sheet-skills, div.sheet-character, div.sheet-gear, div.sheet-journal, div.sh
 	grid-template-columns	: repeat(2, 50%);
 	width					: 100%;
 	padding					: 10px;
+}
+
+.charsheet .repcontrol button.repcontrol_edit {
+	float	: left;
 }
 
 /* Targetted styling that only effects elements with these classes */
@@ -258,10 +262,10 @@ input.sheet-gearcheck:checked {
 }
 
 .sheet-fluff {
-	width:98%;
-	font-size: 1.2em;
-	border: none;
-	border-bottom: 2px dotted black;
+	width			: 95%;
+	font-size		: 1.2em;
+	border			: none;
+	border-bottom	: 2px dotted black;
 }
 
 .sheet-cover {
