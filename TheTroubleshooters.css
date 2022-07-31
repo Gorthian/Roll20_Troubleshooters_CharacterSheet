@@ -9,6 +9,7 @@
 
 	--comic-font		: 'Edu NSW ACT Foundation', cursive;
 	--comic-font-size	: 14px;
+	--tab-bar-height	: 18px;
 }
 
 /* NPC View */
@@ -269,8 +270,9 @@ input.sheet-gearcheck:checked {
 
 /*Configure the tabs*/
 .charsheet div.sheet-cover, .charsheet div.sheet-character, .charsheet div.sheet-skills, .charsheet div.sheet-gear, .charsheet div.sheet-journal, .charsheet div.sheet-combat, .charsheet div.sheet-npc {
-	display: none;
-	background-color: #f9f9eb;
+	display				: none;
+	background-color	: #f9f9eb;
+	margin-top			: var(--tab-bar-height);
 }
 
 .charsheet input[type=radio] {
@@ -523,7 +525,7 @@ input.sheet-gearcheck:checked {
 	background-position		: center;
 	background-size			: 200px;
 	
-	font-family				: 'Edu NSW ACT Foundation', cursive;
+	font-family				: var(--comic-font);
 	font-size				: 25px;
 	font-weight				: bold;
 	text-align				: center;
@@ -537,12 +539,12 @@ input.sheet-gearcheck:checked {
 }
 
 .sheet-rolltemplate-basic div.sheet-template-container p {
-	font-family		: 'Edu NSW ACT Foundation', cursive;
+	font-family		: var(--comic-font);
 	font-size		: 20px;
 }
 
 .sheet-rolltemplate-basic div.sheet-template-result .inlinerollresult {
-	all: unset;
-	background-color: transparent;
-	border: none;
+	all					: unset;
+	background-color	: transparent;
+	border				: none;
 }
