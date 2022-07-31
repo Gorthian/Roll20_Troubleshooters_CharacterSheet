@@ -3,12 +3,31 @@
 
 /* Set the min-width so that when the window is resized the look will stay consistent */
 
-div.sheet-ts {
-	min-width: 850px;
-	background: white;
+.sheet-ts {
+	min-width	: 850px;
+	background	: white;
 
 	--comic-font		: 'Edu NSW ACT Foundation', cursive;
 	--comic-font-size	: 14px;
+}
+
+/* NPC View */
+input[type=checkbox].sheet-isnpc-check:checked ~ .sheet-ts {
+	--show-npc-view	: inline;
+	--show-pc-view	: none;
+}
+
+input[type=checkbox].sheet-isnpc-check:not(:checked) ~ .sheet-ts {
+	--show-npc-view	: none;
+	--show-pc-view	: inline;
+}
+
+div.sheet-ts .sheet-npc-view {
+	display		: var(--show-npc-view);
+}
+
+div.sheet-ts .sheet-pc-view {
+	display		: var(--show-pc-view);
 }
 
 /* Universal styling applied to all elements of these types */
