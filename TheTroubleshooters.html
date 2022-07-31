@@ -16,22 +16,23 @@
 		</div>
 		<div></div>
 		<div style="border: 1px black solid; padding: 10px;">
-				<div class="sheet-pcstats">
-					<input type="number" name="attr_vitality" class="sheet-number" min="0" max="20" title="Current Vitality" data-i18n-title="current-vitality"/> / <input type="number" name="attr_vitality_max_vis" class="sheet-skill" value="4" readonly="true" title="Max Vitality (based on skill values & conditions)" data-i18n-title="max-vitality"/>
-					<input type="hidden" class="sheet-number" name="attr_vitality_max"  value="4"/>&nbsp;|&emsp;&emsp;
-					<input type="number" name="attr_storypoints" class="sheet-number" value="3" min="0" max="12" title="Story Points" data-i18n-title="story-points"/>&emsp;&emsp;|&emsp;
-					<input type="number" name="attr_advancements" class="sheet-number" value="0" min="0" max="10" title="Advancement / Reward Rolls" data-i18n-title="advancement"/>
-					<br>
-					&ensp;<label style="display: inline; font-size: 1em" data-i18n="vitality-max">Vitality / Max</label>&ensp;&nbsp;|&ensp;
-					<label style="display: inline; font-size: 1em" data-i18n="story-points">Story Points</label>&nbsp;|&nbsp; 
-					<label style="display: inline; font-size: 1em" data-i18n="advances">Advances</label>
-				</div>
-				<br/>
-				<span style="display:none" data-i18n="how-many-dice">How many dice</span>
-				&emsp;<button type="roll" class="sheet-blank-button" value="&{template:basic} {{name=@{name}}} {{result=[[?{@{how_many_dice}|1}d6]]}} {{dicetype=d6}} {{dicecount=?{@{how_many_dice}|1}}}" title="Summing Dice" data-i18n-title="summing-dice-title" data-i18n="summing-dice">Nd6</button>
-				&emsp;<button type="roll" class="sheet-blank-button" value="&{template:basic} {{name=@{name}}} {{result=[[?{@{how_many_dice}|1}d6>4]]}} {{dicetype=d6P}} {{dicecount=?{@{how_many_dice}|1}}}" title="Non-exploding Dice Pool" data-i18n-title="non-exploding-pool-title" data-i18n="non-exploding-pool">NdP</button>
-				&emsp;<button type="roll" class="sheet-blank-button" value="&{template:basic} {{name=@{name}}} {{result=[[?{@{how_many_dice}|1}d6!>6>4]]}} {{dicetype=d6X}} {{dicecount=?{@{how_many_dice}|1}}}" title="Exploding Dice Pool" data-i18n-title="exploding-pool-title" data-i18n="exploding-pool">NdX</button>
-				&emsp;<button type="roll" class="sheet-blank-button" value="&{template:basic} {{name=@{name}}} {{result=[[1d100]]}} {{dicetype=d%}} {{dicecount=1}}" title="Percentile Dice" data-i18n-title="percentile-dice-title" data-i18n="percentile-dice">d100</button>
+			<div class="sheet-pcstats">
+				<input type="number" name="attr_vitality" class="sheet-number" min="0" max="20" title="Current Vitality" data-i18n-title="current-vitality"/> / <input type="number" name="attr_vitality_max_vis" class="sheet-skill" value="4" readonly="true" title="Max Vitality (based on skill values & conditions)" data-i18n-title="max-vitality"/>
+				<input type="hidden" class="sheet-number" name="attr_vitality_max"  value="4"/>&nbsp;|&emsp;&emsp;
+				<input type="number" name="attr_storypoints" class="sheet-number" value="3" min="0" max="12" title="Story Points" data-i18n-title="story-points"/>&emsp;&emsp;|&emsp;
+				<input type="number" name="attr_advancements" class="sheet-number" value="0" min="0" max="10" title="Advancement / Reward Rolls" data-i18n-title="advancement"/>
+				<br>
+				&ensp;<label style="display: inline; font-size: 1em" data-i18n="vitality-max">Vitality / Max</label>&ensp;&nbsp;|&ensp;
+				<label style="display: inline; font-size: 1em" data-i18n="story-points">Story Points</label>&nbsp;|&nbsp; 
+				<label style="display: inline; font-size: 1em" data-i18n="advances">Advances</label>
+			</div>
+			<br/>
+			<span style="display:none" data-i18n="how-many-dice">How many dice</span>
+			&emsp;<button type="roll" class="sheet-blank-button" value="&{template:basic} {{name=@{name}}} {{result=[[?{@{how_many_dice}|1}d6]]}} {{dicetype=d6}} {{dicecount=?{@{how_many_dice}|1}}}" title="Summing Dice" data-i18n-title="summing-dice-title" data-i18n="summing-dice">Nd6</button>
+			&emsp;<button type="roll" class="sheet-blank-button" value="&{template:basic} {{name=@{name}}} {{result=[[?{@{how_many_dice}|1}d6>4]]}} {{dicetype=d6P}} {{dicecount=?{@{how_many_dice}|1}}}" title="Non-exploding Dice Pool" data-i18n-title="non-exploding-pool-title" data-i18n="non-exploding-pool">NdP</button>
+			&emsp;<button type="roll" class="sheet-blank-button" value="&{template:basic} {{name=@{name}}} {{result=[[?{@{how_many_dice}|1}d6!>6>4]]}} {{dicetype=d6X}} {{dicecount=?{@{how_many_dice}|1}}}" title="Exploding Dice Pool" data-i18n-title="exploding-pool-title" data-i18n="exploding-pool">NdX</button>
+			&emsp;<button type="roll" class="sheet-blank-button" value="&{template:basic} {{name=@{name}}} {{result=[[1d100]]}} {{dicetype=d%}} {{dicecount=1}}" title="Percentile Dice" data-i18n-title="percentile-dice-title" data-i18n="percentile-dice">d100</button>
+			&emsp;<span data-i18n="npc">add text in translation files</span> : <input type="checkbox" name="attr_isnpc" value="1" />
 		</div>
 	</div>	
 	<br/>
