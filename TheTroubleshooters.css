@@ -230,7 +230,7 @@ select.sheet-shorter {
 }
 
 .charsheet button[type="action"].sheet-skillroll {
-	width				: 69%;
+	width				: 68%;
 	border				: none;
 	background-color	: white;
 	text-align			: left;
