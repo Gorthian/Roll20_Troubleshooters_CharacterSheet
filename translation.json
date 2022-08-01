@@ -93,6 +93,8 @@
 	"family-name-title" : "Name / Nom / Name",
 	"family-name" : "Family name",
 	"fixed" : "Fixed",
+	"flip" : "Flipp",
+	"flips": "flipps",
 	"fluent-language-title" : "Fluent languages",
 	"frightened" : "Frightened",
 	"frightened-info" : "You cannot enter the same zone as the source of your fright. Attack checks are at −2 pips. Drop the Frightened Condition by making a successful Willpower task check as your main action.",

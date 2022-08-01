@@ -93,6 +93,8 @@
 	"family-name-title" : "Name / Name / Nom",
 	"family-name" : "Nachname",
 	"fixed" : "Fixiert",
+	"flip" : "Flipp",
+	"flips": "flippt",
 	"fluent-language-title" : "Fließende Sprache",
 	"frightened" : "Verängstigt",
 	"frightened-info" : "Du kannst die Zone, in der sich die Ursache deiner Verängstigung befindet, nicht betreten, insofern sie sich nicht sowieso schon in deiner Zone befindet. Angriffsproben sind mit −2 Pips erschwert. Hebe den Zustand Verängstigt auf, indem du eine erfolgreiche Probe auf Willenskraft als Hauptaktion durchführst.",

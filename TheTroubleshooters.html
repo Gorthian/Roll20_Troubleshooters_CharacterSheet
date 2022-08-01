@@ -32,7 +32,7 @@
 			&emsp;<button type="roll" class="sheet-blank-button" value="&{template:basic} {{name=@{name}}} {{result=[[?{@{how_many_dice}|1}d6]]}} {{dicetype=d6}} {{dicecount=?{@{how_many_dice}|1}}}" title="Summing Dice" data-i18n-title="summing-dice-title" data-i18n="summing-dice">Nd6</button>
 			&emsp;<button type="roll" class="sheet-blank-button" value="&{template:basic} {{name=@{name}}} {{result=[[?{@{how_many_dice}|1}d6>4]]}} {{dicetype=d6P}} {{dicecount=?{@{how_many_dice}|1}}}" title="Non-exploding Dice Pool" data-i18n-title="non-exploding-pool-title" data-i18n="non-exploding-pool">NdP</button>
 			&emsp;<button type="roll" class="sheet-blank-button" value="&{template:basic} {{name=@{name}}} {{result=[[?{@{how_many_dice}|1}d6!>6>4]]}} {{dicetype=d6X}} {{dicecount=?{@{how_many_dice}|1}}}" title="Exploding Dice Pool" data-i18n-title="exploding-pool-title" data-i18n="exploding-pool">NdX</button>
-			&emsp;<button type="roll" class="sheet-blank-button" value="&{template:basic} {{name=@{name}}} {{result=[[1d100]]}} {{dicetype=d%}} {{dicecount=1}}" title="Percentile Dice" data-i18n-title="percentile-dice-title" data-i18n="percentile-dice">d100</button>
+			&emsp;<button type="roll" class="sheet-blank-button" value="&{template:d100} {{name=@{name}}} {{tens=[[1d10-1]]}} {{ones=[[1d10-1]]}} {{dicetype=d%}} {{dicecount=1}}" title="Percentile Dice" data-i18n-title="percentile-dice-title" data-i18n="percentile-dice">d100</button>
 			&emsp;<span data-i18n="npc">add text in translation files</span> : <input type="checkbox" class="sheet-isnpc-check" name="attr_isnpc" value="1" />
 		</div>
 	</div>	
@@ -559,6 +559,31 @@
 		<p>{{name}}</p>
 		<p><span data-i18n="rolls">Rolls</span> {{dicecount}} <span data-i18n="{{dicetype}}">dicetype</span></p><br/>
 		<div class="sheet-template-result">{{result}}</div>
+	</div>
+</rolltemplate>
+
+<rolltemplate class="sheet-rolltemplate-d100">
+    <div class="sheet-template-container">
+		<p>{{name}}</p>
+		<p><span data-i18n="rolls">Rolls</span> {{dicecount}} <span data-i18n="{{dicetype}}">dicetype</span></p><br/>
+		<div class="sheet-template-result">
+			<div class="sheet-template-tens">{{tens}}</div>
+			<div class="sheet-template-ones">{{ones}}</div>
+		</div>
+		<div class="sheet-template-flip">
+			<button type="roll" class="sheet-blank-button" value="&{template:d100-flip} {{name=@{name}}} {{tens={{ones}}}}]}} {{ones={{tens}}}}" title="Flip" data-i18n-title="flip" data-i18n="flip">d100</button>
+		</div>
+	</div>
+</rolltemplate>
+
+<rolltemplate class="sheet-rolltemplate-d100-flip">
+    <div class="sheet-template-container">
+		<p>{{name}}</p>
+		<p><span data-i18n="flips">Rolls</span></p><br/>
+		<div class="sheet-template-result">
+			<div class="sheet-template-tens">{{tens}}</div>
+			<div class="sheet-template-ones">{{ones}}</div>
+		</div>		
 	</div>
 </rolltemplate>
 

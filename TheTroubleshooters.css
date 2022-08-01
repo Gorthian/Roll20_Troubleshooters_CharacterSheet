@@ -82,7 +82,7 @@ textarea {
 div.sheet-skills, div.sheet-character, div.sheet-gear, div.sheet-journal, div.sheet-combat, div.sheet-npc {
 	width		: 850px;
 	min-height	: 650px;
-	background-image: url(https://greengorilla.de/wp-content/uploads/The-Troubleshooters-Pass-Hintergrund-linke-Seite.jpg), url(https://greengorilla.de/wp-content/uploads/The-Troubleshooters-Pass-Hintergrund-rechte-Seite.jpg);
+	background-image: url(https://greengorilla.de/vtt/The-Troubleshooters-Pass-Hintergrund-linke-Seite.jpg), url(https://greengorilla.de/vtt/The-Troubleshooters-Pass-Hintergrund-rechte-Seite.jpg);
 	background-position: left top, right top;
 	background-repeat: no-repeat, no-repeat;
 	background-size: 425px 100%;
@@ -533,8 +533,10 @@ input.sheet-gearcheck:checked {
  background-color:#eee;
 }
 
-.sheet-rolltemplate-basic div.sheet-template-container {
-	background-image		: url(https://greengorilla.de/wp-content/uploads/rahmen_260x260.png);
+.sheet-rolltemplate-basic div.sheet-template-container,
+.sheet-rolltemplate-d100 div.sheet-template-container,
+.sheet-rolltemplate-d100-flip div.sheet-template-container {
+	background-image		: url(https://greengorilla.de/vtt/rahmen_260x260.png);
 	background-repeat		: no-repeat;
 	background-origin		: border-box;
 	background-size			: 100% 100%;
@@ -549,7 +551,7 @@ input.sheet-gearcheck:checked {
 }
 
 .sheet-rolltemplate-basic div.sheet-template-container div.sheet-template-result {
-	background-image		: url(https://greengorilla.de/wp-content/uploads/TS_Boom_grey_200.png);
+	background-image		: url(https://greengorilla.de/vtt/TS_Boom_grey_200.png);
 	background-repeat		: no-repeat;
 	background-position		: center;
 	background-size			: 200px;
@@ -562,21 +564,58 @@ input.sheet-gearcheck:checked {
 	margin-bottom			: auto;
 
 	display					: inline-block;
-	width					: 200px;
+	width					: 100%;
 	height					: 200px;
 	line-height				: 200px;
 }
 
-.sheet-rolltemplate-basic div.sheet-template-container p {
+.sheet-rolltemplate-basic div.sheet-template-container p,
+.sheet-rolltemplate-d100 div.sheet-template-container p,
+.sheet-rolltemplate-d100-flip div.sheet-template-container p{
 	font-family		: var(--comic-font);
 	font-size		: 20px;
 }
 
-.sheet-rolltemplate-basic div.sheet-template-result .inlinerollresult {
+.sheet-rolltemplate-basic div.sheet-template-result .inlinerollresult,
+.sheet-rolltemplate-d100 div.sheet-template-result .inlinerollresult,
+.sheet-rolltemplate-d100-flip div.sheet-template-result .inlinerollresult {
 	all					: unset;
 	background-color	: transparent;
 	border				: none;
 }
+
+.sheet-rolltemplate-d100 div.sheet-template-container div.sheet-template-result,
+.sheet-rolltemplate-d100-flip div.sheet-template-container div.sheet-template-result {
+	background-image		: url(https://greengorilla.de/vtt/TS_dice100_red_210.png);
+	background-repeat		: no-repeat;
+	background-position		: center;
+	background-size			: 200px;
+	
+	font-family				: var(--comic-font);
+	font-size				: 25px;
+	font-weight				: bold;
+	text-align				: center;
+	margin-top				: auto;
+	margin-bottom			: auto;
+
+	display					: inline-block;
+	width					: 100%;
+	height					: 200px;
+	line-height				: 200px;
+
+	display					: grid;
+	grid-template-columns	: repeat(2, 50%);
+}
+
+.sheet-rolltemplate-d100 div.sheet-template-container div.sheet-template-tens,
+.sheet-rolltemplate-d100-flip div.sheet-template-container div.sheet-template-tens {
+	margin-left		: 30px;
+} 
+
+.sheet-rolltemplate-d100 div.sheet-template-container div.sheet-template-ones,
+.sheet-rolltemplate-d100-flip div.sheet-template-container div.sheet-template-ones {
+	margin-right	: 30px;
+} 
 
 /* Fill Radiobuttons from left to right */
 .radiocontainer {
