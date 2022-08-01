@@ -557,7 +557,7 @@
 <rolltemplate class="sheet-rolltemplate-basic">
     <div class="sheet-template-container">
 		<p>{{name}}</p>
-		<p><span data-i18n="rolls">Rolls</span> {{dicecount}} <span data-i18n="{{dicetype}}">dicetype</span></p><br/>
+		<p><span data-i18n="rolls">Rolls</span> {{dicecount}} <span data-i18n="{{dicetype}}">dicetype</span></p>
 		<div class="sheet-template-result">{{result}}</div>
 	</div>
 </rolltemplate>
@@ -565,13 +565,13 @@
 <rolltemplate class="sheet-rolltemplate-d100">
     <div class="sheet-template-container">
 		<p>{{name}}</p>
-		<p><span data-i18n="rolls">Rolls</span> {{dicecount}} <span data-i18n="{{dicetype}}">dicetype</span></p><br/>
+		<p><span data-i18n="rolls">Rolls</span> {{dicecount}} <span data-i18n="{{dicetype}}">dicetype</span></p>
 		<div class="sheet-template-result">
 			<div class="sheet-template-tens">{{tens}}</div>
 			<div class="sheet-template-ones">{{ones}}</div>
 		</div>
 		<div class="sheet-template-flip">
-			<button type="roll" class="sheet-blank-button" value="&{template:d100-flip} {{name=@{name}}} {{tens={{ones}}}}]}} {{ones={{tens}}}}" title="Flip" data-i18n-title="flip" data-i18n="flip">d100</button>
+			{{flip}}
 		</div>
 	</div>
 </rolltemplate>
@@ -579,7 +579,7 @@
 <rolltemplate class="sheet-rolltemplate-d100-flip">
     <div class="sheet-template-container">
 		<p>{{name}}</p>
-		<p><span data-i18n="flips">Rolls</span></p><br/>
+		<p><span data-i18n="flips">Rolls</span></p>
 		<div class="sheet-template-result">
 			<div class="sheet-template-tens">{{tens}}</div>
 			<div class="sheet-template-ones">{{ones}}</div>
