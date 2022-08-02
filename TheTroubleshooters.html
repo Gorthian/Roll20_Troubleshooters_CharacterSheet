@@ -33,6 +33,8 @@
 			<button type="roll" class="sheet-blank-button" value="&{template:basic} {{name=@{name}}} {{result=[[?{@{how_many_dice}|1}d6>4]]}} {{dicetype=d6P}} {{dicecount=?{@{how_many_dice}|1}}}" title="Non-exploding Dice Pool" data-i18n-title="non-exploding-pool-title" data-i18n="non-exploding-pool">NdP</button>
 			<button type="roll" class="sheet-blank-button" value="&{template:basic} {{name=@{name}}} {{result=[[?{@{how_many_dice}|1}d6!>6>4]]}} {{dicetype=d6X}} {{dicecount=?{@{how_many_dice}|1}}}" title="Exploding Dice Pool" data-i18n-title="exploding-pool-title" data-i18n="exploding-pool">NdX</button>
 			<button type="action" class="sheet-blank-button btn ui-draggable" name="act_basicd100" title="Add text in translation files" data-i18n-title="percentile-dice-title" data-i18n="percentile-dice">d100</button>
+			<button hidden="true" style="display:none;" type="roll" name="roll_flip" value="&{template:d100-flip} {{name=@{name}}} {{tens=@{last-roll-ones}}} {{ones=@{last-roll-tens}}}" />
+			
 			&emsp;<span data-i18n="npc">add text in translation files</span> : <input type="checkbox" class="sheet-isnpc-check" name="attr_isnpc" value="1" />
 		</div>
 	</div>	
@@ -571,7 +573,7 @@
 			<div class="sheet-template-ones">{{ones}}</div>
 		</div>
 		<div class="sheet-template-flip">
-			{{flip}}
+			[<span data-i18n="flip">Flip</span>](~{{charname}}|flip)
 		</div>
 	</div>
 </rolltemplate>
@@ -579,7 +581,7 @@
 <rolltemplate class="sheet-rolltemplate-d100-flip">
     <div class="sheet-template-container">
 		<p>{{name}}</p>
-		<p><span data-i18n="flips">Rolls</span></p>
+		<p><span data-i18n="flips">flip</span></p>
 		<div class="sheet-template-result">
 			<div class="sheet-template-tens">{{tens}}</div>
 			<div class="sheet-template-ones">{{ones}}</div>
@@ -875,7 +877,7 @@ on("sheet:opened", function(eventInfo){
 //Regular skill rolls
 
 	on('clicked:basicd100', (event) => {
-		startRoll("&{template:d100} {{name=@{name}}} {{tens=[[1d10-1]]}} {{ones=[[1d10-1]]}} {{dicetype=d%}} {{dicecount=1}}", (results) => {
+		startRoll("&{template:d100} {{name=@{name}}} {{charname=@{character_name}}} {{tens=[[1d10-1]]}} {{ones=[[1d10-1]]}} {{dicetype=d%}} {{dicecount=1}}", (results) => {
 			
 			setAttrs({
 				["last-roll-ones"]: results.results.ones.result,
