@@ -2,7 +2,7 @@
 	CREATED by 			Richard M
 	EDITED by 			Gorthian
 	Version				3.0a
-	Letzte Änderung		2022-07-31
+	Letzte Änderung		2022-08-02
 	
 	GitHub				https://github.com/Gorthian/Roll20_Troubleshooters_CharacterSheet
 	Wiki				https://github.com/Gorthian/Roll20_Troubleshooters_CharacterSheet/wiki
@@ -32,7 +32,7 @@
 			&emsp;<button type="roll" class="sheet-blank-button" value="&{template:basic} {{name=@{name}}} {{result=[[?{@{how_many_dice}|1}d6]]}} {{dicetype=d6}} {{dicecount=?{@{how_many_dice}|1}}}" title="Summing Dice" data-i18n-title="summing-dice-title" data-i18n="summing-dice">Nd6</button>
 			&emsp;<button type="roll" class="sheet-blank-button" value="&{template:basic} {{name=@{name}}} {{result=[[?{@{how_many_dice}|1}d6>4]]}} {{dicetype=d6P}} {{dicecount=?{@{how_many_dice}|1}}}" title="Non-exploding Dice Pool" data-i18n-title="non-exploding-pool-title" data-i18n="non-exploding-pool">NdP</button>
 			&emsp;<button type="roll" class="sheet-blank-button" value="&{template:basic} {{name=@{name}}} {{result=[[?{@{how_many_dice}|1}d6!>6>4]]}} {{dicetype=d6X}} {{dicecount=?{@{how_many_dice}|1}}}" title="Exploding Dice Pool" data-i18n-title="exploding-pool-title" data-i18n="exploding-pool">NdX</button>
-			&emsp;<button type="roll" class="sheet-blank-button" value="&{template:d100} {{name=@{name}}} {{tens=[[1d10-1]]}} {{ones=[[1d10-1]]}} {{dicetype=d%}} {{dicecount=1}}" title="Percentile Dice" data-i18n-title="percentile-dice-title" data-i18n="percentile-dice">d100</button>
+			&emsp;<button type="action" class="sheet-blank-button" name="act_basicd100" title="Add text in translation files" data-i18n-title="percentile-dice-title" data-i18n="percentile-dice">d100</button>
 			&emsp;<span data-i18n="npc">add text in translation files</span> : <input type="checkbox" class="sheet-isnpc-check" name="attr_isnpc" value="1" />
 		</div>
 	</div>	
@@ -873,6 +873,19 @@ on("sheet:opened", function(eventInfo){
 	});
 
 //Regular skill rolls
+
+	on('clicked:basicd100', (event) => {
+		startRoll("&{template:d100} {{name=@{name}}} {{tens=[[1d10-1]]}} {{ones=[[1d10-1]]}} {{dicetype=d%}} {{dicecount=1}}", (results) => {
+			
+			setAttrs({
+				["last-roll-ones"]: results.results.ones.result,
+				["last-roll-tens"]: results.results.tens.result
+			});
+			
+			finishRoll(results.rollId);
+		});
+	});
+
 	on('clicked:skillroll clicked:gennpc clicked:specnpc', (event) => {		
         const rolltext = "&{template:std} {{char=@{name}}} {{skill="+getTranslationByKey(event.htmlAttributes.value)+"}} {{target=[[@{"+event.htmlAttributes.title+"}]]}} {{roll1=[[1d100]]}} {{outcome=[[0]]}} {{karma=[[0]]}} {{pips=[[?{"+getTranslationByKey("total-pips")+"|0}]]}}"
 		startRoll(rolltext, (results) => {
