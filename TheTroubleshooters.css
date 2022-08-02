@@ -204,10 +204,6 @@ input.sheet-npcskill {
 	text-align: center;
 }
 
-button[type=roll].sheet-blank-roll-button::before {
-  content: '';
-}
-
 /* - - - - - Remove Number Spinner - - - - - */
 input[type="number"].sheet-skill::-webkit-outer-spin-button,
 input[type="number"].sheet-skill::-webkit-inner-spin-button {
@@ -245,26 +241,30 @@ select.sheet-shorter {
 .charsheet button[type="action"].sheet-npcroll,
 .charsheet .repcontrol button.repcontrol_edit,
 .charsheet .repcontrol button.repcontrol_add,
-.charsheet button[type="roll"].sheet-blank-button {
-	border: 1px solid black;
-	background-color: silver;
-	background-image: linear-gradient(to top, silver, white);
-	text-align: center;
-	font-weight: 550;
+.charsheet button[type="roll"].sheet-blank-button,
+.charsheet button[type="action"].sheet-blank-button {
+	border				: 1px solid black;
+	background-color	: silver;
+	background-image	: linear-gradient(to top, silver, white);
+	text-align			: center;
+	font-size			: 1.3em;
+	font-weight			: 550;
 }
 
 .charsheet button[type="action"].sheet-cbtroll:hover,
 .charsheet button[type="action"].sheet-npcroll:hover
 .charsheet .repcontrol button.repcontrol_edit:hover,
 .charsheet .repcontrol button.repcontrol_add:hover,
-.charsheet button[type="roll"].sheet-blank-button:hover {
+.charsheet button[type="roll"].sheet-blank-button:hover,
+.charsheet button[type="action"].sheet-roll-button:hover {
 	background-color: purple;
 	background-image: linear-gradient(to top, purple, white);
 	color: white;
 }
 
-.charsheet button[type="roll"].sheet-blank-button::before {
-  content: ' ';
+.charsheet button[type="roll"].sheet-blank-button::before,
+.charsheet button[type=action].sheet-roll-button::before {
+  content	: ' ';
 }
 
 input.sheet-gearcheck:checked {

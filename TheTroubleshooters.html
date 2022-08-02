@@ -29,10 +29,10 @@
 			</div>
 			<br/>
 			<span style="display:none" data-i18n="how-many-dice">How many dice</span>
-			&emsp;<button type="roll" class="sheet-blank-button" value="&{template:basic} {{name=@{name}}} {{result=[[?{@{how_many_dice}|1}d6]]}} {{dicetype=d6}} {{dicecount=?{@{how_many_dice}|1}}}" title="Summing Dice" data-i18n-title="summing-dice-title" data-i18n="summing-dice">Nd6</button>
-			&emsp;<button type="roll" class="sheet-blank-button" value="&{template:basic} {{name=@{name}}} {{result=[[?{@{how_many_dice}|1}d6>4]]}} {{dicetype=d6P}} {{dicecount=?{@{how_many_dice}|1}}}" title="Non-exploding Dice Pool" data-i18n-title="non-exploding-pool-title" data-i18n="non-exploding-pool">NdP</button>
-			&emsp;<button type="roll" class="sheet-blank-button" value="&{template:basic} {{name=@{name}}} {{result=[[?{@{how_many_dice}|1}d6!>6>4]]}} {{dicetype=d6X}} {{dicecount=?{@{how_many_dice}|1}}}" title="Exploding Dice Pool" data-i18n-title="exploding-pool-title" data-i18n="exploding-pool">NdX</button>
-			&emsp;<button type="action" class="sheet-blank-button" name="act_basicd100" title="Add text in translation files" data-i18n-title="percentile-dice-title" data-i18n="percentile-dice">d100</button>
+			<button type="roll" class="sheet-blank-button" value="&{template:basic} {{name=@{name}}} {{result=[[?{@{how_many_dice}|1}d6]]}} {{dicetype=d6}} {{dicecount=?{@{how_many_dice}|1}}}" title="Summing Dice" data-i18n-title="summing-dice-title" data-i18n="summing-dice">Nd6</button>
+			<button type="roll" class="sheet-blank-button" value="&{template:basic} {{name=@{name}}} {{result=[[?{@{how_many_dice}|1}d6>4]]}} {{dicetype=d6P}} {{dicecount=?{@{how_many_dice}|1}}}" title="Non-exploding Dice Pool" data-i18n-title="non-exploding-pool-title" data-i18n="non-exploding-pool">NdP</button>
+			<button type="roll" class="sheet-blank-button" value="&{template:basic} {{name=@{name}}} {{result=[[?{@{how_many_dice}|1}d6!>6>4]]}} {{dicetype=d6X}} {{dicecount=?{@{how_many_dice}|1}}}" title="Exploding Dice Pool" data-i18n-title="exploding-pool-title" data-i18n="exploding-pool">NdX</button>
+			<button type="action" class="sheet-blank-button btn ui-draggable" name="act_basicd100" title="Add text in translation files" data-i18n-title="percentile-dice-title" data-i18n="percentile-dice">d100</button>
 			&emsp;<span data-i18n="npc">add text in translation files</span> : <input type="checkbox" class="sheet-isnpc-check" name="attr_isnpc" value="1" />
 		</div>
 	</div>	
