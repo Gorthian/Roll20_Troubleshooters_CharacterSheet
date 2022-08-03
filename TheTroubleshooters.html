@@ -219,7 +219,7 @@
 
 					<h3 data-i18n="skills-title">Skills / Competences / Kompetenzen</h3>
 					<br/>
-				
+
 					<div class="sheet-pc-view">
 						<div class="sheet-col" style="width: 45%; margin: 0px">
 							<button type="action" class="sheet-skillroll" name="act_skillroll" title="Agility" data-i18n-title="agility" value="agility" data-i18n="agility">Agility</button><input type="number" name="attr_agility" class="sheet-skill" value = "15" min="0" style="width: 2.5em; text-align: right"/>
@@ -911,14 +911,24 @@ on("sheet:opened", function(eventInfo){
 		startRoll(rolltext, (results) => {
             const tens = results.results.tens.result;
 			const ones = results.results.ones.result;
-			const total = (tens * 10) + ones;
-			const totalfliped = (ones * 10) + tens;
 			const target = results.results.target.result;
 			const pips = results.results.pips.result;
 			const invpips = pips * - 1;
+			var total = 0;
+			var totalfliped = 0;
 			var krm = 0; // 1 - karma
 			var out = 0; //	1 - Success / 2 - Failure
 			var outfliped = 0; //	1 - Success / "" - Failure
+
+			//Two 0 counts as 100
+			if (ones == 0 && tens == 0)
+			{
+				total = 100;
+				totalfliped = 100;
+			} else {
+				total = (tens * 10) + ones;
+				totalfliped = (ones * 10) + tens;
+			}
 			
 			//Success or Failure
 			if (pips > 0) {
@@ -929,9 +939,9 @@ on("sheet:opened", function(eventInfo){
 
 			//Success or Failure if fliped
 			if (pips > 0) {
-				if ((1 <= tens && tens <= pips) || totalfliped <= target) {outfliped = 1} else {outfliped = 2};
+				if ((1 <= tens && tens <= pips) || totalfliped <= target) {outfliped = 1} else {outfliped = ""};
 			} else if (pips < 0) {
-				if ((1 <= tens && tens <= invpips) || totalfliped > target) {outfliped = 2} else {outfliped = 1};
+				if ((1 <= tens && tens <= invpips) || totalfliped > target) {outfliped = ""} else {outfliped = 1};
 			} else if (totalfliped <= target) {outfliped = 1} else {outfliped = ""}
 
 			//Karma
