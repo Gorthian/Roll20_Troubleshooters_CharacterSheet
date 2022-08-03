@@ -585,7 +585,9 @@ input.sheet-gearcheck:checked {
 
 .sheet-rolltemplate-basic div.sheet-template-result .inlinerollresult,
 .sheet-rolltemplate-d100 div.sheet-template-result .inlinerollresult,
-.sheet-rolltemplate-d100-flip div.sheet-template-result .inlinerollresult {
+.sheet-rolltemplate-d100-flip div.sheet-template-result .inlinerollresult,
+.sheet-rolltemplate-d100-flip div.sheet-template-pips .inlinerollresult,
+.sheet-rolltemplate-d100 div.sheet-template-pips .inlinerollresult {
 	all					: unset;
 	background-color	: transparent;
 	border				: none;
@@ -605,6 +607,28 @@ input.sheet-gearcheck:checked {
 
 .sheet-rolltemplate-d100 div.sheet-template-container div.sheet-template-flip {
 	height			: 50px;
+}
+
+.sheet-rolltemplate-d100 div.sheet-template-container div.sheet-template-info,
+.sheet-rolltemplate-d100-flip div.sheet-template-container div.sheet-template-info {
+	margin-bottom	: 20px;
+	display			: inline-block;
+}
+
+.sheet-rolltemplate-d100 div.sheet-template-pips,
+.sheet-rolltemplate-d100-flip div.sheet-template-pips {
+	background-color: aliceblue;
+	border			: 3px solid grey;
+	border-radius	: 4px;
+	width			: 70px;
+	height			: 35px;
+	transform		: rotate(-22deg);
+	position		: relative;
+	top				: 180px;
+	left			: 190px;
+	text-align		: center;
+	font-size		: 20px;
+	line-height		: 35px;
 }
 
 /* Fill Radiobuttons from left to right */
