@@ -147,7 +147,7 @@
 					<br/>			
 					<fieldset class="repeating_complications">
 						<details>
-							<summary><input type="text" style="width:95%;" name="attr_complication" placeholder="Complication" data-i18n-placeholder="complication"/></summary>  
+							<summary><input type="text" style="width:90%;" name="attr_complication" placeholder="Complication" data-i18n-placeholder="complication"/></summary>  
 							<textarea name="attr_compdesc" placeholder="Description" data-i18n-placeholder="description" style="width:95%"></textarea>
 						</details>
 					</fieldset>	
@@ -156,16 +156,21 @@
 					<br/>		
 					<fieldset class="repeating_abilities">
 						<details>
-							<summary><input type="text" name="attr_ability" placeholder="Ability" data-i18n-placeholder="ability"/>
-							<input class="sheet-skill" type="text" placeholder="Cost" data-i18n-placeholder="cost" style="width: 8ch"/>
-							<input type="checkbox" name="attr_abilitytick1" value="1"/>
-							<input type="checkbox" name="attr_abilitytick2" value="1"/>
-							<input type="checkbox" name="attr_abilitytick3" value="1"/>
-							<input type="checkbox" name="attr_abilitytick4" value="1"/>
-							<input type="checkbox" name="attr_abilitytick5" value="1"/>
-							<input type="checkbox" name="attr_abilitytick6" value="1"/>
-							<input type="checkbox" name="attr_abilitytick7" value="1"/>
-							<input type="checkbox" name="attr_abilitytick8" value="1"/></summary>
+							<summary>
+							<input type="text" style="width:90%;" name="attr_ability" placeholder="Ability" data-i18n-placeholder="ability"/>														
+							</summary>
+							<input class="sheet-skill" type="text" placeholder="Cost" data-i18n-placeholder="cost" style="width:10ch;" />
+							<div class="radiocontainer">
+								<input type="radio" checked="checked" class="radiobox reset" name="attr_abilitytick" value="0">
+								<input type="radio" class="radiobox" name="attr_abilitytick" value="1">
+								<input type="radio" class="radiobox" name="attr_abilitytick" value="2">
+								<input type="radio" class="radiobox" name="attr_abilitytick" value="3">
+								<input type="radio" class="radiobox" name="attr_abilitytick" value="4">
+								<input type="radio" class="radiobox" name="attr_abilitytick" value="5">
+								<input type="radio" class="radiobox" name="attr_abilitytick" value="6">
+								<input type="radio" class="radiobox" name="attr_abilitytick" value="7">
+								<input type="radio" class="radiobox" name="attr_abilitytick" value="8">
+							</div><br/>
 							<textarea name="attr_abilitydesc" placeholder="Description" data-i18n-placeholder="description" style="width:95%"></textarea>
 						</details>
 					</fieldset>
