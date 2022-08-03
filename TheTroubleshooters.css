@@ -596,13 +596,13 @@ input.sheet-gearcheck:checked {
 .sheet-rolltemplate-d100 div.sheet-template-container div.sheet-template-tens,
 .sheet-rolltemplate-d100-flip div.sheet-template-container div.sheet-template-tens {
 	font-size		: 25px;
-	margin-left		: 30px;
+	margin-left		: 26px;
 } 
 
 .sheet-rolltemplate-d100 div.sheet-template-container div.sheet-template-ones,
 .sheet-rolltemplate-d100-flip div.sheet-template-container div.sheet-template-ones {
 	font-size		: 25px;
-	margin-right	: 30px;
+	margin-right	: 26px;
 }
 
 .sheet-rolltemplate-d100 div.sheet-template-container div.sheet-template-flip {
@@ -625,7 +625,7 @@ input.sheet-gearcheck:checked {
 	transform		: rotate(-22deg);
 	position		: relative;
 	top				: 180px;
-	left			: 190px;
+	left			: 180px;
 	text-align		: center;
 	font-size		: 20px;
 	line-height		: 35px;
