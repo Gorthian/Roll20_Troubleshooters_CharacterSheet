@@ -157,6 +157,7 @@
 	"npc-reload-info" : "Nachladen: Geben Sie den niedrigeren Eigenschaftswert ein ODER verwenden Sie 99 für Einzelschuss- und Nahkampfwaffen",
 	"npc-rolled-initiative" : "Charakter der Einsatzleitung gewürfelte Initiative",
 	"npc-vitality-info" : "Überschreibungen berechnete Werte. Sollte auf 0 eingestellt werden, es sei denn es ist ein Charakter der Einsatzleitung.",
+	"of" : "von",
 	"other-skills" : "Andere Kompetenzen",
 	"onfire" : "Brennend",
 	"onfire-info" : "Zu Beginn deines Zuges erleidest du 1 WX nicht zu absorbierenden Schaden. Wenn du zu Beginn deines Zuges Außer Gefecht und Brennend bist, erleidest du den Zustand Verwundet.",

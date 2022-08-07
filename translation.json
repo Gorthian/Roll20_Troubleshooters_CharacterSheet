@@ -157,6 +157,7 @@
 	"npc-reload-info" : "Reload: Enter lower tag value OR use 99 for single-shot and melee weapons",
 	"npc-rolled-initiative" : "NPC rolled initiative",
 	"npc-vitality-info" : "Overrides calculated values. Should be set to 0 unless NPC",
+	"of" : "of",
 	"other-skills" : "Other skills",
 	"onfire" : "On Fire",
 	"onfire-info" : "At the start of your turn, take 1dX Damage. If you are Out Cold at the start of your turn and still On Fire, take one Wounded Condition. You can take a Main action to try to put out the fire if you are in a zone that is not on fire. Make an Agility task check. If successful, drop the On Fire Condition. Someone else can also put out the fire in the same way on their turn. If you have a blanket or other fire-extinguishing tool, the task check is at +2 pips or more.",
