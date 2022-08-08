@@ -363,34 +363,6 @@ input.sheet-gearcheck:checked {
 }
 
 /* styling the CRP roll templates to look like the default*/
-.sheet-rolltemplate-init table {
- width:100%;
- background-color:white;
- border:1px solid rgba(112,32,130,1);
-}
-.sheet-rolltemplate-init caption {
- background-color:rgba(112,32,130,1);
- color:white;
- font-family:"Helvetica Neue",Helvetica,sans-serif;
- font-weight:300;
- font-size:1.1em;
- padding:5px;
-}
-.sheet-rolltemplate-init td {
- padding:5px;
- line-height:1.4em;
- vertical-align:top;
-}
-.sheet-rolltemplate-init td:first-child {
- font-weight:bold;
- text-align:left;
- min-width:50px;
- padding-right:10px;
-}
-.sheet-rolltemplate-init tr:nth-child(even) {
- background-color:#eee;
-}
-
 .sheet-rolltemplate-atk table {
  width:100%;
  background-color:white;
@@ -532,8 +504,11 @@ input.sheet-gearcheck:checked {
 }
 
 .sheet-rolltemplate-basic div.sheet-template-container,
+.sheet-rolltemplate-d100-ini div.sheet-template-container,
 .sheet-rolltemplate-d100 div.sheet-template-container,
-.sheet-rolltemplate-d100-flip div.sheet-template-container {
+.sheet-rolltemplate-d100-flip div.sheet-template-container, 
+.sheet-rolltemplate-d100-flip-ini div.sheet-template-container {
+	
 	background-image		: url(https://greengorilla.de/vtt/rahmen_260x260.png);
 	background-repeat		: no-repeat;
 	background-origin		: border-box;
@@ -543,8 +518,8 @@ input.sheet-gearcheck:checked {
 	padding-top				: 25px;	
 }
 
-.sheet-rolltemplate-basic div, .sheet-rolltemplate-d100 div, .sheet-rolltemplate-d100-flip div,
-.sheet-rolltemplate-basic p, .sheet-rolltemplate-d100 p, .sheet-rolltemplate-d100-flip p {
+.sheet-rolltemplate-basic div, .sheet-rolltemplate-d100 div, .sheet-rolltemplate-d100-flip div, .sheet-rolltemplate-d100-flip-ini div, .sheet-rolltemplate-d100-ini div,
+.sheet-rolltemplate-basic p, .sheet-rolltemplate-d100 p, .sheet-rolltemplate-d100-flip p, .sheet-rolltemplate-d100-flip-ini p, .sheet-rolltemplate-d100-ini p {
 	font-family				: 'Edu NSW ACT Foundation', cursive;
 	font-size				: 20px;
   	text-align				: center;
@@ -552,8 +527,10 @@ input.sheet-gearcheck:checked {
 }
 
 .sheet-rolltemplate-basic div.sheet-template-container div.sheet-template-result,
+.sheet-rolltemplate-d100-ini div.sheet-template-container div.sheet-template-result,
 .sheet-rolltemplate-d100 div.sheet-template-container div.sheet-template-result,
-.sheet-rolltemplate-d100-flip div.sheet-template-container div.sheet-template-result {
+.sheet-rolltemplate-d100-flip div.sheet-template-container div.sheet-template-result,
+.sheet-rolltemplate-d100-flip-ini div.sheet-template-container div.sheet-template-result {
 	background-repeat		: no-repeat;
 	background-position		: center;
 	background-size			: 200px;
@@ -574,7 +551,9 @@ input.sheet-gearcheck:checked {
 }
 
 .sheet-rolltemplate-d100 div.sheet-template-container div.sheet-template-result,
-.sheet-rolltemplate-d100-flip div.sheet-template-container div.sheet-template-result {
+.sheet-rolltemplate-d100-ini div.sheet-template-container div.sheet-template-result,
+.sheet-rolltemplate-d100-flip div.sheet-template-container div.sheet-template-result,
+.sheet-rolltemplate-d100-flip-ini div.sheet-template-container div.sheet-template-result {
 	background-image		: url(https://greengorilla.de/vtt/TS_dice100_red_210.png);
 	height					: 100px;
 	line-height				: 100px;
@@ -585,8 +564,13 @@ input.sheet-gearcheck:checked {
 
 .sheet-rolltemplate-basic div.sheet-template-result .inlinerollresult,
 .sheet-rolltemplate-d100 div.sheet-template-result .inlinerollresult,
+.sheet-rolltemplate-d100-ini div.sheet-template-result .inlinerollresult,
+.sheet-rolltemplate-d100-ini div.sheet-template-info .inlinerollresult,
+.sheet-rolltemplate-d100-ini div.sheet-template-pips .inlinerollresult,
 .sheet-rolltemplate-d100-flip div.sheet-template-result .inlinerollresult,
 .sheet-rolltemplate-d100-flip div.sheet-template-pips .inlinerollresult,
+.sheet-rolltemplate-d100-flip-ini div.sheet-template-result .inlinerollresult,
+.sheet-rolltemplate-d100-flip-ini div.sheet-template-pips .inlinerollresult,
 .sheet-rolltemplate-d100 div.sheet-template-pips .inlinerollresult {
 	all					: unset;
 	background-color	: transparent;
@@ -594,29 +578,39 @@ input.sheet-gearcheck:checked {
 }
 
 .sheet-rolltemplate-d100 div.sheet-template-container div.sheet-template-tens,
-.sheet-rolltemplate-d100-flip div.sheet-template-container div.sheet-template-tens {
+.sheet-rolltemplate-d100-ini div.sheet-template-container div.sheet-template-tens,
+.sheet-rolltemplate-d100-flip div.sheet-template-container div.sheet-template-tens,
+.sheet-rolltemplate-d100-flip-ini div.sheet-template-container div.sheet-template-tens {
 	font-size		: 25px;
 	margin-left		: 26px;
 } 
 
 .sheet-rolltemplate-d100 div.sheet-template-container div.sheet-template-ones,
-.sheet-rolltemplate-d100-flip div.sheet-template-container div.sheet-template-ones {
+.sheet-rolltemplate-d100-ini div.sheet-template-container div.sheet-template-ones,
+.sheet-rolltemplate-d100-flip div.sheet-template-container div.sheet-template-ones,
+.sheet-rolltemplate-d100-flip-ini div.sheet-template-container div.sheet-template-ones {
 	font-size		: 25px;
 	margin-right	: 26px;
 }
 
-.sheet-rolltemplate-d100 div.sheet-template-container div.sheet-template-flip {
+.sheet-rolltemplate-d100 div.sheet-template-container div.sheet-template-flip,
+.sheet-rolltemplate-d100-ini div.sheet-template-container div.sheet-template-flip,
+.sheet-rolltemplate-d100-flip-ini div.sheet-template-container div.sheet-template-flip {
 	height			: 50px;
 }
 
 .sheet-rolltemplate-d100 div.sheet-template-container div.sheet-template-info,
-.sheet-rolltemplate-d100-flip div.sheet-template-container div.sheet-template-info {
+.sheet-rolltemplate-d100-ini div.sheet-template-container div.sheet-template-info,
+.sheet-rolltemplate-d100-flip div.sheet-template-container div.sheet-template-info,
+.sheet-rolltemplate-d100-flip-ini div.sheet-template-container div.sheet-template-info {
 	margin-bottom	: 20px;
 	display			: inline-block;
 }
 
 .sheet-rolltemplate-d100 div.sheet-template-pips,
-.sheet-rolltemplate-d100-flip div.sheet-template-pips {
+.sheet-rolltemplate-d100-ini div.sheet-template-pips,
+.sheet-rolltemplate-d100-flip div.sheet-template-pips,
+.sheet-rolltemplate-d100-flip-ini div.sheet-template-pips {
 	background-color: aliceblue;
 	border			: 3px solid grey;
 	border-radius	: 4px;

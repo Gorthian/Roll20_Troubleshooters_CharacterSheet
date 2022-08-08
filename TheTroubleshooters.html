@@ -34,6 +34,7 @@
 			<button type="roll" class="sheet-blank-button" value="&{template:basic} {{name=@{name}}} {{result=[[?{@{how_many_dice}|1}d6!>6>4]]}} {{dicetype=d6X}} {{dicecount=?{@{how_many_dice}|1}}}" title="Exploding Dice Pool" data-i18n-title="exploding-pool-title" data-i18n="exploding-pool">NdX</button>
 			<button type="action" class="sheet-blank-button btn ui-draggable" name="act_basicd100" title="Add text in translation files" data-i18n-title="percentile-dice-title" data-i18n="percentile-dice">d100</button>
 			<button hidden="true" style="display:none;" type="roll" name="roll_flip" value="&{template:d100-flip} {{name=@{name}}} {{tens=@{last-roll-ones}}} {{ones=@{last-roll-tens}}} {{success=@{last-roll-fliped}}} {{skill=@{last-roll-skill}}} {{target=@{last-roll-target}}} {{pips=@{last-roll-pips}}}" />
+			<button hidden="true" style="display:none;" type="roll" name="roll_flip-ini" value="&{template:d100-flip-ini} {{name=@{name}}} {{tens=@{last-roll-ones}}} {{ones=@{last-roll-tens}}} {{success=@{last-roll-fliped}}} {{skill=@{last-roll-skill}}} {{target=@{last-roll-target}}} {{pips=@{last-roll-pips}}} {{ini=@{last-roll-ini-fliped}}}" />
 			
 			&emsp;<span data-i18n="npc">add text in translation files</span> : <input type="checkbox" class="sheet-isnpc-check" name="attr_isnpc" value="1" />
 		</div>
@@ -504,7 +505,7 @@
 		<div class="sheet-passport">
 			<div>
 				<h2 data-i18n="combat-rolls">Combat rolls</h2> 	
-				<button type="action" class="sheet-cbtroll" name="act_init_pc" title="Initiative" data-i18n-title="initiative" value="1" data-i18n="initiative">Initiative</button>
+				<button type="action" class="sheet-cbtroll" name="act_d100-ini" title="Initiative" data-i18n-title="initiative" value="1" data-i18n="initiative">Initiative</button>
 				<button type="action" class="sheet-cbtroll" name="act_defend_ranged" title="Defend with AGILITY" data-i18n-title="defend-agility" value="1" data-i18n="take-cover">Take Cover!</button>
 				<button type="action" class="sheet-cbtroll" name="act_defend_melee" title="Defend with MELEE" data-i18n-title="defend-melee" value="2" data-i18n="parry">Parry!</button>
 				<button type="action" class="sheet-cbtroll" name="act_recover" title="Recovery" data-i18n-title="recovery" data-i18n="recovery">Recovery</button>		
@@ -625,29 +626,61 @@
 	</div>
 </rolltemplate>
 
-<rolltemplate class="sheet-rolltemplate-init">
-	<table>
-		<caption>{{char}} <span data-i18n="leaps-action">leaps into action!</span></caption>
-		{{#rollBetween() computed::type 1 2}}
-			<tr><td><span data-i18n="roll">Roll</span>: {{roll1}} <span data-i18n="vs">vs</span> {{computed::target}}</td>
-			{{#rollBetween() computed::outcome 1 1}}
-				<tr><td><span data-i18n="success">Success!</span></td>
-			{{/rollBetween() computed::outcome 1 1}}
-			{{#rollBetween() computed::outcome 2 2}}
-				<tr><td><span data-i18n="failure">Zut! Failure</span></td>
-			{{/rollBetween() computed::outcome 2 2}}			
-			{{#rollBetween() computed::outcome 3 3}}
-				<tr><td><span data-i18n="good-karma">Good Karma!</span></td>
-			{{/rollBetween() computed::outcome 3 3}}
-			{{#rollBetween() computed::outcome 4 4}}
-				<tr><td><span data-i18n="bad-karma">#$@$*#@! Bad Karma strikes!</span></td>
-			{{/rollBetween() computed::outcome 4 4}}			
-			<tr><td><span data-i18n="initiative">Initiative</span> {{computed::init}}</td>
-		{{/rollBetween() computed::type 1 2}}
-		{{#rollBetween() computed::type 3 3}}
-			<tr><td><span data-i18n="initiative">Initiative</span> {{computed::init}}</td>
-		{{/rollBetween() computed::type 3 3}}		
-	<table>
+<rolltemplate class="sheet-rolltemplate-d100-ini">
+	{{#pips}}
+	<div class="sheet-template-pips">
+		{{pips}} <span data-i18n="pips"></span>
+	</div>
+	{{/pips}}
+    <div class="sheet-template-container">
+		<p>{{name}}</p>
+		<p><span data-i18n="{{skill}}">Skill</span> <span data-i18n="of">of</span> {{target}}</p>
+		<div class="sheet-template-result">
+			<div class="sheet-template-tens">{{tens}}</div>
+			<div class="sheet-template-ones">{{ones}}</div>			
+		</div>
+		<div class="sheet-template-info">
+			{{#rollTotal() computed::outcome 1}}
+				<p><span data-i18n="success">Success!</span></p>
+				{{#rollTotal() computed::karma 1}}<p><span data-i18n="good-karma">Good Karma!</span></p>{{/rollTotal() computed::karma 1}}
+			{{/rollTotal() computed::outcome 1}}
+			{{#rollTotal() computed::outcome 2}}
+				<p><span data-i18n="failure">Zut! Failure</span></p>
+				{{#rollTotal() computed::karma 1}}<p><span data-i18n="bad-karma">Bad Karma!</span></p>{{/rollTotal() computed::karma 1}}
+			{{/rollTotal() computed::outcome 2}}
+			<p><span data-i18n="initiative">ini</span> <b>{{computed::ini}}</b></p>
+		</div>
+		<div class="sheet-template-flip">
+			[<span data-i18n="flip">Flip</span>](~{{charname}}|flip-ini)
+		</div>
+	</div>	
+</rolltemplate>
+
+<rolltemplate class="sheet-rolltemplate-d100-flip-ini">
+	{{#pips}}
+	<div class="sheet-template-pips">
+		{{pips}} <span data-i18n="pips"></span>
+	</div>
+	{{/pips}}
+    <div class="sheet-template-container">
+		<p>{{name}}</p>
+		<p><span data-i18n="flips">flip</span></p>
+		<div class="sheet-template-result">
+			<div class="sheet-template-tens">{{tens}}</div>
+			<div class="sheet-template-ones">{{ones}}</div>
+		</div>
+		{{#skill}}
+		<div class="sheet-template-info">
+			{{#success}}
+				<p><span data-i18n="success">Success!</span></p>
+			{{/success}}
+			{{^success}}
+				<p><span data-i18n="failure">Zut! Failure</span></p>
+			{{/success}}
+			<p><span data-i18n="initiative">ini</span> <b>{{ini}}</b></p>
+		</div>
+		{{/skill}}
+	</div>
 </rolltemplate>
 
 <rolltemplate class="sheet-rolltemplate-def">
@@ -967,6 +1000,84 @@ on("sheet:opened", function(eventInfo){
                 {
 					outcome: out,
 					karma: krm
+                }
+            );
+        });
+    });
+
+	on('clicked:d100-ini', (event) => {	
+		const rolltext = "&{template:d100-ini} {{name=@{name}}} {{charname=@{character_name}}} {{ones=[[1d10-1]]}} {{tens=[[1d10-1]]}} {{skill=alertness}} {{target=[[@{alertness}]]}} {{outcome=[[0]]}} {{karma=[[0]]}} {{ini=[[0]]}} {{pips=[[?{"+getTranslationByKey("total-pips")+"|0}]]}}"
+		const skill = "alertness";
+		startRoll(rolltext, (results) => {
+            const tens = results.results.tens.result;
+			const ones = results.results.ones.result;
+			const target = results.results.target.result;
+			const pips = results.results.pips.result;
+			const invpips = pips * - 1;
+			var total = 0;
+			var totalfliped = 0;
+			var krm = 0; // 1 - karma
+			var out = 0; //	1 - Success / 2 - Failure
+			var outfliped = 0; //	1 - Success / "" - Failure
+			var ini = 0;
+			var inifliped = 0;
+
+			//Two 0 counts as 100
+			if (ones == 0 && tens == 0)
+			{
+				total = 100;
+				totalfliped = 100;
+			} else {
+				total = (tens * 10) + ones;
+				totalfliped = (ones * 10) + tens;
+			}
+			
+			//Success or Failure
+			if (pips > 0) {
+				if ((1 <= ones && ones <= pips) || total <= target) {out = 1} else {out = 2};
+			} else if (pips < 0) {
+				if ((1 <= ones && ones <= invpips) || total > target) {out = 2} else {out = 1};
+			} else if (total <= target) {out = 1} else {out = 2	}
+
+			//Success or Failure if fliped
+			if (pips > 0) {
+				if ((1 <= tens && tens <= pips) || totalfliped <= target) {outfliped = 1} else {outfliped = ""};
+			} else if (pips < 0) {
+				if ((1 <= tens && tens <= invpips) || totalfliped > target) {outfliped = ""} else {outfliped = 1};
+			} else if (totalfliped <= target) {outfliped = 1} else {outfliped = ""}
+
+			//Karma
+			if (ones == tens) {krm = 1}
+
+			//Ini
+			if (out == 2 && krm == 1) {ini=0}
+			if (out == 2 && krm == 0) {ini=ones}
+			if (out == 1 && krm == 1) {ini=ones+tens+10}
+			if (out == 1 && krm == 0) {ini=ones+tens}
+			
+			//Inifliped
+			if (outfliped == "" && krm == 1) {inifliped=0}
+			if (outfliped == "" && krm == 0) {inifliped=tens}
+			if (outfliped == 1 && krm == 1) {inifliped=ones+tens+10}
+			if (outfliped == 1 && krm == 0) {inifliped=ones+tens}
+
+			//safe results for a flip
+			setAttrs({
+				["last-roll-ones"]: results.results.ones.result,
+				["last-roll-tens"]: results.results.tens.result,
+				["last-roll-fliped"]: outfliped,
+				["last-roll-ini-fliped"]: inifliped,
+				["last-roll-skill"]: skill,
+				["last-roll-pips"]: pips,
+				["last-roll-target"]: target
+			});
+
+            finishRoll(
+                results.rollId,
+                {
+					outcome: out,
+					karma: krm,
+					ini: ini
                 }
             );
         });
@@ -1301,89 +1412,4 @@ on("sheet:opened", function(eventInfo){
             );
         });
     });
-	
-//Initiative rolls	
-	
-	on('clicked:init_pc clicked:init_npc',async (event)=>{
-	const rollText = "&{template:init} {{char=@{character_name}}} {{target=[[@{alertness}]]}}  {{target2=[[@{npcinitiative}]]}} {{type=[["+event.htmlAttributes.value+"]]}} {{roll1=[[1d100]]}} {{outcome=[[0]]}} {{init=[[0]]}} {{pips=[[?{"+getTranslationByKey("total-pips")+"|0}]]}}"
-	const displayRoll = await startRoll(rollText);
-            const total = displayRoll.results.roll1.result
-            const tens = Math.floor(total / 10); //Tens
-			const ones = total % 10; //placeholder
-			const tgt1 = displayRoll.results.target.result;
-			const tgt2 = displayRoll.results.target2.result;
-			const pips = displayRoll.results.pips.result;
-			const invpips = pips * -1;
-			const rolltype = displayRoll.results.type.result;
-			var tens2 = tens;
-			var ones2 = ones;
-			var tgt = tgt1
-			var out = 0;
-			var ini = 0;
-			if (tens == 10) {
-				tens2 = 0;
-			}
-			if (ones == 0) {
-				ones2 = 10;
-			}
-			if (rolltype == 2) {
-				tgt = tgt2;
-			}
-			if (pips > 0 && ones > 0 && pips >= ones && tens2 == ones) {
-				out = 3;
-				ini = 10 + tens + ones2;
-			}
-			else if (pips > 0 && ones > 0 && pips >= ones) {
-				out = 1;
-				ini = tens + ones2;
-			}
-			else if (invpips > 0 && ones > 0 && invpips >= ones && tens2 == ones) {
-				out = 4;
-				ini = 0;
-			}
-			else if (invpips > 0 && ones > 0 && invpips >= ones) {
-				out = 2;
-				ini = ones2;
-			}
-			else if (total <= tgt && tens2 == ones) {
-				out = 3;
-				ini = 10 + tens + ones2;
-				}
-			else if (total > tgt && tens2 == ones) {
-				out = 4;
-				ini = 0;
-				}
-			else if (total <= tgt) {
-				out = 1;
-				ini = tens + ones2;
-				}
-			else if (total > tgt) {
-				out = 2;
-				ini = ones2;
-			}	
-	//let trueInitiative = displayRoll.results.init.result*5.5/displayRoll.results.init.result;//some random math to demonstrate
-			finishRoll(
-				displayRoll.rollId,
-					{
-						outcome: out,
-						init: ini,
-						target: tgt,
-					});//Finish of the display roll so that the roll is displayed to the players
-			const trackerRoll = await startRoll(`![[${ini}&{tracker}]]`);//Now send the calculated roll to the tracker. Doing it as an API command by starting it with '!' will make it invisible to the players
-			finishRoll(trackerRoll.rollId);//finish the tracker roll immediately since we aren't going to do any manipulation of it
-});
-
-	on('clicked:init_npcfix', async (event)=>{
-	const rollText = "&{template:init} {{char=@{character_name}}} {{init=[[@{npcinitiative}]]}} {{type=[[3]]}}"
-	const displayRoll = await startRoll(rollText);
-            const ini = displayRoll.results.init.result
-	//let trueInitiative = displayRoll.results.init.result*5.5/displayRoll.results.init.result;//some random math to demonstrate
-			finishRoll(
-				displayRoll.rollId,
-					{
-						init:ini,
-					});//Finish of the display roll so that the roll is displayed to the players
-			const trackerRoll = await startRoll(`![[${ini}&{tracker}]]`);//Now send the calculated roll to the tracker. Doing it as an API command by starting it with '!' will make it invisible to the players
-			finishRoll(trackerRoll.rollId);//finish the tracker roll immediately since we aren't going to do any manipulation of it
-});
 </script>
