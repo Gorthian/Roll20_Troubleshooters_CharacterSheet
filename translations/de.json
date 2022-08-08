@@ -187,7 +187,7 @@
 	"prone-info" : "Du kannst keine Bewegungsaktion ausführen. Du kannst eine Sprint-Aktion durchführen, aber sie erfordert eine Probe auf Beweglichkeit. Fernkampfangriffe gegen dich aus einer anderen Zone sind mit −2 Pips erschwert. Deine Verteidigungsproben gegen Nahkampfangriffe oder Fernkampfangriffe aus derselben Zone sind mit −2 Pips erschwert. Am Ende deines Zuges kannst du den Zustand Am Boden als Bonusaktion ablegen und aufstehen.",
 	"protection" : "Schutz",
 	"protection-value" : "Schutzwert",
-	"ranged" : "entfernt",
+	"ranged" : "Fernkampf",
 	"rangedcombat" : "Fernkampf",
 	"rangedcombat-skillroll" : "lässt Kugeln fliegen",
 	"rank" : "Rang",

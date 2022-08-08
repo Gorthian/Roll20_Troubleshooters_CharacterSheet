@@ -507,10 +507,10 @@
 		<div class="sheet-passport">
 			<div>
 				<h2 data-i18n="combat-rolls">Combat rolls</h2> 	
-				<button type="action" class="sheet-cbtroll" name="act_d100-ini" title="Initiative" data-i18n-title="initiative" value="1" data-i18n="initiative">Initiative</button>
-				<button type="action" class="sheet-cbtroll" name="act_defend_ranged" title="Defend with AGILITY" data-i18n-title="defend-agility" value="1" data-i18n="take-cover">Take Cover!</button>
-				<button type="action" class="sheet-cbtroll" name="act_defend_melee" title="Defend with MELEE" data-i18n-title="defend-melee" value="2" data-i18n="parry">Parry!</button>
-				<button type="action" class="sheet-cbtroll" name="act_recover" title="Recovery" data-i18n-title="recovery" data-i18n="recovery">Recovery</button>		
+				<button type="action" class="sheet-blank-button" name="act_d100-ini" title="Initiative" data-i18n-title="initiative" value="1" data-i18n="initiative">Initiative</button>
+				<button type="action" class="sheet-blank-button" name="act_skillroll" title="Defend with AGILITY" data-i18n-title="defend-agility" value="agility" data-i18n="take-cover">Take Cover!</button>
+				<button type="action" class="sheet-blank-button" name="act_skillroll" title="Defend with MELEE" data-i18n-title="defend-melee" value="melee" data-i18n="parry">Parry!</button>
+				<button type="roll" class="sheet-blank-button" name="act_recover" value="&{template:basic} {{name=@{name}}} {{result=[[?{@{how_many_dice}|1}d6>4]]}} {{dicetype=d6P}} {{dicecount=?{@{how_many_dice}|1}}}" title="Recovery" data-i18n-title="recovery" data-i18n="recovery">Recovery</button>		
 				<br />
 				<hr/>
 			
@@ -530,8 +530,8 @@
 			</div>
 			<div>
 				<fieldset class="repeating_attacks">
-					<input type="text" name="attr_weapon" class="sheet-short" placeholder="Weapon" data-i18n-placeholder="weapon" /> 
-					<select name="attr_weaponskill" class="sheet-shorter" style="width: 9%">
+					<input type="text" name="attr_weapon" style="width:40%" placeholder="Weapon" data-i18n-placeholder="weapon" /> 
+					<select name="attr_weaponskill" style="width:30%">
 						<option value="0" data-i18n="skill">Skill</option>
 						<option value="1" data-i18n="melee">Melee</option>
 						<option value="2" data-i18n="ranged">Ranged</option>
@@ -541,14 +541,14 @@
 					<input type="number" name="attr_weapondmg" value="0" min="0" title="Damage Dice" data-i18n-title="damage-dice"><span data-i18n="dX">dX</span>
 
 					<div class="sheet-meleebuttons">
-						<input type="text" name="attr_weapontags" placeholder="Tags" data-i18n-placeholder="tags" style="width: 40ch"/>
+						<input type="text" name="attr_weapontags" placeholder="Tags" data-i18n-placeholder="tags" style="width: 40ch"/><br/>
 						<button type="action" class="sheet-cbtroll" name="act_melee" title="Attack!" data-i18n-title="attack!" value="3" data-i18n="attack!">Attack!</button>
 						<button type="action" class="sheet-cbtroll" name="act_whump" title="Whump!" data-i18n-title="whump!"value="4" data-i18n="whump!">Whump!</button>
 					</div>
 					
 					<div class="sheet-rangedbuttons">
 						<input type="text" name="attr_weapontags" placeholder="Tags" data-i18n-placeholder="tags" style="width: 33ch"/>				
-						<input type="number" name="attr_reloadval" title="Reload: Enter lower tag value OR use 99 for single-shot" data-i18n-title="reload-info" value="99" min="0"/>				
+						<input type="number" name="attr_reloadval" title="Reload: Enter lower tag value OR use 99 for single-shot" data-i18n-title="reload-info" value="99" min="0"/><br/>
 						<button type="action" class="sheet-cbtroll" name="act_ranged" title="Attack!" data-i18n-title="attack!" value="3" data-i18n="attack!">Attack!</button>
 						<button type="action" class="sheet-cbtroll" name="act_pam" title="Aimed Shot!" data-i18n-title="aimed-shot" value="1" data-i18n="pam">Pam!</button>				
 						<button type="action" class="sheet-cbtroll" name="act_rat" title="Empty the magazine!" data-i18n-title="empty" value="2" data-i18n="ratatatat!">Ratatatat!</button>					
@@ -685,35 +685,6 @@
 			[<span data-i18n="add-to-ini">INI</span>](~{{charname}}|flip-settracker)
 		</div>
 	</div>
-</rolltemplate>
-
-<rolltemplate class="sheet-rolltemplate-def">
-	<table>
-		{{#rollBetween() computed::type 1 1}}
-			<caption>{{char}} <span data-i18n="takes-cover">takes cover!</span></caption>
-		{{/rollBetween() computed::type 1 1}}
-		{{#rollBetween() computed::type 2 2}}
-			<caption>{{char}} <span data-i18n="ducks-weaves">ducks and weaves!</span></caption>
-		{{/rollBetween() computed::type 2 2}}
-		{{#rollBetween() computed::type 3 3}}
-			<caption>{{char}} <span data-i18n="defends">defends!</span></caption>
-		{{/rollBetween() computed::type 3 3}}		
-		 <tr><td><span data-i18n="roll">Roll</span>: {{roll1}} <span data-i18n="vs">vs</span> {{computed::target}}</td>
-		{{#rollBetween() computed::outcome 1 1}}
-			<tr><td><span data-i18n="success">Success!</span></td>
-		{{/rollBetween() computed::outcome 1 1}}
-		{{#rollBetween() computed::outcome 2 2}}
-			<tr><td><span data-i18n="failure">Zut! Failure</span></td>
-		{{/rollBetween() computed::outcome 2 2}}
-		{{#rollBetween() computed::outcome 3 3}}
-			<tr><td><span data-i18n="good-karma">Good Karma!</span></td>
-			<tr><td><span data-i18n="make-recovery-roll">Make a RECOVERY roll after any damage is applied</span></td>
-		{{/rollBetween() computed::outcome 3 3}}
-		{{#rollBetween() computed::outcome 4 4}}
-			<tr><td><span data-i18n="bad-karma">#$@$*#@! Bad Karma strikes!</span></td>
-			<tr><td><span data-i18n="knocked-prone">Knocked PRONE!</span></td>
-		{{/rollBetween() computed::outcome 4 4}}
-	<table>
 </rolltemplate>
 
 <rolltemplate class="sheet-rolltemplate-atk">
@@ -1362,7 +1333,7 @@ on("sheet:opened", function(eventInfo){
     });
 
 //Defence rolls
-	on('clicked:defend_ranged clicked:defend_melee clicked:def_npc', (event) => {
+	on('clicked:def_npc', (event) => {
 		const rolltext = "&{template:def} {{char=@{name}}} {{targetm=[[@{melee}]]}} {{targetr=[[@{agility}]]}} {{targetn=[[@{npcdefence}]]}} {{target=[[0]]}} {{roll1=[[1d100]]}} {{outcome=[[0]]}} {{pips=[[?{"+getTranslationByKey("total-pips")+"|0}]]}} {{type=[["+event.htmlAttributes.value+"]]}}"
 		startRoll(rolltext, (results) => {
 			const total = results.results.roll1.result;
