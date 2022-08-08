@@ -507,28 +507,27 @@
 		<div class="sheet-passport">
 			<div>
 				<h2 data-i18n="combat-rolls">Combat rolls</h2> 	
-				<button type="action" class="sheet-blank-button" name="act_d100-ini" title="Initiative" data-i18n-title="initiative" value="1" data-i18n="initiative">Initiative</button>
-				<button type="action" class="sheet-blank-button" name="act_skillroll" title="Defend with AGILITY" data-i18n-title="defend-agility" value="agility" data-i18n="take-cover">Take Cover!</button>
-				<button type="action" class="sheet-blank-button" name="act_skillroll" title="Defend with MELEE" data-i18n-title="defend-melee" value="melee" data-i18n="parry">Parry!</button>
-				<button type="roll" class="sheet-blank-button" name="act_recover" value="&{template:basic} {{name=@{name}}} {{result=[[?{@{how_many_dice}|1}d6>4]]}} {{dicetype=d6P}} {{dicecount=?{@{how_many_dice}|1}}}" title="Recovery" data-i18n-title="recovery" data-i18n="recovery">Recovery</button>		
+				<button type="action" class="sheet-blank-button btn ui-draggable" name="act_d100-ini" title="Initiative" data-i18n-title="initiative" value="1" data-i18n="initiative">Initiative</button>
+				<button type="action" class="sheet-blank-button btn ui-draggable" name="act_skillroll" title="Defend with AGILITY" data-i18n-title="defend-agility" value="agility" data-i18n="take-cover">Take Cover!</button>
+				<br/>
+				<button type="action" class="sheet-blank-button btn ui-draggable" name="act_skillroll" title="Defend with MELEE" data-i18n-title="defend-melee" value="melee" data-i18n="parry">Parry!</button>
+				<button type="roll" class="sheet-blank-button btn ui-draggable" name="act_recover" value="&{template:basic} {{name=@{name}}} {{result=[[?{@{how_many_dice}|1}d6>4]]}} {{dicetype=d6P}} {{dicecount=?{@{how_many_dice}|1}}}" title="Recovery" data-i18n-title="recovery" data-i18n="recovery">Recovery</button>		
 				<br />
 				<hr/>
 			
 				<input type="text" name="attr_armour" class="sheet-short" placeholder="Armour" data-i18n-placeholder="armour"/>
 				<input type="number" name="attr_soakvalue" title="Protection value" data-i18n-title="protection-value" value="0" min="0"/><span data-i18n="dP">dP</span>
 				<input name="attr_armourtags" placeholder="Tags" data-i18n-placeholder="tags" style="width: 40ch"/>
-				<button type="action" class="sheet-cbtroll" name="act_soak" title="Soak damage" data-i18n-title="soak-damage" value="soak" data-i18n="soak">Soak</button>	
-				<br/>
-				<br/>
+				<button type="roll" class="sheet-blank-button btn ui-draggable" name="act_soak" title="Soak damage" data-i18n-title="soak-damage" value="&{template:basic} {{name=@{name}}} {{result=[[@{soakvalue}d6>4]]}} {{dicetype=d6P}} {{dicecount=@{soakvalue}}}" data-i18n="soak">Soak</button>				
+			</div>
+			<div>
 				<input type="text" name="attr_weapon" class="sheet-short" value="Unarmed attack" readonly="true"/>
 				<input name="attr_unarmedskill" class="sheet-shorter" value="Melee" readonly="true"/>
 				<input type="number" name="attr_weapondmg" value="2" min="0" title="Damage Dice" data-i18n-title="damage-dice"/><span data-i18n="dX">dX</span>
-				<input type="text" name="attr_unarmedtags" placeholder="Tags" data-i18n-placeholder="tags" style="width: 40ch"/>
-				
-				<button type="action" class="sheet-cbtroll" name="act_attack_unarmed" title="Attack!" data-i18n-title="attack!" value="3" data-i18n="attack!">Attack!</button>
-				<button type="action" class="sheet-cbtroll" name="act_whump_unarmed" title="Whump!" data-i18n-title="whump!" value="4" data-i18n="whump!">Whump!</button>
-			</div>
-			<div>
+				<input type="text" name="attr_unarmedtags" placeholder="Tags" data-i18n-placeholder="tags" style="width: 40ch"/><br/>				
+				<button type="action" class="sheet-blank-button btn ui-draggable" name="act_attack_unarmed" title="Attack!" data-i18n-title="attack!" value="3" data-i18n="attack!">Attack!</button>
+				<button type="action" class="sheet-blank-button btn ui-draggable" name="act_whump_unarmed" title="Whump!" data-i18n-title="whump!" value="4" data-i18n="whump!">Whump!</button>
+				<hr>
 				<fieldset class="repeating_attacks">
 					<input type="text" name="attr_weapon" style="width:40%" placeholder="Weapon" data-i18n-placeholder="weapon" /> 
 					<select name="attr_weaponskill" style="width:30%">
@@ -542,17 +541,18 @@
 
 					<div class="sheet-meleebuttons">
 						<input type="text" name="attr_weapontags" placeholder="Tags" data-i18n-placeholder="tags" style="width: 40ch"/><br/>
-						<button type="action" class="sheet-cbtroll" name="act_melee" title="Attack!" data-i18n-title="attack!" value="3" data-i18n="attack!">Attack!</button>
-						<button type="action" class="sheet-cbtroll" name="act_whump" title="Whump!" data-i18n-title="whump!"value="4" data-i18n="whump!">Whump!</button>
+						<button type="action" class="sheet-blank-button btn ui-draggable" name="act_melee" title="Attack!" data-i18n-title="attack!" value="3" data-i18n="attack!">Attack!</button>
+						<button type="action" class="sheet-blank-button btn ui-draggable" name="act_whump" title="Whump!" data-i18n-title="whump!"value="4" data-i18n="whump!">Whump!</button>
 					</div>
 					
 					<div class="sheet-rangedbuttons">
 						<input type="text" name="attr_weapontags" placeholder="Tags" data-i18n-placeholder="tags" style="width: 33ch"/>				
 						<input type="number" name="attr_reloadval" title="Reload: Enter lower tag value OR use 99 for single-shot" data-i18n-title="reload-info" value="99" min="0"/><br/>
-						<button type="action" class="sheet-cbtroll" name="act_ranged" title="Attack!" data-i18n-title="attack!" value="3" data-i18n="attack!">Attack!</button>
-						<button type="action" class="sheet-cbtroll" name="act_pam" title="Aimed Shot!" data-i18n-title="aimed-shot" value="1" data-i18n="pam">Pam!</button>				
-						<button type="action" class="sheet-cbtroll" name="act_rat" title="Empty the magazine!" data-i18n-title="empty" value="2" data-i18n="ratatatat!">Ratatatat!</button>					
+						<button type="action" class="sheet-blank-button btn ui-draggable" name="act_ranged" title="Attack!" data-i18n-title="attack!" value="3" data-i18n="attack!">Attack!</button>
+						<button type="action" class="sheet-blank-button btn ui-draggable" name="act_pam" title="Aimed Shot!" data-i18n-title="aimed-shot" value="1" data-i18n="pam">Pam!</button>				
+						<button type="action" class="sheet-blank-button btn ui-draggable" name="act_rat" title="Empty the magazine!" data-i18n-title="empty" value="2" data-i18n="ratatatat!">Ratatatat!</button>					
 					</div>
+					<hr>
 				</fieldset>
 			</div>
 		</div>
@@ -827,18 +827,6 @@
 		{{/rollBetween() computed::type 5 5}}		
 		<table>
 	</rolltemplate>
-
-<rolltemplate class="sheet-rolltemplate-soakrecover">
-    <table>
-        <caption>{{char}}</caption>
-			{{#rollBetween() computed::type 1 1}}
-				<tr><td><span data-i18n="soaks">Soaks</span> {{computed::soak}} <span data-i18n="points-of-damage">points of damage</span></td>
-			{{/rollBetween() computed::type 1 1}}
-			{{#rollBetween() computed::type 2 2}}
-				<tr><td><span data-i18n="recovers">Recovers</span> {{computed::recover}} <span data-i18n="points-of-vitality">points of vitality</span></td>
-			{{/rollBetween() computed::type 2 2}}
-    <table>
-</rolltemplate>
 
 <script type="text/worker">
 //Attributes for multilanguage support in roll queries
@@ -1300,33 +1288,6 @@ on("sheet:opened", function(eventInfo){
 					outcome: out,
 					damage: dmg,
 					reload: rld,
-                }
-            );
-        });
-    });
-
-//Soak and recovery rolls
-	on('clicked:soak', (info) => {
-        const rolltext = "&{template:soakrecover} {{char=@{name}}} {{soak=[[@{soakvalue}d6>4]]}} {{type=[[1]]}}"
-		startRoll(rolltext, (results) => {
-			const soaked = results.results.soak.result;
-            finishRoll(
-                results.rollId,
-                {
-                    soak: soaked,
-                }
-            );
-        });
-    });
-
-	on('clicked:recover', (info) => {
-        const rolltext = "&{template:soakrecover} {{char=@{name}}} {{recover=[[?{"+getTranslationByKey("how-many-recovery-dice")+"}d6>4]]}}  {{type=[[2]]}}"
-		startRoll(rolltext, (results) => {
-            const recovered = results.results.recover.result;
-            finishRoll(
-                results.rollId,
-                {
-					recover: recovered,
                 }
             );
         });
