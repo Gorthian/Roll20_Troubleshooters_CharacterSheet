@@ -2,7 +2,7 @@
 	CREATED by 			Richard M
 	EDITED by 			Gorthian
 	Version				3.0a
-	Letzte Änderung		2022-08-02
+	Letzte Änderung		2022-08-08
 	
 	GitHub				https://github.com/Gorthian/Roll20_Troubleshooters_CharacterSheet
 	Wiki				https://github.com/Gorthian/Roll20_Troubleshooters_CharacterSheet/wiki
@@ -34,7 +34,9 @@
 			<button type="roll" class="sheet-blank-button" value="&{template:basic} {{name=@{name}}} {{result=[[?{@{how_many_dice}|1}d6!>6>4]]}} {{dicetype=d6X}} {{dicecount=?{@{how_many_dice}|1}}}" title="Exploding Dice Pool" data-i18n-title="exploding-pool-title" data-i18n="exploding-pool">NdX</button>
 			<button type="action" class="sheet-blank-button btn ui-draggable" name="act_basicd100" title="Add text in translation files" data-i18n-title="percentile-dice-title" data-i18n="percentile-dice">d100</button>
 			<button hidden="true" style="display:none;" type="roll" name="roll_flip" value="&{template:d100-flip} {{name=@{name}}} {{tens=@{last-roll-ones}}} {{ones=@{last-roll-tens}}} {{success=@{last-roll-fliped}}} {{skill=@{last-roll-skill}}} {{target=@{last-roll-target}}} {{pips=@{last-roll-pips}}}" />
-			<button hidden="true" style="display:none;" type="roll" name="roll_flip-ini" value="&{template:d100-flip-ini} {{name=@{name}}} {{tens=@{last-roll-ones}}} {{ones=@{last-roll-tens}}} {{success=@{last-roll-fliped}}} {{skill=@{last-roll-skill}}} {{target=@{last-roll-target}}} {{pips=@{last-roll-pips}}} {{ini=@{last-roll-ini-fliped}}}" />
+			<button hidden="true" style="display:none;" type="roll" name="roll_flip-ini" value="&{template:d100-flip-ini} {{name=@{name}}} {{charname=@{character_name}}} {{tens=@{last-roll-ones}}} {{ones=@{last-roll-tens}}} {{success=@{last-roll-fliped}}} {{skill=@{last-roll-skill}}} {{target=@{last-roll-target}}} {{pips=@{last-roll-pips}}} {{ini=@{last-roll-ini-fliped}}}" />
+			<button hidden="true" style="display:none;" type="roll" name="roll_settracker" value="/roll @{last-roll-ini} &{tracker}" />
+			<button hidden="true" style="display:none;" type="roll" name="roll_flip-settracker" value="/roll @{last-roll-ini-fliped} &{tracker}" />
 			
 			&emsp;<span data-i18n="npc">add text in translation files</span> : <input type="checkbox" class="sheet-isnpc-check" name="attr_isnpc" value="1" />
 		</div>
@@ -548,7 +550,7 @@
 						<input type="text" name="attr_weapontags" placeholder="Tags" data-i18n-placeholder="tags" style="width: 33ch"/>				
 						<input type="number" name="attr_reloadval" title="Reload: Enter lower tag value OR use 99 for single-shot" data-i18n-title="reload-info" value="99" min="0"/>				
 						<button type="action" class="sheet-cbtroll" name="act_ranged" title="Attack!" data-i18n-title="attack!" value="3" data-i18n="attack!">Attack!</button>
-						<button type="action" class="sheet-cbtroll" name="act_pam" title="Aimed Shot!" data-i18n-title="aimed-shot" value="1" data-i18n="pam!">Pam!</button>				
+						<button type="action" class="sheet-cbtroll" name="act_pam" title="Aimed Shot!" data-i18n-title="aimed-shot" value="1" data-i18n="pam">Pam!</button>				
 						<button type="action" class="sheet-cbtroll" name="act_rat" title="Empty the magazine!" data-i18n-title="empty" value="2" data-i18n="ratatatat!">Ratatatat!</button>					
 					</div>
 				</fieldset>
@@ -652,6 +654,7 @@
 		</div>
 		<div class="sheet-template-flip">
 			[<span data-i18n="flip">Flip</span>](~{{charname}}|flip-ini)
+			[<span data-i18n="add-to-ini">INI</span>](~{{charname}}|settracker)
 		</div>
 	</div>	
 </rolltemplate>
@@ -669,7 +672,6 @@
 			<div class="sheet-template-tens">{{tens}}</div>
 			<div class="sheet-template-ones">{{ones}}</div>
 		</div>
-		{{#skill}}
 		<div class="sheet-template-info">
 			{{#success}}
 				<p><span data-i18n="success">Success!</span></p>
@@ -679,7 +681,9 @@
 			{{/success}}
 			<p><span data-i18n="initiative">ini</span> <b>{{ini}}</b></p>
 		</div>
-		{{/skill}}
+		<div class="sheet-template-flip">
+			[<span data-i18n="add-to-ini">INI</span>](~{{charname}}|flip-settracker)
+		</div>
 	</div>
 </rolltemplate>
 
@@ -934,6 +938,8 @@ on("sheet:opened", function(eventInfo){
 				["last-roll-ones"]: results.results.ones.result,
 				["last-roll-tens"]: results.results.tens.result,
 				["last-roll-fliped"]: "",
+				["last-roll-ini"]: "",
+				["last-roll-ini-fliped"]: "",
 				["last-roll-skill"]: "",
 				["last-roll-pips"]: "",
 				["last-roll-target"]: ""
@@ -1066,6 +1072,7 @@ on("sheet:opened", function(eventInfo){
 				["last-roll-ones"]: results.results.ones.result,
 				["last-roll-tens"]: results.results.tens.result,
 				["last-roll-fliped"]: outfliped,
+				["last-roll-ini"]: ini,
 				["last-roll-ini-fliped"]: inifliped,
 				["last-roll-skill"]: skill,
 				["last-roll-pips"]: pips,
