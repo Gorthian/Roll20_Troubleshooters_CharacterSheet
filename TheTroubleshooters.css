@@ -517,11 +517,16 @@ input.sheet-gearcheck:checked {
   	color					: #000;
 }
 
+.sheet-rolltemplate-basic p, .sheet-rolltemplate-d100 p, .sheet-rolltemplate-d100-flip p, .sheet-rolltemplate-d100-flip-ini p, .sheet-rolltemplate-d100-ini p {
+	margin-left				: 15px;
+	margin-right			: 15px;
+}
+
 .sheet-rolltemplate-basic li, .sheet-rolltemplate-d100 li, .sheet-rolltemplate-d100-flip li, .sheet-rolltemplate-d100-flip-ini li, .sheet-rolltemplate-d100-ini li {
-	height					: 30px;
 	line-height				: 30px;
 	font-size				: 15px;
 	text-align				: left;
+	margin-left				: 10px;
 }
 
 .sheet-rolltemplate-basic h1, .sheet-rolltemplate-d100 h1, .sheet-rolltemplate-d100-flip h1, .sheet-rolltemplate-d100-flip-ini h1, .sheet-rolltemplate-d100-ini h1 {

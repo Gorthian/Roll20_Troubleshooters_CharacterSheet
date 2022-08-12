@@ -603,7 +603,7 @@
 		</div>
 		<div class="sheet-template-info">			
 			{{#rollTotal() computed::outcome 1}}
-				{{^rollTotal() computed::type 2}}{{^rollTotal() computed::type 4}}<p><span data-i18n="success">Success!</span></p>{{/rollTotal() computed::type 4}}{{/rollTotal() computed::type 2}}
+				{{#rollLess() computed::type 2}}<p><span data-i18n="success">Success!</span></p>{{/rollLess() computed::type 2}}
 				{{#rollTotal() computed::type 2}}
 					<p><span data-i18n="a-hit-choose">A hit! Choose from</span>:</p>
 					<ul>
@@ -611,19 +611,20 @@
 						<li>{{computed::damage}}+{{computed::bonusdamage}}={{computed::totaldamage}} <span data-i18n="damage-one">damage to one target</span></li>
 					</ul>
 				{{/rollTotal() computed::type 2}}
+				{{#rollTotal() computed::type 3}}<p><span data-i18n="success">Success!</span></p>{{/rollTotal() computed::type 3}}
 				{{#rollTotal() computed::type 4}}
 					<p><span data-i18n="success-choose-two">Success! Choose two from</span>:</p>
 					<ul>
-						<li>{{computed::wdamage}}<p><span data-i18n="damage">damage!</span></li>
+						<li>{{computed::wdamage}} <span data-i18n="damage">damage!</span></li>
 						<li><span data-i18n="target-restrained">The target is RESTRAINED</span></li>
 						<li><span data-i18n="target-prone">The target is PRONE</span></li>
 					</ul>
 				{{/rollTotal() computed::type 4}}
 				{{#rollTotal() computed::type 1}}
-					{{#computed::damage}}{{computed::damage}}{{#computed::bonusdamage}}+{{computed::bonusdamage}}={{computed::totaldamage}}{{/computed::bonusdamage}} <span data-i18n="damage">damage!</span><br/>{{/computed::damage}}				
+					{{#computed::damage}}<h1>{{computed::damage}}{{#computed::bonusdamage}}+{{computed::bonusdamage}}={{computed::totaldamage}}{{/computed::bonusdamage}} <span data-i18n="damage">damage!</span></h1>{{/computed::damage}}				
 				{{/rollTotal() computed::type 1}}
 				{{#rollGreater() computed::type 2}}
-					{{#computed::damage}}{{computed::damage}}{{#computed::bonusdamage}}+{{computed::bonusdamage}}={{computed::totaldamage}}{{/computed::bonusdamage}} <span data-i18n="damage">damage!</span><br/>{{/computed::damage}}				
+					{{#computed::damage}}<h1>{{computed::damage}}{{#computed::bonusdamage}}+{{computed::bonusdamage}}={{computed::totaldamage}}{{/computed::bonusdamage}} <span data-i18n="damage">damage!</span></h1>{{/computed::damage}}				
 				{{/rollGreater() computed::type 2}}
 				{{#rollTotal() computed::karma 1}}
 					{{#rollLess() computed::type 1}}<p><span data-i18n="good-karma">Good Karma!</span></p>{{/rollLess() computed::type 1}}
@@ -634,7 +635,7 @@
 			{{#rollTotal() computed::outcome 2}}
 				<p><span data-i18n="failure">Zut! Failure</span></p>
 				{{#rollTotal() computed::karma 1}}
-					{{^rollTotal() computed::type 3}}<p><span data-i18n="bad-karma">Bad Karma!</span></p>{{/rollTotal() computed::type 3}}
+					{{#rollLess() computed::type 1}}<p><span data-i18n="bad-karma">Bad Karma!</span></p>{{/rollLess() computed::type 1}}
 					{{#rollBetween() computed::type 1 4}}
 						<p><span data-i18n="bad-karma-minus">#$@$*#@! Bad Karma strikes! your next check is at -2 pips</span></p>
 						{{#rollBetween() computed::type 1 3}}{{#rollBetween() computed::reload 1 1}}<p><span data-i18n="weapon-jammed">Weapon jammed!</span></p>{{/rollBetween() computed::reload 1 1}}{{/rollBetween() computed::type 1 3}}
@@ -1085,6 +1086,7 @@ function getRollString(sTemplate,mRollParams) {
 	let sRoll = "";
 	
 	sRoll = "&{template:"+sTemplate+"} {{name=@{name}}} {{charname=@{character_name}}} {{tens=[[1d10-1]]}} {{ones=[[1d10-1]]}} {{dicetype=d%}} {{dicecount=1}}"
+	//sRoll = "&{template:"+sTemplate+"} {{name=@{name}}} {{charname=@{character_name}}} {{tens=[[9]]}} {{ones=[[9]]}} {{dicetype=d%}} {{dicecount=1}}"
 	mRollParams.forEach((value, key) => sRoll = sRoll + " {{"+key+"="+value+"}}");
 	
 	return sRoll;
