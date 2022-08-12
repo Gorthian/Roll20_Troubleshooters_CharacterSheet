@@ -915,18 +915,9 @@ on("sheet:opened", function(eventInfo){
 			const pips = results.results.pips.result;
 			var total = calcTotal(tens,ones,0);
 			var totalfliped = calcTotal(tens,ones,1);
-			var krm = 0; // 1 - karma
-			var out = 0; //	1 - Success / 2 - Failure
-			var outfliped = 0; //	1 - Success / "" - Failure			
-			
-			//Success or Failure
-			out = getSuccessOrFailure(tens,ones,pips,target,0);
-
-			//Success or Failure if fliped
-			outfliped = getSuccessOrFailure(tens,ones,pips,target,1);
-
-			//Karma
-			krm = calcKarma(tens,ones);					
+			var krm = calcKarma(tens,ones);
+			var out = getSuccessOrFailure(tens,ones,pips,target,0);
+			var outfliped = getSuccessOrFailure(tens,ones,pips,target,1);
 			
 			//safe results for a flip
 			safeFlipResults(results,new Map([
@@ -964,21 +955,12 @@ on("sheet:opened", function(eventInfo){
 			const pips = results.results.pips.result;
 			var total = calcTotal(tens,ones,0);
 			var totalfliped = calcTotal(tens,ones,1);
-			var krm = 0; // 1 - karma
-			var out = 0; //	1 - Success / 2 - Failure
-			var outfliped = 0; //	1 - Success / "" - Failure
+			var krm = calcKarma(tens,ones);
+			var out = getSuccessOrFailure(tens,ones,pips,target,0);
+			var outfliped = getSuccessOrFailure(tens,ones,pips,target,1);
 			var ini = 0;
 			var inifliped = 0;
 			
-			//Success or Failure
-			out = getSuccessOrFailure(tens,ones,pips,target,0);
-
-			//Success or Failure if fliped
-			outfliped = getSuccessOrFailure(tens,ones,pips,target,1);
-
-			//Karma
-			krm = calcKarma(tens,ones);			
-
 			//Ini
 			if (out == 2 && krm == 1) {ini=0}
 			if (out == 2 && krm == 0) {ini=ones}
