@@ -500,7 +500,6 @@ input.sheet-gearcheck:checked {
 .sheet-rolltemplate-d100 div.sheet-template-container,
 .sheet-rolltemplate-d100-flip div.sheet-template-container, 
 .sheet-rolltemplate-d100-flip-ini div.sheet-template-container {
-	
 	background-image		: url(https://greengorilla.de/vtt/rahmen_260x260.png);
 	background-repeat		: no-repeat;
 	background-origin		: border-box;
@@ -513,14 +512,21 @@ input.sheet-gearcheck:checked {
 .sheet-rolltemplate-basic div, .sheet-rolltemplate-d100 div, .sheet-rolltemplate-d100-flip div, .sheet-rolltemplate-d100-flip-ini div, .sheet-rolltemplate-d100-ini div,
 .sheet-rolltemplate-basic p, .sheet-rolltemplate-d100 p, .sheet-rolltemplate-d100-flip p, .sheet-rolltemplate-d100-flip-ini p, .sheet-rolltemplate-d100-ini p {
 	font-family				: 'Edu NSW ACT Foundation', cursive;
-	font-size				: 20px;
+	font-size				: 18px;
   	text-align				: center;
   	color					: #000;
 }
 
 .sheet-rolltemplate-basic li, .sheet-rolltemplate-d100 li, .sheet-rolltemplate-d100-flip li, .sheet-rolltemplate-d100-flip-ini li, .sheet-rolltemplate-d100-ini li {
-		height				: 30px;
-		line-height			: 30px,
+	height					: 30px;
+	line-height				: 30px;
+	font-size				: 15px;
+	text-align				: left;
+}
+
+.sheet-rolltemplate-basic h1, .sheet-rolltemplate-d100 h1, .sheet-rolltemplate-d100-flip h1, .sheet-rolltemplate-d100-flip-ini h1, .sheet-rolltemplate-d100-ini h1 {
+	font-size				: 20px;
+	text-decoration			: underline;
 }
 
 .sheet-rolltemplate-basic div.sheet-template-container div.sheet-template-result,
@@ -532,7 +538,7 @@ input.sheet-gearcheck:checked {
 	background-position		: center;
 	background-size			: 200px;
 	
-	font-size				: 25px;
+	font-size				: 18px;
 	font-weight				: bold;
 	margin-top				: auto;
 	margin-bottom			: auto;
@@ -561,13 +567,18 @@ input.sheet-gearcheck:checked {
 
 .sheet-rolltemplate-basic div.sheet-template-result .inlinerollresult,
 .sheet-rolltemplate-d100 div.sheet-template-result .inlinerollresult,
+.sheet-rolltemplate-d100 div.sheet-template-info .inlinerollresult,
+.sheet-rolltemplate-d100 div.sheet-template-container .inlinerollresult,
 .sheet-rolltemplate-d100-ini div.sheet-template-result .inlinerollresult,
 .sheet-rolltemplate-d100-ini div.sheet-template-info .inlinerollresult,
 .sheet-rolltemplate-d100-ini div.sheet-template-pips .inlinerollresult,
+.sheet-rolltemplate-d100-ini div.sheet-template-container .inlinerollresult,
 .sheet-rolltemplate-d100-flip div.sheet-template-result .inlinerollresult,
 .sheet-rolltemplate-d100-flip div.sheet-template-pips .inlinerollresult,
+.sheet-rolltemplate-d100-flip div.sheet-template-container .inlinerollresult,
 .sheet-rolltemplate-d100-flip-ini div.sheet-template-result .inlinerollresult,
 .sheet-rolltemplate-d100-flip-ini div.sheet-template-pips .inlinerollresult,
+.sheet-rolltemplate-d100-flip-ini div.sheet-template-container .inlinerollresult,
 .sheet-rolltemplate-d100 div.sheet-template-pips .inlinerollresult {
 	all					: unset;
 	background-color	: transparent;
@@ -587,7 +598,7 @@ input.sheet-gearcheck:checked {
 .sheet-rolltemplate-d100-flip div.sheet-template-container div.sheet-template-ones,
 .sheet-rolltemplate-d100-flip-ini div.sheet-template-container div.sheet-template-ones {
 	font-size		: 25px;
-	margin-right	: 26px;
+	margin-right	: 20px;
 }
 
 .sheet-rolltemplate-d100 div.sheet-template-container div.sheet-template-flip,
@@ -608,15 +619,16 @@ input.sheet-gearcheck:checked {
 .sheet-rolltemplate-d100-ini div.sheet-template-pips,
 .sheet-rolltemplate-d100-flip div.sheet-template-pips,
 .sheet-rolltemplate-d100-flip-ini div.sheet-template-pips {
+	display			: inline-block;
+	position		: relative;
 	background-color: aliceblue;
 	border			: 3px solid grey;
 	border-radius	: 4px;
 	width			: 70px;
 	height			: 35px;
-	transform		: rotate(-22deg);
-	position		: relative;
-	top				: 180px;
-	left			: 180px;
+	transform		: rotate(-22deg);	
+	top				: -45px;
+	left			: 175px;
 	text-align		: center;
 	font-size		: 20px;
 	line-height		: 35px;

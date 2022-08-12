@@ -580,31 +580,28 @@
 			2	- Ratatatat
 			3	- Basic Attack
 			4	- WHUMP!
-	//-->
-	{{#pips}}
-	<div class="sheet-template-pips">
-		{{pips}} <span data-i18n="pips"></span>
-	</div>
-	{{/pips}}
+	//-->	
     <div class="sheet-template-container">
-		<p>
-			{{#rollTotal() computed::type 2}}<span data-i18n="ratatatat!">RATATATAT!</span><br/>{{/rollTotal() computed::type 2}}
-			{{#rollTotal() computed::type 4}}<span data-i18n="whump!">WHUMP!</span><br/>{{/rollTotal() computed::type 4}}
-			{{name}} 
-			{{#rollTotal() computed::type 1}}<span data-i18n="takes-aim">takes aim and...PAM!</span>{{/rollTotal() computed::type 1}}
-			{{#rollTotal() computed::type 2}}<span data-i18n="empties-weapon">empties their weapon at the target</span>{{/rollTotal() computed::type 2}}
-			{{#rollTotal() computed::type 3}}<span data-i18n="attacks!">attacks!</span>{{/rollTotal() computed::type 3}}
-			{{#rollTotal() computed::type 4}}<span data-i18n="attempts-takedown">attempts a takedown</span>{{/rollTotal() computed::type 4}}
-		</p>
-		{{^skill}}{{^skill_raw}}<p><span data-i18n="rolls">Rolls</span> {{dicecount}} <span data-i18n="{{dicetype}}">dicetype</span></p>{{/skill_raw}}{{/skill}}
-		{{#skill}}<p><span data-i18n="{{skill}}">Skill</span> <span data-i18n="of">of</span> {{target}}</p>{{/skill}}
-		{{#skill_raw}}<p>{{skill_raw}} <span data-i18n="of">of</span> {{target}}</p>{{/skill_raw}}
+		{{#rollTotal() computed::type 2}}<h1><span data-i18n="ratatatat!">RATATATAT!</span></h1>{{/rollTotal() computed::type 2}}
+		{{#rollTotal() computed::type 4}}<h1><span data-i18n="whump!">WHUMP!</span></h1>{{/rollTotal() computed::type 4}}
+		{{name}} 
+		{{#rollTotal() computed::type 1}}<span data-i18n="takes-aim">takes aim and...PAM!</span>{{/rollTotal() computed::type 1}}
+		{{#rollTotal() computed::type 2}}<span data-i18n="empties-weapon">empties their weapon at the target</span>{{/rollTotal() computed::type 2}}
+		{{#rollTotal() computed::type 3}}<span data-i18n="attacks!">attacks!</span>{{/rollTotal() computed::type 3}}
+		{{#rollTotal() computed::type 4}}<span data-i18n="attempts-takedown">attempts a takedown</span>{{/rollTotal() computed::type 4}}
+		{{^skill}}{{^skill_raw}}<br/><span data-i18n="rolls">Rolls</span> {{dicecount}} <span data-i18n="{{dicetype}}">dicetype</span>{{/skill_raw}}{{/skill}}
+		{{#skill}}<br/><span data-i18n="{{skill}}">Skill</span> <span data-i18n="of">of</span> {{target}}{{/skill}}
+		{{#skill_raw}}<br/>{{skill_raw}} <span data-i18n="of">of</span> {{target}}{{/skill_raw}}
 		<div class="sheet-template-result">
 			<div class="sheet-template-tens">{{tens}}</div>
 			<div class="sheet-template-ones">{{ones}}</div>
+			{{#pips}}
+			<div class="sheet-template-pips">
+				{{pips}} <span data-i18n="pips"></span>
+			</div>
+			{{/pips}}
 		</div>
-		<div class="sheet-template-info">
-			{{#rollTotal() computed::type 1}}<span data-i18n="reduce-ini">Reduce initiative score by 2</span>{{/rollTotal() computed::type 1}}
+		<div class="sheet-template-info">			
 			{{#rollTotal() computed::outcome 1}}
 				{{^rollTotal() computed::type 2}}{{^rollTotal() computed::type 4}}<p><span data-i18n="success">Success!</span></p>{{/rollTotal() computed::type 4}}{{/rollTotal() computed::type 2}}
 				{{#rollTotal() computed::type 2}}
@@ -645,6 +642,7 @@
 				{{/rollTotal() computed::karma 1}}
 			{{/rollTotal() computed::outcome 2}}			
 			{{#rollBetween() computed::reload 1 1}}<p><span data-i18n="out-of-ammo">Out of ammo!</span></p>{{/rollBetween() computed::reload 1 1}}
+			{{#rollTotal() computed::type 1}}<span data-i18n="reduce-ini">Reduce initiative score by 2</span>{{/rollTotal() computed::type 1}}
 		</div>
 		<div class="sheet-template-flip">
 			[<span data-i18n="flip">Flip</span>](~{{charname}}|flip)
