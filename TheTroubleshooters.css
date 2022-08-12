@@ -518,6 +518,11 @@ input.sheet-gearcheck:checked {
   	color					: #000;
 }
 
+.sheet-rolltemplate-basic li, .sheet-rolltemplate-d100 li, .sheet-rolltemplate-d100-flip li, .sheet-rolltemplate-d100-flip-ini li, .sheet-rolltemplate-d100-ini li {
+		height				: 30px;
+		line-height			: 30px,
+}
+
 .sheet-rolltemplate-basic div.sheet-template-container div.sheet-template-result,
 .sheet-rolltemplate-d100-ini div.sheet-template-container div.sheet-template-result,
 .sheet-rolltemplate-d100 div.sheet-template-container div.sheet-template-result,

@@ -576,9 +576,9 @@
 	<!--
 		computed::type defines different types of rolls
 			0	- nothing special
-			1	-
-			2	-
-			3	- Unarmed Melee Attack
+			1	- PAM
+			2	- Ratatatat
+			3	- Basic Attack
 			4	- WHUMP!
 	//-->
 	{{#pips}}
@@ -588,8 +588,11 @@
 	{{/pips}}
     <div class="sheet-template-container">
 		<p>
+			{{#rollTotal() computed::type 2}}<span data-i18n="ratatatat!">RATATATAT!</span><br/>{{/rollTotal() computed::type 2}}
 			{{#rollTotal() computed::type 4}}<span data-i18n="whump!">WHUMP!</span><br/>{{/rollTotal() computed::type 4}}
 			{{name}} 
+			{{#rollTotal() computed::type 1}}<span data-i18n="takes-aim">takes aim and...PAM!</span>{{/rollTotal() computed::type 1}}
+			{{#rollTotal() computed::type 2}}<span data-i18n="empties-weapon">empties their weapon at the target</span>{{/rollTotal() computed::type 2}}
 			{{#rollTotal() computed::type 3}}<span data-i18n="attacks!">attacks!</span>{{/rollTotal() computed::type 3}}
 			{{#rollTotal() computed::type 4}}<span data-i18n="attempts-takedown">attempts a takedown</span>{{/rollTotal() computed::type 4}}
 		</p>
@@ -601,8 +604,16 @@
 			<div class="sheet-template-ones">{{ones}}</div>
 		</div>
 		<div class="sheet-template-info">
+			{{#rollTotal() computed::type 1}}<span data-i18n="reduce-ini">Reduce initiative score by 2</span>{{/rollTotal() computed::type 1}}
 			{{#rollTotal() computed::outcome 1}}
-				{{^rollTotal() computed::type 4}}<p><span data-i18n="success">Success!</span></p>{{/rollTotal() computed::type 4}}
+				{{^rollTotal() computed::type 2}}{{^rollTotal() computed::type 4}}<p><span data-i18n="success">Success!</span></p>{{/rollTotal() computed::type 4}}{{/rollTotal() computed::type 2}}
+				{{#rollTotal() computed::type 2}}
+					<p><span data-i18n="a-hit-choose">A hit! Choose from</span>:</p>
+					<ul>
+						<li>{{computed::damage}} <span data-i18n="damage-all">damage to all targets</span></li>
+						<li>{{computed::damage}}+{{computed::bonusdamage}}={{computed::totaldamage}} <span data-i18n="damage-one">damage to one target</span></li>
+					</ul>
+				{{/rollTotal() computed::type 2}}
 				{{#rollTotal() computed::type 4}}
 					<p><span data-i18n="success-choose-two">Success! Choose two from</span>:</p>
 					<ul>
@@ -611,21 +622,26 @@
 						<li><span data-i18n="target-prone">The target is PRONE</span></li>
 					</ul>
 				{{/rollTotal() computed::type 4}}
-				{{#computed::damage}}{{computed::damage}}<p><span data-i18n="damage">damage!</span></p>{{/computed::damage}}				
+				{{#rollTotal() computed::type 1}}
+					{{#computed::damage}}{{computed::damage}}{{#computed::bonusdamage}}+{{computed::bonusdamage}}={{computed::totaldamage}}{{/computed::bonusdamage}} <span data-i18n="damage">damage!</span><br/>{{/computed::damage}}				
+				{{/rollTotal() computed::type 1}}
+				{{#rollGreater() computed::type 2}}
+					{{#computed::damage}}{{computed::damage}}{{#computed::bonusdamage}}+{{computed::bonusdamage}}={{computed::totaldamage}}{{/computed::bonusdamage}} <span data-i18n="damage">damage!</span><br/>{{/computed::damage}}				
+				{{/rollGreater() computed::type 2}}
 				{{#rollTotal() computed::karma 1}}
-					{{^rollTotal() computed::type 3}}<p><span data-i18n="good-karma">Good Karma!</span></p>{{/rollTotal() computed::type 3}}
-					{{#rollBetween() computed::type 3 4}}<p><span data-i18n="good-karma-underlings">Good Karma! Underlings and Mooks are OUT COLD.</span></p>{{/rollBetween() computed::type 3 4}}
-					{{#rollTotal() computed::type 3}}<p><span data-i18n="reroll-damage">Re-roll damage if you wish.</span></p>{{/rollTotal() computed::type 3}}
+					{{#rollLess() computed::type 1}}<p><span data-i18n="good-karma">Good Karma!</span></p>{{/rollLess() computed::type 1}}
+					{{#rollBetween() computed::type 1 4}}<p><span data-i18n="good-karma-underlings">Good Karma! Underlings and Mooks are OUT COLD.</span></p>{{/rollBetween() computed::type 1 4}}
+					{{#rollBetween() computed::type 1 3}}<p><span data-i18n="reroll-damage">Re-roll damage if you wish.</span></p>{{/rollBetween() computed::type 1 3}}
 				{{/rollTotal() computed::karma 1}}
 			{{/rollTotal() computed::outcome 1}}
 			{{#rollTotal() computed::outcome 2}}
 				<p><span data-i18n="failure">Zut! Failure</span></p>
 				{{#rollTotal() computed::karma 1}}
 					{{^rollTotal() computed::type 3}}<p><span data-i18n="bad-karma">Bad Karma!</span></p>{{/rollTotal() computed::type 3}}
-					{{#rollBetween() computed::type 3 4}}
+					{{#rollBetween() computed::type 1 4}}
 						<p><span data-i18n="bad-karma-minus">#$@$*#@! Bad Karma strikes! your next check is at -2 pips</span></p>
-						{{#rollBetween() computed::reload 1 1}}<p><span data-i18n="weapon-jammed">Weapon jammed!</span></p>{{/rollBetween() computed::reload 1 1}}
-					{{/rollBetween() computed::type 3 4}}
+						{{#rollBetween() computed::type 1 3}}{{#rollBetween() computed::reload 1 1}}<p><span data-i18n="weapon-jammed">Weapon jammed!</span></p>{{/rollBetween() computed::reload 1 1}}{{/rollBetween() computed::type 1 3}}
+					{{/rollBetween() computed::type 1 4}}
 				{{/rollTotal() computed::karma 1}}
 			{{/rollTotal() computed::outcome 2}}			
 			{{#rollBetween() computed::reload 1 1}}<p><span data-i18n="out-of-ammo">Out of ammo!</span></p>{{/rollBetween() computed::reload 1 1}}
@@ -720,92 +736,6 @@
 		</div>
 	</div>
 </rolltemplate>
-
-<rolltemplate class="sheet-rolltemplate-atk">
-    <table>
-		{{#rollBetween() computed::type 1 1}}		
-			<caption>{{char}} <span data-i18n="takes-aim">takes aim and...PAM!</span></caption>
-				<tr><td><span data-i18n="takes-aim">Roll</span>: {{roll1}} <span data-i18n="vs">vs</span> {{target}}</td>
-					<tr><td><span data-i18n="reduce-ini">Reduce initiative score by 2</span></td>
-					{{#rollBetween() computed::outcome 1 1}}
-						<tr><td><span data-i18n="a-hit">A hit!</span></td>
-						<tr><td>{{computed::bonusdamage}} <span data-i18n="damage">damage!</span></td>
-					{{/rollBetween() computed::outcome 1 1}}
-					{{#rollBetween() computed::outcome 2 2}}
-						<tr><td><span data-i18n="miss">Zut! A miss</span></td>
-					{{/rollBetween() computed::outcome 2 2}}
-					{{#rollBetween() computed::outcome 3 3}}
-						<tr><td><span data-i18n="good-karma-underlings">Good Karma! Underlings and Mooks are OUT COLD.</span></td>
-						<tr><td>{{computed::bonusdamage}} <span data-i18n="damage">Damage!</span></td>
-						<tr><td><span data-i18n="reroll-damage">Re-roll damage if you wish.</span></td>
-					{{/rollBetween() computed::outcome 3 3}}
-					{{#rollBetween() computed::outcome 4 4}}
-						<tr><td><span data-i18n="bad-karma-minus">#$@$*#@! Bad Karma strikes! your next check is at -2 pips</span></td>
-						{{#rollBetween() computed::reload 1 1}}
-							<tr><td><span data-i18n="weapon-jammed">Weapon jammed!</span></td>
-						{{/rollBetween() computed::reload 1 1}}						
-					{{/rollBetween() computed::outcome 4 4}}
-		{{/rollBetween() computed::type 1 1}}
-		{{#rollBetween() computed::type 2 2}}
-			<caption><span data-i18n="ratatatat">RATATATAT!</span> {{char}} <span data-i18n="empties-weapon">empties their weapon at the target</span></caption>
-				<tr><td><span data-i18n="roll">Roll</span>: {{roll1}} <span data-i18n="vs">vs</span> {{target}}</td>
-					{{#rollBetween() computed::outcome 1 1}}
-						<tr><td><span data-i18n="a-hit-choose">A hit! Choose from</span>:</td>
-						<tr><td>{{computed::damage}} <span data-i18n="damage-all">damage to all targets</span></td>
-						<tr><td><span data-i18n="or">or</span></td>
-						<tr><td>{{computed::bonusdamage}} <span data-i18n="damage-one">damage to one target</span></td>
-					{{/rollBetween() computed::outcome 1 1}}
-					{{#rollBetween() computed::outcome 2 2}}
-						<tr><td><span data-i18n="miss">Zut! a miss</span></td>
-					{{/rollBetween() computed::outcome 2 2}}
-					{{#rollBetween() computed::outcome 3 3}}
-						<tr><td><span data-i18n="good-karma-underlings">Good Karma! Underlings and Mooks are OUT COLD.</span></td>
-						<tr><td><span data-i18n="choose">Choose from</span>:</td>
-						<tr><td>{{computed::damage}} <span data-i18n="damage-all">damage to all targets</span></td>
-						<tr><td><span data-i18n="or">or</span></td>
-						<tr><td>{{computed::bonusdamage}} <span data-i18n="damage-one">damage to one target</span></td>
-						<tr><td><span data-i18n="reroll-damage">Re-roll damage if you wish.</span></td>
-					{{/rollBetween() computed::outcome 3 3}}
-					{{#rollBetween() computed::outcome 4 4}}
-						<tr><td><span data-i18n="bad-karma-minus">#$@$*#@! Bad Karma strikes! your next check is at -2 pips</span></td>
-						{{#rollBetween() computed::reload 1 1}}
-							<tr><td><span data-i18n="weapon-jammed">Weapon jammed!</span></td>
-						{{/rollBetween() computed::reload 1 1}}						
-					{{/rollBetween() computed::outcome 4 4}}
-		{{/rollBetween() computed::type 2 2}}		
-		{{#rollBetween() computed::type 5 5}}
-			<caption>{{char}} <span data-i18n="attacks-with">attacks with</span> {{atktxt}}!</caption>
-				<tr><td><span data-i18n="roll">Roll</span>: {{roll1}} <span data-i18n="vs">vs</span> {{target}}</td>
-					{{#rollBetween() computed::outcome 1 1}}
-						<tr><td><span data-i18n="a-hit">A hit!</span></td>
-						<tr><td>{{computed::damage}} <span data-i18n="damage">damage!</span></td>
-						{{#rollBetween() computed::reload 1 1}}
-							<tr><td><span data-i18n="out-of-ammo">Out of ammo!</span></td>
-						{{/rollBetween() computed::reload 1 1}}
-					{{/rollBetween() computed::outcome 1 1}}
-					{{#rollBetween() computed::outcome 2 2}}
-						<tr><td><span data-i18n="miss">Zut! A miss</span></td>
-						{{#rollBetween() computed::reload 1 1}}
-							<tr><td><span data-i18n="out-of-ammo">Out of ammo!</span></td>
-						{{/rollBetween() computed::reload 1 1}}						
-					{{/rollBetween() computed::outcome 2 2}}
-					{{#rollBetween() computed::outcome 3 3}}
-						<tr><td><span data-i18n="good-karma-underlings">Good Karma! Underlings and Mooks are OUT COLD.</span></td>
-						<tr><td>{{computed::damage}} <span data-i18n="damage">damage!</span></td>
-						<tr><td><span data-i18n="reroll-damage">Re-roll damage if you wish.</span></td>
-						{{#rollBetween() computed::reload 1 1}}
-							<tr><td><span data-i18n="out-of-ammo">Out of ammo!</span></td>
-						{{/rollBetween() computed::reload 1 1}}						
-					{{/rollBetween() computed::outcome 3 3}}
-					{{#rollBetween() computed::outcome 4 4}}
-						<tr><td><span data-i18n="bad-karma-minus">#$@$*#@! Bad Karma strikes! your next check is at -2 pips</span></td>
-						{{#rollBetween() computed::reload 1 1}}
-							<tr><td><span data-i18n="weapon-jammed">Weapon jammed!</span></td>
-						{{/rollBetween() computed::reload 1 1}}
-					{{/rollBetween() computed::outcome 4 4}}
-		{{/rollBetween() computed::type 5 5}}		
-		<table>
-	</rolltemplate>
 
 <script type="text/worker">
 //Attributes for multilanguage support in roll queries
@@ -1021,76 +951,12 @@ on("sheet:opened", function(eventInfo){
     });
 
 
-//Melee combat rolls
+//Combat rolls	
+	on('clicked:repeating_attacks:pam', (event) => {rollRangedAttack(event,1);});
+	on('clicked:repeating_attacks:rat', (event) => {rollRangedAttack(event,2);});
+	on('clicked:repeating_attacks:ranged', (event) => {rollRangedAttack(event,3);});
 	on('clicked:attack_unarmed clicked:repeating_attacks:melee', (event) => {rollMeleeAttack(event,3);});
 	on('clicked:whump_unarmed clicked:repeating_attacks:whump', (event) => {rollMeleeAttack(event,4);});
-
-//Ranged combat rolls
-	on('clicked:repeating_attacks:ranged clicked:repeating_attacks:pam clicked:repeating_attacks:rat', (event) => {
-	const trigger = event.triggerName.slice(8);  // this always starts with 'clicked:'
-		const prefix = trigger.startsWith('repeating_') ? trigger.split('_').slice(0,3).join('_') + '_' : '' // prefix gets an empty string for normal attributes, and repeating_section_ID_ for repeating attributes 
-		let dmgVal = "@{weapondmg}";
-        let dmgPart = dmgVal.replaceAll('@{', `@{${prefix}`);
-		let relVal = "@{reloadval}";
-		let relPart = relVal.replaceAll('@{', `@{${prefix}`);
-		const rolltext = "&{template:atk} {{char=@{name}}} {{target=[[@{rangedcombat}]]}} {{roll1=[[1d100]]}} {{outcome=[[0]]}} {{pips=[[?{"+getTranslationByKey("total-pips")+"|0}]]}} {{type=[["+event.htmlAttributes.value+"]]}} {{damage=[["+dmgPart+"d6!>6>4]]}} {{bonusdamage=[["+event.htmlAttributes.value+"d6!>6>4]]}} {{reload=[["+relPart+"]]}}"
-		startRoll(rolltext, (results) => {
-			const total = results.results.roll1.result;
-            const tens = Math.floor(total / 10);
-			const ones = total % 10;
-			const target = results.results.target.result;
-			const pips = results.results.pips.result;
-			const invpips = pips * -1;
-			const dmg = results.results.damage.result;			
-			var rld = results.results.reload.result;
-			var bonusdmg = results.results.bonusdamage.result;
-			var tens2 = tens;
-			var out = 0;
-			let bondmg = dmg + bonusdmg;
-			if (tens == 10) {
-				tens2 = 0;
-			}
-			if (rld < 99 && rld <= ones) {
-				rld = 1;
-			}
-			if (ones == 0) {
-				rld = 1;
-			}
-			if (pips > 0 && ones > 0 && pips >= ones && tens2 == ones) {
-				out = 3;
-			}
-			else if (pips > 0 && ones > 0 && pips >= ones) {
-				out = 1;
-			}
-			else if (invpips > 0 && ones > 0 && invpips >= ones && tens2 == ones) {
-				out = 4;
-			}
-			else if (invpips > 0 && ones > 0 && invpips >= ones) {
-				out = 2;
-			}
-			else if (total <= target && tens2 == ones) {
-				out = 3;
-				}
-			else if (total > target && tens2 == ones) {
-				out = 4;
-				}
-			else if (total <= target) {
-				out = 1;
-				}
-			else if (total > target) {
-				out = 2;
-			}
-            finishRoll(
-                results.rollId,
-                {
-					outcome: out,
-					damage: dmg,
-					bonusdamage: bondmg,
-					reload: rld,
-                }
-            );
-        });
-    });
 
 //NPC combat rolls
 	on('clicked:repeating_attacks:atknpc', (event) => {
@@ -1287,6 +1153,71 @@ function calcKarma(iTens,iOnes) {
 	if (iOnes == iTens) {iKarma = 1}
 	
 	return iKarma;
+}
+
+function rollRangedAttack(event, iType){
+	const trigger = event.triggerName.slice(8);  // this always starts with 'clicked:'
+	const prefix = trigger.startsWith('repeating_') ? trigger.split('_').slice(0,3).join('_') + '_' : '' // prefix gets an empty string for normal attributes, and repeating_section_ID_ for repeating attributes 
+	let dmgVal = "@{weapondmg}";
+	let dmgPart = dmgVal.replaceAll('@{', `@{${prefix}`);
+	let relVal = "@{reloadval}";
+	let relPart = relVal.replaceAll('@{', `@{${prefix}`);
+	const skill = "rangedcombat";
+	
+	const mRollParams = new Map([
+		["skill",	skill],
+		["target",	"[[@{"+skill+"}]]"],
+		["outcome",	"[[0]]"],
+		["karma",	"[[0]]"],
+		["ini",		"[[0]]"],
+		["pips",	"[[?{"+getTranslationByKey("total-pips")+"|0}]]"],
+		["type",	"[["+iType+"]]"],	
+		["reload",	"[["+relPart+"]]"],
+		["damage",	"[["+dmgPart+"d6!>6>4]]"],
+		["bonusdamage",	"[["+iType+"d6!]]"],
+		["totaldamage",	"[[0]]"],
+	]);
+
+	startRoll(getRollString("d100",mRollParams), (results) => {
+		const tens = results.results.tens.result;
+		const ones = results.results.ones.result;
+		const target = results.results.target.result;
+		const pips = results.results.pips.result;
+		var total = calcTotal(tens,ones,0);
+		var totalfliped = calcTotal(tens,ones,1);
+		var krm = calcKarma(tens,ones);
+		var out = getSuccessOrFailure(tens,ones,pips,target,0);
+		var outfliped = getSuccessOrFailure(tens,ones,pips,target,1);
+		var dmg = results.results.damage.result;
+		var rld = results.results.reload.result;
+		var bonusdmg = results.results.bonusdamage.result;
+		let totaldmg = dmg + bonusdmg;
+
+		//Reload
+		if (rld < 99 && rld <= ones) {rld = 1;}
+		if (ones == 0) {rld = 1;}
+		
+		mFlipResults = new Map([
+			["last-roll-fliped",	outfliped],
+			["last-roll-skill",		skill],
+			["last-roll-pips",		pips],
+			["last-roll-target",	target],			
+		]);		
+		//safe results for a flip
+		safeFlipResults(results,mFlipResults);
+		
+		finishRoll(
+			results.rollId,
+			{
+				outcome: out,
+				karma: krm,
+				damage: dmg,
+				bonusdamage: bonusdmg,
+				totaldamage: totaldmg,
+				reload: rld,
+			}
+		);
+	});
 }
 
 function rollMeleeAttack(event, iType){
