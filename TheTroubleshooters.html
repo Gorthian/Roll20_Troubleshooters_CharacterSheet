@@ -2,7 +2,7 @@
 	CREATED by 			Richard M
 	EDITED by 			Gorthian
 	Version				3.0a
-	Letzte Änderung		2022-08-08
+	Letzte Änderung		2022-08-12
 	
 	GitHub				https://github.com/Gorthian/Roll20_Troubleshooters_CharacterSheet
 	Wiki				https://github.com/Gorthian/Roll20_Troubleshooters_CharacterSheet/wiki
@@ -830,9 +830,8 @@
 
 <script type="text/worker">
 //Attributes for multilanguage support in roll queries
-
-on("sheet:opened", function(eventInfo){    
-    setAttrs({
+on("sheet:opened", function(eventInfo){
+	setAttrs({
         how_many_dice: getTranslationByKey("how-many-dice"),
     });    
 });
@@ -890,77 +889,54 @@ on("sheet:opened", function(eventInfo){
 //Regular skill rolls
 
 	on('clicked:basicd100', (event) => {
-		startRoll("&{template:d100} {{name=@{name}}} {{charname=@{character_name}}} {{tens=[[1d10-1]]}} {{ones=[[1d10-1]]}} {{dicetype=d%}} {{dicecount=1}}", (results) => {
+		const mRollParams = new Map();
+		startRoll(getRollString("d100",mRollParams), (results) => {
 			
 			//safe results for a flip
-			setAttrs({
-				["last-roll-ones"]: results.results.ones.result,
-				["last-roll-tens"]: results.results.tens.result,
-				["last-roll-fliped"]: "",
-				["last-roll-ini"]: "",
-				["last-roll-ini-fliped"]: "",
-				["last-roll-skill"]: "",
-				["last-roll-pips"]: "",
-				["last-roll-target"]: ""
-			});
+			safeFlipResults(results,new Map());	
 			
 			finishRoll(results.rollId);
 		});
 	});
 
 	on('clicked:skillroll clicked:gennpc clicked:specnpc', (event) => {	
-		const rolltext = "&{template:d100} {{name=@{name}}} {{charname=@{character_name}}} {{ones=[[1d10-1]]}} {{tens=[[1d10-1]]}} {{dicetype=d%}} {{dicecount=1}} {{skill="+event.htmlAttributes.value+"}} {{target=[[@{"+event.htmlAttributes.value+"}]]}} {{outcome=[[0]]}} {{karma=[[0]]}} {{pips=[[?{"+getTranslationByKey("total-pips")+"|0}]]}}"
 		const skill = event.htmlAttributes.value;
-		startRoll(rolltext, (results) => {
+		const mRollParams = new Map([
+			["skill",	skill],
+			["target",	"[[@{"+skill+"}]]"],
+			["outcome",	"[[0]]"],
+			["karma",	"[[0]]"],
+			["pips",	"[[?{"+getTranslationByKey("total-pips")+"|0}]]"],
+		]);
+		startRoll(getRollString("d100",mRollParams), (results) => {
             const tens = results.results.tens.result;
 			const ones = results.results.ones.result;
 			const target = results.results.target.result;
 			const pips = results.results.pips.result;
-			const invpips = pips * - 1;
-			var total = 0;
-			var totalfliped = 0;
+			var total = calcTotal(tens,ones,0);
+			var totalfliped = calcTotal(tens,ones,1);
 			var krm = 0; // 1 - karma
 			var out = 0; //	1 - Success / 2 - Failure
-			var outfliped = 0; //	1 - Success / "" - Failure
-
-			//Two 0 counts as 100
-			if (ones == 0 && tens == 0)
-			{
-				total = 100;
-				totalfliped = 100;
-			} else {
-				total = (tens * 10) + ones;
-				totalfliped = (ones * 10) + tens;
-			}
+			var outfliped = 0; //	1 - Success / "" - Failure			
 			
 			//Success or Failure
-			if (pips > 0) {
-				if ((1 <= ones && ones <= pips) || total <= target) {out = 1} else {out = 2};
-			} else if (pips < 0) {
-				if ((1 <= ones && ones <= invpips) || total > target) {out = 2} else {out = 1};
-			} else if (total <= target) {out = 1} else {out = 2	}
+			out = getSuccessOrFailure(tens,ones,pips,target,0);
 
 			//Success or Failure if fliped
-			if (pips > 0) {
-				if ((1 <= tens && tens <= pips) || totalfliped <= target) {outfliped = 1} else {outfliped = ""};
-			} else if (pips < 0) {
-				if ((1 <= tens && tens <= invpips) || totalfliped > target) {outfliped = ""} else {outfliped = 1};
-			} else if (totalfliped <= target) {outfliped = 1} else {outfliped = ""}
+			outfliped = getSuccessOrFailure(tens,ones,pips,target,1);
 
 			//Karma
-			if (ones == tens) {krm = 1}
-
+			krm = calcKarma(tens,ones);					
+			
 			//safe results for a flip
-			setAttrs({
-				["last-roll-ones"]: results.results.ones.result,
-				["last-roll-tens"]: results.results.tens.result,
-				["last-roll-fliped"]: outfliped,
-				["last-roll-skill"]: skill,
-				["last-roll-pips"]: pips,
-				["last-roll-target"]: target
-			});
-
-            finishRoll(
+			safeFlipResults(results,new Map([
+				["last-roll-fliped",	outfliped],
+				["last-roll-skill",		skill],
+				["last-roll-pips",		pips],
+				["last-roll-target",	target],
+			]));
+            
+			finishRoll(
                 results.rollId,
                 {
 					outcome: out,
@@ -971,48 +947,37 @@ on("sheet:opened", function(eventInfo){
     });
 
 	on('clicked:d100-ini', (event) => {	
-		const rolltext = "&{template:d100-ini} {{name=@{name}}} {{charname=@{character_name}}} {{ones=[[1d10-1]]}} {{tens=[[1d10-1]]}} {{skill=alertness}} {{target=[[@{alertness}]]}} {{outcome=[[0]]}} {{karma=[[0]]}} {{ini=[[0]]}} {{pips=[[?{"+getTranslationByKey("total-pips")+"|0}]]}}"
 		const skill = "alertness";
-		startRoll(rolltext, (results) => {
+		const mRollParams = new Map([
+			["skill",	skill],
+			["target",	"[[@{"+skill+"}]]"],
+			["outcome",	"[[0]]"],
+			["karma",	"[[0]]"],
+			["ini",		"[[0]]"],
+			["pips",	"[[?{"+getTranslationByKey("total-pips")+"|0}]]"],
+		]);
+
+		startRoll(getRollString("d100-ini",mRollParams), (results) => {
             const tens = results.results.tens.result;
 			const ones = results.results.ones.result;
 			const target = results.results.target.result;
 			const pips = results.results.pips.result;
-			const invpips = pips * - 1;
-			var total = 0;
-			var totalfliped = 0;
+			var total = calcTotal(tens,ones,0);
+			var totalfliped = calcTotal(tens,ones,1);
 			var krm = 0; // 1 - karma
 			var out = 0; //	1 - Success / 2 - Failure
 			var outfliped = 0; //	1 - Success / "" - Failure
 			var ini = 0;
 			var inifliped = 0;
-
-			//Two 0 counts as 100
-			if (ones == 0 && tens == 0)
-			{
-				total = 100;
-				totalfliped = 100;
-			} else {
-				total = (tens * 10) + ones;
-				totalfliped = (ones * 10) + tens;
-			}
 			
 			//Success or Failure
-			if (pips > 0) {
-				if ((1 <= ones && ones <= pips) || total <= target) {out = 1} else {out = 2};
-			} else if (pips < 0) {
-				if ((1 <= ones && ones <= invpips) || total > target) {out = 2} else {out = 1};
-			} else if (total <= target) {out = 1} else {out = 2	}
+			out = getSuccessOrFailure(tens,ones,pips,target,0);
 
 			//Success or Failure if fliped
-			if (pips > 0) {
-				if ((1 <= tens && tens <= pips) || totalfliped <= target) {outfliped = 1} else {outfliped = ""};
-			} else if (pips < 0) {
-				if ((1 <= tens && tens <= invpips) || totalfliped > target) {outfliped = ""} else {outfliped = 1};
-			} else if (totalfliped <= target) {outfliped = 1} else {outfliped = ""}
+			outfliped = getSuccessOrFailure(tens,ones,pips,target,1);
 
 			//Karma
-			if (ones == tens) {krm = 1}
+			krm = calcKarma(tens,ones);			
 
 			//Ini
 			if (out == 2 && krm == 1) {ini=0}
@@ -1027,16 +992,14 @@ on("sheet:opened", function(eventInfo){
 			if (outfliped == 1 && krm == 0) {inifliped=ones+tens}
 
 			//safe results for a flip
-			setAttrs({
-				["last-roll-ones"]: results.results.ones.result,
-				["last-roll-tens"]: results.results.tens.result,
-				["last-roll-fliped"]: outfliped,
-				["last-roll-ini"]: ini,
-				["last-roll-ini-fliped"]: inifliped,
-				["last-roll-skill"]: skill,
-				["last-roll-pips"]: pips,
-				["last-roll-target"]: target
-			});
+			safeFlipResults(results,new Map([
+				["last-roll-fliped",		outfliped],
+				["last-roll-skill",			skill],
+				["last-roll-pips",			pips],
+				["last-roll-target",		target],
+				["last-roll-ini",			ini],
+				["last-roll-ini-fliped",	inifliped],
+			]));			
 
             finishRoll(
                 results.rollId,
@@ -1351,4 +1314,78 @@ on("sheet:opened", function(eventInfo){
             );
         });
     });
+	
+//Helper Functions
+function getRollString(sTemplate,mRollParams) {
+	let sRoll = "";
+	
+	sRoll = "&{template:"+sTemplate+"} {{name=@{name}}} {{charname=@{character_name}}} {{tens=[[1d10-1]]}} {{ones=[[1d10-1]]}} {{dicetype=d%}} {{dicecount=1}}"
+	mRollParams.forEach((value, key) => sRoll = sRoll + " {{"+key+"="+value+"}}");
+	
+	return sRoll;
+}
+
+function safeFlipResults(results,mFlipParams) {
+	setAttrs({
+		["last-roll-ones"]: 		results.results.ones.result,
+		["last-roll-tens"]: 		results.results.tens.result,
+		["last-roll-fliped"]: 		mFlipParams.get("last-roll-fliped")||"",
+		["last-roll-ini"]: 			mFlipParams.get("last-roll-ini")||"",
+		["last-roll-ini-fliped"]: 	mFlipParams.get("last-roll-ini-fliped")||"",
+		["last-roll-skill"]: 		mFlipParams.get("last-roll-skill")||"",
+		["last-roll-pips"]: 		mFlipParams.get("last-roll-pips")||0,
+		["last-roll-target"]: 		mFlipParams.get("last-roll-target")||""
+	});
+}
+
+function calcTotal(iTens, iOnes, iFliped) {
+	let iTotal
+	
+	if (iFliped == 0) {	//Total of real d100
+		iTotal = (iTens * 10) + iOnes;
+	} else {	//Total of fliped d100
+		iTotal = (iOnes * 10) + iTens;
+	}
+	if (iOnes == 0 && iTens == 0) {		//Two 0 count 100
+		iTotal = 100;
+	}
+	
+	return iTotal
+}
+
+function getSuccessOrFailure(iTens, iOnes, iPips, iTarget, iFliped) {
+	let iOut = 0; // 1 - Success / 2 - Failure
+	let iTotal = calcTotal(iTens,iOnes,iFliped);
+	let iCheck = 0;
+	const iInvPips = iPips * - 1;
+	
+	if (iFliped == 0){		//Check ones on real d100
+		iCheck = iOnes;
+	} else {				//Check tens on fliped d100
+		iCheck = iTens;
+	}
+	
+	if (iPips > 0) {
+		if ((1 <= iCheck && iCheck <= iPips) || iTotal <= iTarget) {iOut = 1} else {iOut = 2};
+	} else if (iPips < 0) {
+		if ((1 <= iCheck && iCheck <= iInvPips) || iTotal > iTarget) {iOut = 2} else {iOut = 1};
+	} else if (iTotal <= iTarget) {
+		iOut = 1;
+	} else {
+		iOut = 2;
+	}
+	
+	if (iOut == 2 && iFliped == 1) {iOut = ""}
+	
+	return iOut;
+}
+
+function calcKarma(iTens,iOnes) {
+	let iKarma = 0;
+	
+	if (iOnes == iTens) {iKarma = 1}
+	
+	return iKarma;
+}
+
 </script>
