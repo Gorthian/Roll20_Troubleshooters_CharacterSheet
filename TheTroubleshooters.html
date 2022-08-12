@@ -1173,10 +1173,13 @@ function rollRangedAttack(event, iType){
 		["pips",	"[[?{"+getTranslationByKey("total-pips")+"|0}]]"],
 		["type",	"[["+iType+"]]"],	
 		["reload",	"[["+relPart+"]]"],
-		["damage",	"[["+dmgPart+"d6!>6>4]]"],
-		["bonusdamage",	"[["+iType+"d6!]]"],
-		["totaldamage",	"[[0]]"],
+		["damage",	"[["+dmgPart+"d6!>6>4]]"],	
 	]);
+	
+	if (iType == 1 || iType == 2) {
+		mRollParams.set("bonusdamage","[["+iType+"d6!]]");
+		mRollParams.set("totaldamage","[[0]]");
+	}
 
 	startRoll(getRollString("d100",mRollParams), (results) => {
 		const tens = results.results.tens.result;
@@ -1190,8 +1193,13 @@ function rollRangedAttack(event, iType){
 		var outfliped = getSuccessOrFailure(tens,ones,pips,target,1);
 		var dmg = results.results.damage.result;
 		var rld = results.results.reload.result;
-		var bonusdmg = results.results.bonusdamage.result;
-		let totaldmg = dmg + bonusdmg;
+		var bonusdmg = "";
+		var totaldmg = "";
+		
+		if (iType == 1 || iType == 2) {
+			bonusdmg = results.results.bonusdamage.result||"";
+			totaldmg = dmg + bonusdmg;
+		}
 
 		//Reload
 		if (rld < 99 && rld <= ones) {rld = 1;}
