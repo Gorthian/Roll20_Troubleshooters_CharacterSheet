@@ -603,6 +603,7 @@
 		</div>
 		<div class="sheet-template-info">			
 			{{#rollTotal() computed::outcome 1}}
+				{{^computed::type}}<p><span data-i18n="success">Success!</span></p>{{/computed::type}}
 				{{#rollLess() computed::type 2}}<p><span data-i18n="success">Success!</span></p>{{/rollLess() computed::type 2}}
 				{{#rollTotal() computed::type 2}}
 					<p><span data-i18n="a-hit-choose">A hit! Choose from</span>:</p>
