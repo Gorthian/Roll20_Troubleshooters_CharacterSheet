@@ -521,8 +521,8 @@
 				<button type="roll" class="sheet-blank-button btn ui-draggable" name="act_soak" title="Soak damage" data-i18n-title="soak-damage" value="&{template:basic} {{name=@{name}}} {{result=[[@{soakvalue}d6>4]]}} {{dicetype=d6P}} {{dicecount=@{soakvalue}}}" data-i18n="soak">Soak</button>				
 			</div>
 			<div class="sheet-passport-page">
-				<input type="text" name="attr_weapon" class="sheet-short" value="Unarmed attack" readonly="true"/>
-				<input name="attr_unarmedskill" class="sheet-shorter" value="Melee" readonly="true"/>
+				<input type="text" name="attr_weapon" class="sheet-short" readonly="true"/>
+				<input type="text" name="attr_unarmedskill" class="sheet-shorter" readonly="true"/>
 				<input type="number" name="attr_weapondmg" value="2" min="0" title="Damage Dice" data-i18n-title="damage-dice"/><span data-i18n="dX">dX</span>
 				<input type="text" name="attr_unarmedtags" placeholder="Tags" data-i18n-placeholder="tags" style="width: 40ch"/><br/>				
 				<button type="action" class="sheet-blank-button btn ui-draggable" name="act_attack_unarmed" title="Attack!" data-i18n-title="attack!" data-i18n="attack!">Attack!</button>
@@ -741,7 +741,9 @@
 //Attributes for multilanguage support in roll queries
 on("sheet:opened", function(eventInfo){
 	setAttrs({
-        how_many_dice: getTranslationByKey("how-many-dice"),
+        ["how_many_dice"]: 	getTranslationByKey("how-many-dice"),
+		["weapon"]: 		getTranslationByKey("unarmed"),
+		["unarmedskill"]: 	getTranslationByKey("melee"),
     });    
 });
 
