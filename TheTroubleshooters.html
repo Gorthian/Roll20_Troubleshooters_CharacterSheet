@@ -1248,7 +1248,7 @@ function rollMeleeAttack(event, iType){
 		["type",	"[["+iType+"]]"],	
 		["reload",	"[[0]]"],
 	]);
-	if (iType == 3) {mRollParams.set("damage","[["+dmgPart+"d6!>4]]")};	//Melee Atack. Deals normal Damage
+	if (iType == 3) {mRollParams.set("damage","[["+dmgPart+"d6!>6>4]]")};	//Melee Atack. Deals normal Damage
 	if (iType == 4) {mRollParams.set("wdamage",	"[[1d6!>6>4]]")};	//Whump Atack. Deals special Damage
 	startRoll(getRollString("d100",mRollParams), (results) => {
 		const tens = results.results.tens.result;
