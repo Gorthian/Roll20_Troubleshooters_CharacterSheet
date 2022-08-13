@@ -4,10 +4,12 @@
 /* Set the min-width so that when the window is resized the look will stay consistent */
 
 .sheet-ts {
-	min-width	: 850px;
-	background	: white;
-
 	--tab-bar-height	: 18px;
+	--min-height		: 650px;
+	--min-width			: 850px;
+	
+	min-width	: var(--min-width);
+	background	: white;	
 }
 
 /* NPC View */
@@ -78,8 +80,8 @@ textarea {
 /* Backgroundimages */
 
 div.sheet-skills, div.sheet-character, div.sheet-gear, div.sheet-journal, div.sheet-combat, div.sheet-npc {
-	width		: 850px;
-	min-height	: 650px;
+	width		: var(--min-width);
+	min-height	: var(--min-height);
 	background-image: url(https://greengorilla.de/vtt/The-Troubleshooters-Pass-Hintergrund-linke-Seite.jpg), url(https://greengorilla.de/vtt/The-Troubleshooters-Pass-Hintergrund-rechte-Seite.jpg);
 	background-position: left top, right top;
 	background-repeat: no-repeat, no-repeat;
@@ -95,7 +97,17 @@ div.sheet-skills, div.sheet-character, div.sheet-gear, div.sheet-journal, div.sh
 	display					: grid;
 	grid-template-columns	: repeat(2, 50%);
 	width					: 100%;
+	min-height				: var(--min-height);
 	padding					: 10px;
+}
+
+.sheet-ts div.sheet-passport div.sheet-passport-page:first-child {
+	border-right			: 1px solid gray;
+	height					: 100%;
+}
+
+.sheet-ts div.sheet-passport div.sheet-passport-page:nth-child(2) {
+	margin-left				: 10px;
 }
 
 .charsheet .repcontrol button.repcontrol_edit {

@@ -2,7 +2,7 @@
 	CREATED by 			Richard M
 	EDITED by 			Gorthian
 	Version				3.0a
-	Letzte Änderung		2022-08-12
+	Letzte Änderung		2022-08-13
 	
 	GitHub				https://github.com/Gorthian/Roll20_Troubleshooters_CharacterSheet
 	Wiki				https://github.com/Gorthian/Roll20_Troubleshooters_CharacterSheet/wiki
@@ -74,7 +74,7 @@
 
 	<div class="sheet-character sheet-pc-view">
 		<div class="sheet-passport">
-			<div>
+			<div class="sheet-passport-page">
 
 				<h3 data-i18n="description-title">Description / Description / Beschreibung</h3>	
 				<br />
@@ -105,7 +105,7 @@
 		
 			</div>
 		
-			<div>
+			<div class="sheet-passport-page">
 				<div class="sheet-mugshot">
 					<img class="sheet-portrait" name="attr_character_avatar" height="350px" width="auto"/>
 					<div class="sheet-caption" data-i18n="photo-title">Photo of holder/Photo du titulaire/Foto des Passinhabers</div>
@@ -144,7 +144,7 @@
 	<div class="sheet-skills sheet-npc">
 
 		<div class="sheet-passport">
-			<div>
+			<div class="sheet-passport-page">
 				<div class="sheet-pc-view">
 					<h3 data-i18n="complications-title">Complications / Desavantages / Komplikationen</h3>
 					<br/>			
@@ -221,7 +221,7 @@
 				</div>
 			</div>
 
-			<div>
+			<div class="sheet-passport-page">
 
 				<div class="sheet-2colrow">
 
@@ -462,7 +462,7 @@
 
 	<div class="sheet-gear sheet-pc-view">
 		<div class="sheet-passport">
-			<div>
+			<div class="sheet-passport-page">
 				<h3 data-i18n="licenses-title">Licences for dangerous items /<br/>Permis pour objets reglementes /<br/>Lizenzen fur verbotene gegenstande</h3>
 				<hr />
 					<fieldset class="repeating_gearkits">
@@ -476,7 +476,7 @@
 						</details>
 					</fieldset>			
 			</div>
-			<div>
+			<div class="sheet-passport-page">
 				<h3 data-i18n="visa-title">Visa Stamps /<br/>Visas /<br/>Visastempel</h3>
 				<hr/>
 					<textarea name="attr_journal" placeholder="Notes" data-i18n-placeholder="notes"></textarea>		
@@ -486,11 +486,11 @@
 
 	<div class="sheet-journal sheet-pc-view">
 		<div class="sheet-passport">
-			<div>
+			<div class="sheet-passport-page">
 				<h3 data-i18n="visa-title-nowrap">Visa Stamps / Visas / Visastempel</h3>
 				<textarea name="attr_journal" placeholder="Notes" data-i18n-placeholder="notes" style="height:500px;"></textarea>
 			</div>
-			<div>
+			<div class="sheet-passport-page">
 				<h3>&nbsp;</h3>
 				<textarea name="attr_journal2" placeholder="Notes" data-i18n-placeholder="notes" style="height:500px;"></textarea>
 			</div>
@@ -505,7 +505,7 @@
 	calculation in the Custom Roll Parsing reducing the number of values passed.
 	-->
 		<div class="sheet-passport">
-			<div>
+			<div class="sheet-passport-page">
 				<h2 data-i18n="combat-rolls">Combat rolls</h2> 	
 				<button type="action" class="sheet-blank-button btn ui-draggable" name="act_d100-ini" title="Initiative" data-i18n-title="initiative" value="1" data-i18n="initiative">Initiative</button>
 				<button type="action" class="sheet-blank-button btn ui-draggable" name="act_skillroll" title="Defend with AGILITY" data-i18n-title="defend-agility" value="agility" data-i18n="take-cover">Take Cover!</button>
@@ -520,7 +520,7 @@
 				<input name="attr_armourtags" placeholder="Tags" data-i18n-placeholder="tags" style="width: 40ch"/>
 				<button type="roll" class="sheet-blank-button btn ui-draggable" name="act_soak" title="Soak damage" data-i18n-title="soak-damage" value="&{template:basic} {{name=@{name}}} {{result=[[@{soakvalue}d6>4]]}} {{dicetype=d6P}} {{dicecount=@{soakvalue}}}" data-i18n="soak">Soak</button>				
 			</div>
-			<div>
+			<div class="sheet-passport-page">
 				<input type="text" name="attr_weapon" class="sheet-short" value="Unarmed attack" readonly="true"/>
 				<input name="attr_unarmedskill" class="sheet-shorter" value="Melee" readonly="true"/>
 				<input type="number" name="attr_weapondmg" value="2" min="0" title="Damage Dice" data-i18n-title="damage-dice"/><span data-i18n="dX">dX</span>
