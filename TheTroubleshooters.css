@@ -107,7 +107,7 @@ div.sheet-skills, div.sheet-character, div.sheet-gear, div.sheet-journal, div.sh
 }
 
 .sheet-ts div.sheet-passport div.sheet-passport-page:nth-child(2) {
-	margin-left				: 10px;
+	margin-left				: 5px;
 }
 
 .charsheet .repcontrol button.repcontrol_edit {
