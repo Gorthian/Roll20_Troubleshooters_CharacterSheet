@@ -508,6 +508,7 @@ input.sheet-gearcheck:checked {
 }
 
 .sheet-rolltemplate-basic div.sheet-template-container,
+.sheet-rolltemplate-damage div.sheet-template-container,
 .sheet-rolltemplate-d100-ini div.sheet-template-container,
 .sheet-rolltemplate-d100 div.sheet-template-container,
 .sheet-rolltemplate-d100-flip div.sheet-template-container, 
@@ -521,32 +522,33 @@ input.sheet-gearcheck:checked {
 	padding-top				: 25px;	
 }
 
-.sheet-rolltemplate-basic div, .sheet-rolltemplate-d100 div, .sheet-rolltemplate-d100-flip div, .sheet-rolltemplate-d100-flip-ini div, .sheet-rolltemplate-d100-ini div,
-.sheet-rolltemplate-basic p, .sheet-rolltemplate-d100 p, .sheet-rolltemplate-d100-flip p, .sheet-rolltemplate-d100-flip-ini p, .sheet-rolltemplate-d100-ini p {
+.sheet-rolltemplate-basic div, .sheet-rolltemplate-d100 div, .sheet-rolltemplate-d100-flip div, .sheet-rolltemplate-d100-flip-ini div, .sheet-rolltemplate-d100-ini div, .sheet-rolltemplate-damage div,
+.sheet-rolltemplate-basic p, .sheet-rolltemplate-d100 p, .sheet-rolltemplate-d100-flip p, .sheet-rolltemplate-d100-flip-ini p, .sheet-rolltemplate-d100-ini p, .sheet-rolltemplate-damage p,{
 	font-family				: 'Edu NSW ACT Foundation', cursive;
 	font-size				: 18px;
   	text-align				: center;
   	color					: #000;
 }
 
-.sheet-rolltemplate-basic p, .sheet-rolltemplate-d100 p, .sheet-rolltemplate-d100-flip p, .sheet-rolltemplate-d100-flip-ini p, .sheet-rolltemplate-d100-ini p {
+.sheet-rolltemplate-basic p, .sheet-rolltemplate-damage p, .sheet-rolltemplate-d100 p, .sheet-rolltemplate-d100-flip p, .sheet-rolltemplate-d100-flip-ini p, .sheet-rolltemplate-d100-ini p {
 	margin-left				: 15px;
 	margin-right			: 15px;
 }
 
-.sheet-rolltemplate-basic li, .sheet-rolltemplate-d100 li, .sheet-rolltemplate-d100-flip li, .sheet-rolltemplate-d100-flip-ini li, .sheet-rolltemplate-d100-ini li {
+.sheet-rolltemplate-basic li, .sheet-rolltemplate-damage li,.sheet-rolltemplate-d100 li, .sheet-rolltemplate-d100-flip li, .sheet-rolltemplate-d100-flip-ini li, .sheet-rolltemplate-d100-ini li {
 	line-height				: 30px;
 	font-size				: 15px;
 	text-align				: left;
 	margin-left				: 10px;
 }
 
-.sheet-rolltemplate-basic h1, .sheet-rolltemplate-d100 h1, .sheet-rolltemplate-d100-flip h1, .sheet-rolltemplate-d100-flip-ini h1, .sheet-rolltemplate-d100-ini h1 {
+.sheet-rolltemplate-basic h1, .sheet-rolltemplate-damage h1, .sheet-rolltemplate-d100 h1, .sheet-rolltemplate-d100-flip h1, .sheet-rolltemplate-d100-flip-ini h1, .sheet-rolltemplate-d100-ini h1 {
 	font-size				: 20px;
 	text-decoration			: underline;
 }
 
 .sheet-rolltemplate-basic div.sheet-template-container div.sheet-template-result,
+.sheet-rolltemplate-damage div.sheet-template-container div.sheet-template-result,
 .sheet-rolltemplate-d100-ini div.sheet-template-container div.sheet-template-result,
 .sheet-rolltemplate-d100 div.sheet-template-container div.sheet-template-result,
 .sheet-rolltemplate-d100-flip div.sheet-template-container div.sheet-template-result,
@@ -564,7 +566,8 @@ input.sheet-gearcheck:checked {
 	width					: 100%;	
 }
 
-.sheet-rolltemplate-basic div.sheet-template-container div.sheet-template-result {
+.sheet-rolltemplate-basic div.sheet-template-container div.sheet-template-result,
+.sheet-rolltemplate-damage div.sheet-template-container div.sheet-template-result {
 	background-image		: url(https://greengorilla.de/vtt/TS_Boom_grey_200.png);
 	height					: 200px;
 	line-height				: 200px;
@@ -583,6 +586,7 @@ input.sheet-gearcheck:checked {
 }
 
 .sheet-rolltemplate-basic div.sheet-template-result .inlinerollresult,
+.sheet-rolltemplate-damage div.sheet-template-result .inlinerollresult,
 .sheet-rolltemplate-d100 div.sheet-template-result .inlinerollresult,
 .sheet-rolltemplate-d100 div.sheet-template-info .inlinerollresult,
 .sheet-rolltemplate-d100 div.sheet-template-container .inlinerollresult,

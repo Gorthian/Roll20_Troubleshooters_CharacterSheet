@@ -33,10 +33,15 @@
 			<button type="roll" class="sheet-blank-button" value="&{template:basic} {{name=@{name}}} {{result=[[?{@{how_many_dice}|1}d6>4]]}} {{dicetype=dP}} {{dicecount=?{@{how_many_dice}|1}}}" title="Non-exploding Dice Pool" data-i18n-title="non-exploding-pool-title" data-i18n="non-exploding-pool">NdP</button>
 			<button type="roll" class="sheet-blank-button" value="&{template:basic} {{name=@{name}}} {{result=[[?{@{how_many_dice}|1}d6!>6>4]]}} {{dicetype=dX}} {{dicecount=?{@{how_many_dice}|1}}}" title="Exploding Dice Pool" data-i18n-title="exploding-pool-title" data-i18n="exploding-pool">NdX</button>
 			<button type="action" class="sheet-blank-button btn ui-draggable" name="act_basicd100" title="Add text in translation files" data-i18n-title="percentile-dice-title" data-i18n="percentile-dice">d100</button>
-			<button hidden="true" style="display:none;" type="roll" name="roll_flip" value="&{template:d100-flip} {{name=@{name}}} {{tens=@{last-roll-ones}}} {{ones=@{last-roll-tens}}} {{outcome=[[@{last-roll-fliped}]]}} {{skill=@{last-roll-skill}}} {{skill_raw=@{last-roll-skill-raw}}} {{target=@{last-roll-target}}} {{pips=@{last-roll-pips}}} {{type=[[@{last-roll-type}]]}} {{damage=@{last-roll-damage}}} {{bonusdamage=@{last-roll-bonusdamage}}} {{totaldamage=@{last-roll-totaldamage}}} {{wdamage=@{last-roll-wdamage}}}" />
+			<button hidden="true" style="display:none;" type="roll" name="roll_flip" value="&{template:d100-flip} {{name=@{name}}} {{charname=@{character_name}}} {{tens=@{last-roll-ones}}} {{ones=@{last-roll-tens}}} {{outcome=[[@{last-roll-fliped}]]}} {{skill=@{last-roll-skill}}} {{skill_raw=@{last-roll-skill-raw}}} {{target=@{last-roll-target}}} {{pips=@{last-roll-pips}}} {{type=[[@{last-roll-type}]]}}" />
 			<button hidden="true" style="display:none;" type="roll" name="roll_flip-ini" value="&{template:d100-flip-ini} {{name=@{name}}} {{charname=@{character_name}}} {{tens=@{last-roll-ones}}} {{ones=@{last-roll-tens}}} {{success=@{last-roll-fliped}}} {{skill=@{last-roll-skill}}} {{target=@{last-roll-target}}} {{pips=@{last-roll-pips}}} {{ini=@{last-roll-ini-fliped}}}" />
 			<button hidden="true" style="display:none;" type="roll" name="roll_settracker" value="/roll @{last-roll-ini} &{tracker}" />
 			<button hidden="true" style="display:none;" type="roll" name="roll_flip-settracker" value="/roll @{last-roll-ini-fliped} &{tracker}" />
+			<button hidden="true" style="display:none;" type="roll" name="roll_damage" value="&{template:damage} {{name=@{name}}} {{damage=[[@{damage-dices}d6!>6>4]]}}" />
+			<button hidden="true" style="display:none;" type="roll" name="roll_damage-whump" value="&{template:damage} {{name=@{name}}} {{damage=[[1d6!>6>4]]}}" />
+			<button hidden="true" style="display:none;" type="roll" name="roll_damage-pam" value="&{template:damage} [[ [[@{damage-dices}d6!>6>4]] + [[1d6!>6>4]] ]] {{name=@{name}}} {{damage=$[[0]]}} {{bonus=$[[1]]}} {{total=$[[2]]}}" />
+			<button hidden="true" style="display:none;" type="roll" name="roll_damage-ratatat" value="&{template:damage} [[ [[@{damage-dices}d6!>6>4]] + [[2d6!>6>4]] ]] {{name=@{name}}} {{damage=$[[0]]}} {{bonus=$[[1]]}} {{total=$[[2]]}}" />
+			
 			
 			&emsp;<span data-i18n="npc">add text in translation files</span> : <input type="checkbox" class="sheet-isnpc-check" name="attr_isnpc" value="1" />
 		</div>
@@ -572,6 +577,15 @@
 	</div>
 </rolltemplate>
 
+<rolltemplate class="sheet-rolltemplate-damage">
+    <div class="sheet-template-container">
+		{{name}}
+		<div class="sheet-template-result">
+			{{damage}}{{#bonus}} + {{bonus}}{{/bonus}}{{#total}} = {{total}}{{/total}}
+		</div>
+	</div>
+</rolltemplate>
+
 <rolltemplate class="sheet-rolltemplate-d100">
 	<!--
 		computed::type defines different types of rolls
@@ -608,25 +622,28 @@
 				{{#rollTotal() computed::type 2}}
 					<p><span data-i18n="a-hit-choose">A hit! Choose from</span>:</p>
 					<ul>
-						<li>{{computed::damage}} <span data-i18n="damage-all">damage to all targets</span></li>
-						<li>{{computed::damage}}+{{computed::bonusdamage}}={{computed::totaldamage}} <span data-i18n="damage-one">damage to one target</span></li>
+						<li>[<span data-i18n="damage">damage</span>](~{{charname}}|damage) <span data-i18n="damage-all">damage to all targets</span></li>
+						<li>[<span data-i18n="damage">damage</span>](~{{charname}}|damage-ratatat) <span data-i18n="damage-one">damage to one target</span></li>
 					</ul>
 				{{/rollTotal() computed::type 2}}
-				{{#rollTotal() computed::type 3}}<p><span data-i18n="success">Success!</span></p>{{/rollTotal() computed::type 3}}
+				{{#rollTotal() computed::type 3}}
+					<p><span data-i18n="success">Success!</span></p>
+					[<span data-i18n="damage">damage</span>](~{{charname}}|damage)<br/>
+				{{/rollTotal() computed::type 3}}
 				{{#rollTotal() computed::type 4}}
 					<p><span data-i18n="success-choose-two">Success! Choose two from</span>:</p>
 					<ul>
-						<li>{{computed::wdamage}} <span data-i18n="damage">damage!</span></li>
+						<li>[<span data-i18n="damage">damage</span>](~{{charname}}|damage-whump)</li>
 						<li><span data-i18n="target-restrained">The target is RESTRAINED</span></li>
 						<li><span data-i18n="target-prone">The target is PRONE</span></li>
 					</ul>
 				{{/rollTotal() computed::type 4}}
 				{{#rollTotal() computed::type 1}}
-					{{#computed::damage}}<h1>{{computed::damage}}{{#computed::bonusdamage}}+{{computed::bonusdamage}}={{computed::totaldamage}}{{/computed::bonusdamage}} <span data-i18n="damage">damage!</span></h1>{{/computed::damage}}				
+					[<span data-i18n="damage">damage</span>](~{{charname}}|damage-pam)<br/>
 				{{/rollTotal() computed::type 1}}
-				{{#rollGreater() computed::type 2}}
-					{{#computed::damage}}<h1>{{computed::damage}}{{#computed::bonusdamage}}+{{computed::bonusdamage}}={{computed::totaldamage}}{{/computed::bonusdamage}} <span data-i18n="damage">damage!</span></h1>{{/computed::damage}}				
-				{{/rollGreater() computed::type 2}}
+				{{#rollTotal() computed::type 2}}
+					{{#rollTotal() computed::karma 0}}[<span data-i18n="damage">damage</span>](~{{charname}}|damage-ratatat)<br/>{{/rollTotal() computed::karma 0}}
+				{{/rollTotal() computed::type 2}}
 				{{#rollTotal() computed::karma 1}}
 					{{#rollLess() computed::type 1}}<p><span data-i18n="good-karma">Good Karma!</span></p>{{/rollLess() computed::type 1}}
 					{{#rollBetween() computed::type 1 4}}<p><span data-i18n="good-karma-underlings">Good Karma! Underlings and Mooks are OUT COLD.</span></p>{{/rollBetween() computed::type 1 4}}
@@ -652,7 +669,15 @@
 	</div>	
 </rolltemplate>
 
-<rolltemplate class="sheet-rolltemplate-d100-flip">	
+<rolltemplate class="sheet-rolltemplate-d100-flip">
+	<!--
+		type defines different types of rolls
+			0	- nothing special
+			1	- PAM
+			2	- Ratatatat
+			3	- Basic Attack
+			4	- WHUMP!
+	//-->	
     <div class="sheet-template-container">
 		{{#rollTotal() type 2}}<h1><span data-i18n="ratatatat!">RATATATAT!</span></h1>{{/rollTotal() type 2}}
 		{{#rollTotal() type 4}}<h1><span data-i18n="whump!">WHUMP!</span></h1>{{/rollTotal() type 4}}
@@ -681,25 +706,28 @@
 				{{#rollTotal() type 2}}
 					<p><span data-i18n="a-hit-choose">A hit! Choose from</span>:</p>
 					<ul>
-						<li>{{damage}} <span data-i18n="damage-all">damage to all targets</span></li>
-						<li>{{damage}}+{{bonusdamage}}={{totaldamage}} <span data-i18n="damage-one">damage to one target</span></li>
+						<li>[<span data-i18n="damage">damage</span>](~{{charname}}|damage) <span data-i18n="damage-all">damage to all targets</span></li>
+						<li>[<span data-i18n="damage">damage</span>](~{{charname}}|damage-ratatat) <span data-i18n="damage-one">damage to one target</span></li>
 					</ul>
 				{{/rollTotal() type 2}}
-				{{#rollTotal() type 3}}<p><span data-i18n="success">Success!</span></p>{{/rollTotal() type 3}}
+				{{#rollTotal() type 3}}
+					<p><span data-i18n="success">Success!</span></p>
+					[<span data-i18n="damage">damage</span>](~{{charname}}|damage)<br/>
+				{{/rollTotal() type 3}}
 				{{#rollTotal() type 4}}
 					<p><span data-i18n="success-choose-two">Success! Choose two from</span>:</p>
 					<ul>
-						<li>{{wdamage}} <span data-i18n="damage">damage!</span></li>
+						<li>[<span data-i18n="damage">damage</span>](~{{charname}}|damage-whump)</li>
 						<li><span data-i18n="target-restrained">The target is RESTRAINED</span></li>
 						<li><span data-i18n="target-prone">The target is PRONE</span></li>
 					</ul>
 				{{/rollTotal() type 4}}
 				{{#rollTotal() type 1}}
-					<h1>{{#damage}}{{damage}}{{/damage}}{{#bonusdamage}}+{{bonusdamage}}{{/bonusdamage}}{{#totaldamage}}={{totaldamage}}{{/totaldamage}}<span data-i18n="damage">damage!</span></h1>
+					[<span data-i18n="damage">damage</span>](~{{charname}}|damage-pam)<br/>
 				{{/rollTotal() type 1}}
-				{{#rollGreater() type 2}}
-					<h1>{{#damage}}{{damage}}{{/damage}}{{#bonusdamage}}+{{bonusdamage}}{{/bonusdamage}}{{#totaldamage}}={{totaldamage}}{{/totaldamage}}<span data-i18n="damage">damage!</span></h1>
-				{{/rollGreater() type 2}}
+				{{#rollTotal() type 2}}
+					{{#rollTotal() karma 0}}[<span data-i18n="damage">damage</span>](~{{charname}}|damage-ratatat)<br/>{{/rollTotal() karma 0}}
+				{{/rollTotal() type 2}}
 				{{#rollTotal() karma 1}}
 					{{#rollLess() type 1}}<p><span data-i18n="good-karma">Good Karma!</span></p>{{/rollLess() type 1}}
 					{{#rollBetween() type 1 4}}<p><span data-i18n="good-karma-underlings">Good Karma! Underlings and Mooks are OUT COLD.</span></p>{{/rollBetween() type 1 4}}
@@ -1018,7 +1046,7 @@ on("sheet:opened", function(eventInfo){
 		let tgtPart = tgtVal.replaceAll('@{', `@{${prefix}`);
 		let txtVal = "@{npcatktxt}";
 		let txtPart = txtVal.replaceAll('@{', `@{${prefix}`);		
-		const rolltext = "&{template:atk} {{char=@{name}}} {{atktxt="+txtPart+"}} {{target=[["+tgtPart+"]]}} {{roll1=[[1d100]]}} {{outcome=[[0]]}} {{pips=[[?{"+getTranslationByKey("total-pips")+"|0}]]}} {{type=[[5]]}} {{damage=[["+dmgPart+"d6!>6>4]]}} {{reload=[["+relPart+"]]}}"
+		const rolltext = "&{template:atk} {{char=@{name}}} {{atktxt="+txtPart+"}} {{target=[["+tgtPart+"]]}} {{roll1=[[1d100]]}} {{outcome=[[0]]}} {{pips=[[?{"+getTranslationByKey("total-pips")+"|0}]]}} {{type=[[5]]}} {{reload=[["+relPart+"]]}}"
 		startRoll(rolltext, (results) => {
 			const total = results.results.roll1.result;
             const tens = Math.floor(total / 10);
@@ -1026,7 +1054,6 @@ on("sheet:opened", function(eventInfo){
 			const target = results.results.target.result;
 			const pips = results.results.pips.result;
 			const invpips = pips * -1;
-			const dmg = results.results.damage.result;			
 			var rld = results.results.reload.result;
 			var tens2 = tens;
 			var out = 0;
@@ -1064,7 +1091,6 @@ on("sheet:opened", function(eventInfo){
                 results.rollId,
                 {
 					outcome: out,
-					damage: dmg,
 					reload: rld,
                 }
             );
@@ -1134,8 +1160,8 @@ on("sheet:opened", function(eventInfo){
 function getRollString(sTemplate,mRollParams) {
 	let sRoll = "";
 	
-	//sRoll = "&{template:"+sTemplate+"} {{name=@{name}}} {{charname=@{character_name}}} {{tens=[[1d10-1]]}} {{ones=[[1d10-1]]}} {{dicetype=d%}} {{dicecount=1}}"
-	sRoll = "&{template:"+sTemplate+"} {{name=@{name}}} {{charname=@{character_name}}} {{tens=[[6]]}} {{ones=[[1]]}} {{dicetype=d%}} {{dicecount=1}}"
+	sRoll = "&{template:"+sTemplate+"} {{name=@{name}}} {{charname=@{character_name}}} {{tens=[[1d10-1]]}} {{ones=[[1d10-1]]}} {{dicetype=d%}} {{dicecount=1}}"
+	//sRoll = "&{template:"+sTemplate+"} {{name=@{name}}} {{charname=@{character_name}}} {{tens=[[6]]}} {{ones=[[1]]}} {{dicetype=d%}} {{dicecount=1}}"
 	mRollParams.forEach((value, key) => sRoll = sRoll + " {{"+key+"="+value+"}}");
 	
 	return sRoll;
@@ -1154,10 +1180,8 @@ function safeFlipResults(results,mFlipParams) {
 		["last-roll-skill-raw"]: 	mFlipParams.get("last-roll-skill-raw")||"",
 		["last-roll-pips"]: 		mFlipParams.get("last-roll-pips")||0,
 		["last-roll-target"]: 		mFlipParams.get("last-roll-target")||"",
-		["last-roll-damage"]: 		mFlipParams.get("last-roll-damage")||"",
-		["last-roll-bonusdamage"]: 	mFlipParams.get("last-roll-bonusdamage")||"",
-		["last-roll-totaldamage"]: 	mFlipParams.get("last-roll-totaldamage")||"",
-		["last-roll-wdamage"]: 		mFlipParams.get("last-roll-wdamage")||""
+		["last-roll-wdamage"]: 		mFlipParams.get("last-roll-wdamage")||"",
+		["damage-dices"]: 			mFlipParams.get("damage-dices")||""
 	});
 }
 
@@ -1174,10 +1198,7 @@ function resetFlipResults () {
 		["last-roll-skill-raw"]: 	"",
 		["last-roll-pips"]: 		"",
 		["last-roll-target"]: 		"",
-		["last-roll-damage"]: 		"",
-		["last-roll-bonusdamage"]: 	"",
-		["last-roll-totaldamage"]: 	"",
-		["last-roll-wdamage"]: 		""
+		["damage-dices"]: 			""
 	});
 }
 
@@ -1251,14 +1272,8 @@ function rollRangedAttack(event, iType){
 		["pips",	"[[?{"+getTranslationByKey("total-pips")+"|0}]]"],
 		["type",	"[["+iType+"]]"],	
 		["reload",	"[["+relPart+"]]"],
-		["damage",	"[["+dmgPart+"d6!>6>4]]"],	
 	]);
 	
-	if (iType == 1 || iType == 2) {
-		mRollParams.set("bonusdamage","[["+iType+"d6!>6>4]]");
-		mRollParams.set("totaldamage","[[0]]");
-	}
-
 	startRoll(getRollString("d100",mRollParams), (results) => {
 		const tens = results.results.tens.result;
 		const ones = results.results.ones.result;
@@ -1269,16 +1284,8 @@ function rollRangedAttack(event, iType){
 		var krm = calcKarma(tens,ones);
 		var out = getSuccessOrFailure(tens,ones,pips,target,0);
 		var outfliped = getSuccessOrFailure(tens,ones,pips,target,1);
-		var dmg = results.results.damage.result;
 		var rld = results.results.reload.result;
-		var bonusdmg = "";
-		var totaldmg = "";
 		
-		if (iType == 1 || iType == 2) {
-			bonusdmg = results.results.bonusdamage.result||"";
-			totaldmg = dmg + bonusdmg;
-		}
-
 		//Reload
 		if (rld < 99 && rld <= ones) {rld = 1;}
 		if (ones == 0) {rld = 1;}
@@ -1289,14 +1296,10 @@ function rollRangedAttack(event, iType){
 			["last-roll-pips",		pips],
 			["last-roll-target",	target],
 			["last-roll-outcome",	out],
-			["last-roll-karma",		krm],		
+			["last-roll-karma",		krm],
+			["damage-dices",		dmgPart],			
 		]);				
-		
-		if (iType == 1 || iType == 2) {
-			mFlipResults.set("last-roll-bonusdamage",bonusdmg);
-			mFlipResults.set("last-roll-totaldamage",totaldmg);
-		}
-		
+
 		//safe results for a flip
 		safeFlipResults(results,mFlipResults);
 		
@@ -1305,9 +1308,6 @@ function rollRangedAttack(event, iType){
 			{
 				outcome: out,
 				karma: krm,
-				damage: dmg,
-				bonusdamage: bonusdmg,
-				totaldamage: totaldmg,
 				reload: rld,
 			}
 		);	
@@ -1333,8 +1333,7 @@ function rollMeleeAttack(event, iType){
 		["type",	"[["+iType+"]]"],	
 		["reload",	"[[0]]"],
 	]);
-	if (iType == 3) {mRollParams.set("damage","[["+dmgPart+"d6!>6>4]]")};	//Melee Atack. Deals normal Damage
-	if (iType == 4) {mRollParams.set("wdamage",	"[[1d6!>6>4]]")};	//Whump Atack. Deals special Damage
+	
 	startRoll(getRollString("d100",mRollParams), (results) => {
 		const tens = results.results.tens.result;
 		const ones = results.results.ones.result;
@@ -1353,17 +1352,9 @@ function rollMeleeAttack(event, iType){
 			["last-roll-target",	target],
 			["last-roll-outcome",	out],
 			["last-roll-karma",		krm],
-		]);
-		
-		if (iType == 3) { //Melee Atack. Deals normal Damage
-			var dmg = results.results.damage.result;
-			mFlipResults.set("last-roll-damage",dmg);
-		};
-		if (iType == 4) { //Whump Atack. Deals special Damage
-			var wdmg = results.results.wdamage.result;
-			mFlipResults.set("last-roll-wdamage",wdmg);
-		};	
-		
+			["damage-dices",		dmgPart],
+		]);		
+				
 		//safe results for a flip
 		safeFlipResults(results,mFlipResults);
 		
@@ -1371,9 +1362,7 @@ function rollMeleeAttack(event, iType){
 			results.rollId,
 			{
 				outcome: out,
-				karma: krm,
-				damage: dmg,
-				wdamage: wdmg
+				karma: krm,				
 			}
 		);
 	});
