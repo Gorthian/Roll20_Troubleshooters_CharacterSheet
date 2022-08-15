@@ -228,7 +228,7 @@ select.sheet-shorter {
 }
 
 .charsheet button[type="action"].sheet-skillroll {
-	width				: 68%;
+	width				: 67%;
 	border				: none;
 	background-color	: white;
 	text-align			: left;
@@ -566,9 +566,14 @@ input.sheet-gearcheck:checked {
 	width					: 100%;	
 }
 
-.sheet-rolltemplate-basic div.sheet-template-container div.sheet-template-result,
-.sheet-rolltemplate-damage div.sheet-template-container div.sheet-template-result {
+.sheet-rolltemplate-basic div.sheet-template-container div.sheet-template-result {
 	background-image		: url(https://greengorilla.de/vtt/TS_Boom_grey_200.png);
+	height					: 200px;
+	line-height				: 200px;
+}
+
+.sheet-rolltemplate-damage div.sheet-template-container div.sheet-template-result {
+	background-image		: url(https://greengorilla.de/vtt/TS_dialog_crash_210.png);
 	height					: 200px;
 	line-height				: 200px;
 }

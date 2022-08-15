@@ -642,7 +642,7 @@
 					[<span data-i18n="damage">damage</span>](~{{charname}}|damage-pam)<br/>
 				{{/rollTotal() computed::type 1}}
 				{{#rollTotal() computed::type 2}}
-					{{#rollTotal() computed::karma 0}}[<span data-i18n="damage">damage</span>](~{{charname}}|damage-ratatat)<br/>{{/rollTotal() computed::karma 0}}
+					{{#rollGreater() computed::karma 0}}[<span data-i18n="damage">damage</span>](~{{charname}}|damage-ratatat)<br/>{{/rollGreater() computed::karma 0}}
 				{{/rollTotal() computed::type 2}}
 				{{#rollTotal() computed::karma 1}}
 					{{#rollLess() computed::type 1}}<p><span data-i18n="good-karma">Good Karma!</span></p>{{/rollLess() computed::type 1}}
@@ -726,7 +726,7 @@
 					[<span data-i18n="damage">damage</span>](~{{charname}}|damage-pam)<br/>
 				{{/rollTotal() type 1}}
 				{{#rollTotal() type 2}}
-					{{#rollTotal() karma 0}}[<span data-i18n="damage">damage</span>](~{{charname}}|damage-ratatat)<br/>{{/rollTotal() karma 0}}
+					{{#rollGreater() karma 0}}[<span data-i18n="damage">damage</span>](~{{charname}}|damage-ratatat)<br/>{{/rollGreater() karma 0}}
 				{{/rollTotal() type 2}}
 				{{#rollTotal() karma 1}}
 					{{#rollLess() type 1}}<p><span data-i18n="good-karma">Good Karma!</span></p>{{/rollLess() type 1}}
@@ -1169,7 +1169,7 @@ function getRollString(sTemplate,mRollParams) {
 
 function safeFlipResults(results,mFlipParams) {
 	if (typeof results.results.ones !== 'undefined') {ones = results.results.ones.result} else {ones = 0}
-	if (typeof results.results.tens !== 'undefined') {tens = results.results.ones.result} else {tens = 0}
+	if (typeof results.results.tens !== 'undefined') {tens = results.results.tens.result} else {tens = 0}
 	if (typeof results.results.type !== 'undefined') {type = results.results.type.result} else {type = 0}
 	if (typeof results.results.outcome !== 'undefined') {outcome = results.results.outcome.result} else {outcome = 0}
 
