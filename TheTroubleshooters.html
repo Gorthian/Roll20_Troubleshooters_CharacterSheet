@@ -1168,11 +1168,16 @@ function getRollString(sTemplate,mRollParams) {
 }
 
 function safeFlipResults(results,mFlipParams) {
+	if (typeof results.results.ones !== 'undefined') {ones = results.results.ones.result} else {ones = ""}
+	if (typeof results.results.tens !== 'undefined') {tens = results.results.ones.result} else {tens = ""}
+	if (typeof results.results.type !== 'undefined') {type = results.results.type.result} else {type = ""}
+	if (typeof results.results.outcome !== 'undefined') {outcome = results.results.outcome.result} else {outcome = ""}
+	
 	setAttrs({
-		["last-roll-ones"]: 		results.results.ones.result,
-		["last-roll-tens"]: 		results.results.tens.result,
-		["last-roll-type"]: 		results.results.type.result,
-		["last-roll-outcome"]: 		results.results.outcome.result,
+		["last-roll-ones"]: 		ones,
+		["last-roll-tens"]: 		tens,
+		["last-roll-type"]: 		type,
+		["last-roll-outcome"]: 		outcome,
 		["last-roll-fliped"]: 		mFlipParams.get("last-roll-fliped")||"",
 		["last-roll-ini"]: 			mFlipParams.get("last-roll-ini")||"",
 		["last-roll-ini-fliped"]: 	mFlipParams.get("last-roll-ini-fliped")||"",
