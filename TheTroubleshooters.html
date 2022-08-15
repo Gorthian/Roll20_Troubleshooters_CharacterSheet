@@ -516,14 +516,14 @@
 				<button type="action" class="sheet-blank-button btn ui-draggable" name="act_skillroll" title="Defend with AGILITY" data-i18n-title="defend-agility" value="agility" data-i18n="take-cover">Take Cover!</button>
 				<br/>
 				<button type="action" class="sheet-blank-button btn ui-draggable" name="act_skillroll" title="Defend with MELEE" data-i18n-title="defend-melee" value="melee" data-i18n="parry">Parry!</button>
-				<button type="roll" class="sheet-blank-button btn ui-draggable" name="act_recover" value="&{template:basic} {{name=@{name}}} {{result=[[?{@{how_many_dice}|1}d6>4]]}} {{dicetype=d6P}} {{dicecount=?{@{how_many_dice}|1}}}" title="Recovery" data-i18n-title="recovery" data-i18n="recovery">Recovery</button>		
+				<button type="roll" class="sheet-blank-button btn ui-draggable" name="act_recover" value="&{template:recovers} {{name=@{name}}} {{result=[[?{@{how_many_dice}|1}d6>4]]}} {{dicetype=d6P}} {{dicecount=?{@{how_many_dice}|1}}}" title="Recovery" data-i18n-title="recovery" data-i18n="recovery">Recovery</button>
 				<br />
 				<hr/>
 			
 				<input type="text" name="attr_armour" class="sheet-short" placeholder="Armour" data-i18n-placeholder="armour"/>
 				<input type="number" name="attr_soakvalue" title="Protection value" data-i18n-title="protection-value" value="0" min="0"/><span data-i18n="dP">dP</span>
 				<input name="attr_armourtags" placeholder="Tags" data-i18n-placeholder="tags" style="width: 40ch"/>
-				<button type="roll" class="sheet-blank-button btn ui-draggable" name="act_soak" title="Soak damage" data-i18n-title="soak-damage" value="&{template:basic} {{name=@{name}}} {{result=[[@{soakvalue}d6>4]]}} {{dicetype=d6P}} {{dicecount=@{soakvalue}}}" data-i18n="soak">Soak</button>				
+				<button type="roll" class="sheet-blank-button btn ui-draggable" name="act_soak" title="Soak damage" data-i18n-title="soak-damage" value="&{template:soaks} {{name=@{name}}} {{result=[[@{soakvalue}d6>4]]}} {{dicetype=d6P}} {{dicecount=@{soakvalue}}}" data-i18n="soak">Soak</button>				
 			</div>
 			<div class="sheet-passport-page">
 				<input type="text" name="attr_weapon" class="sheet-short" readonly="true"/>
@@ -582,6 +582,24 @@
 		{{name}}
 		<div class="sheet-template-result">
 			{{damage}}{{#bonus}} + {{bonus}}{{/bonus}}{{#total}} = {{total}}{{/total}}
+		</div>
+	</div>
+</rolltemplate>
+
+<rolltemplate class="sheet-rolltemplate-soaks">
+    <div class="sheet-template-container">
+		{{name}} <span data-i18n="soaks">soaks</span>
+		<div class="sheet-template-result">
+			{{result}}
+		</div>
+	</div>
+</rolltemplate>
+
+<rolltemplate class="sheet-rolltemplate-recovers">
+    <div class="sheet-template-container">
+		{{name}} <span data-i18n="recovers">recovers</span>
+		<div class="sheet-template-result">
+			{{result}}
 		</div>
 	</div>
 </rolltemplate>
