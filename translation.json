@@ -151,6 +151,7 @@
 	"non-exploding-pool" : "NdP",
 	"notes" : "Notes",
 	"npc" : "NPC",
+	"npcinitiative" : "Initiative",
 	"npc-attack" : "NPC attack",
 	"npc-defence" : "NPC defence",
 	"npc-fixed-initiative" : "NPC fixed initiative",

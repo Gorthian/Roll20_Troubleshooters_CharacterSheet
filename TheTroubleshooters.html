@@ -34,9 +34,9 @@
 			<button type="roll" class="sheet-blank-button" value="&{template:basic} {{name=@{name}}} {{result=[[?{@{how_many_dice}|1}d6!>6>4]]}} {{dicetype=dX}} {{dicecount=?{@{how_many_dice}|1}}}" title="Exploding Dice Pool" data-i18n-title="exploding-pool-title" data-i18n="exploding-pool">NdX</button>
 			<button type="action" class="sheet-blank-button btn ui-draggable" name="act_basicd100" title="Add text in translation files" data-i18n-title="percentile-dice-title" data-i18n="percentile-dice">d100</button>
 			<button hidden="true" style="display:none;" type="roll" name="roll_flip" value="&{template:d100-flip} {{name=@{name}}} {{charname=@{character_name}}} {{tens=@{last-roll-ones}}} {{ones=@{last-roll-tens}}} {{outcome=[[@{last-roll-fliped}]]}} {{skill=@{last-roll-skill}}} {{skill_raw=@{last-roll-skill-raw}}} {{target=@{last-roll-target}}} {{pips=@{last-roll-pips}}} {{type=[[@{last-roll-type}]]}}" />
-			<button hidden="true" style="display:none;" type="roll" name="roll_flip-ini" value="&{template:d100-flip-ini} {{name=@{name}}} {{charname=@{character_name}}} {{tens=@{last-roll-ones}}} {{ones=@{last-roll-tens}}} {{success=@{last-roll-fliped}}} {{skill=@{last-roll-skill}}} {{target=@{last-roll-target}}} {{pips=@{last-roll-pips}}} {{ini=@{last-roll-ini-fliped}}}" />
-			<button hidden="true" style="display:none;" type="roll" name="roll_settracker" value="/roll @{last-roll-ini} &{tracker}" />
-			<button hidden="true" style="display:none;" type="roll" name="roll_flip-settracker" value="/roll @{last-roll-ini-fliped} &{tracker}" />
+			<button hidden="true" style="display:none;" type="roll" name="roll_flip-ini" value="&{template:d100-flip-ini} {{name=@{name}}} {{charname=@{character_name}}} {{tens=@{last-roll-ones}}} {{ones=@{last-roll-tens}}} {{success=[[@{last-roll-fliped}]]}} {{skill=@{last-roll-skill}}} {{target=@{last-roll-target}}} {{pips=@{last-roll-pips}}} {{ini=@{last-roll-ini-fliped}}}" />
+			<button hidden="true" style="display:none;" type="roll" name="roll_settracker" value="! [[@{last-roll-ini} &{tracker}]]" />
+			<button hidden="true" style="display:none;" type="roll" name="roll_flip-settracker" value="! [[@{last-roll-ini-fliped} &{tracker}]]" />
 			<button hidden="true" style="display:none;" type="roll" name="roll_damage" value="&{template:damage} {{name=@{name}}} {{damage=[[@{damage-dices}d6!>6>4]]}}" />
 			<button hidden="true" style="display:none;" type="roll" name="roll_damage-whump" value="&{template:damage} {{name=@{name}}} {{damage=[[1d6!>6>4]]}}" />
 			<button hidden="true" style="display:none;" type="roll" name="roll_damage-pam" value="&{template:damage} [[ [[@{damage-dices}d6!>6>4]] + [[1d6!>6>4]] ]] {{name=@{name}}} {{damage=$[[0]]}} {{bonus=$[[1]]}} {{total=$[[2]]}}" />
@@ -197,8 +197,8 @@
 					<div>
 						<label data-i18n="stats">Stats</label>
 						<label class="sheet-skilllabel" data-i18n="vitality">Vitality</label><input type="number" name="attr_vitality" class="sheet-number" min="0" max="20"/>
-						<label class="sheet-skilllabel" data-i18n="initiative">Initiative</label><input type="number" class="sheet-npcskill" name="attr_npcinitiative" value="0"/>
 						<br/>
+						<label class="sheet-skilllabel" data-i18n="initiative">Initiative</label><input type="number" class="sheet-npcskill" name="attr_npcinitiative" value="0"/>
 						<button type="action" class="sheet-npcroll btn ui-draggable" name="act_npc_ini_fix" title="NPC fixed initiative" data-i18n-title="npc-fixed-initiative" value="3" data-i18n="fixed">Fixed</button>		
 						<button type="action" class="sheet-npcroll btn ui-draggable" name="act_npc_ini" title="NPC rolled initiative" data-i18n-title="npc-rolled-initiative" value="2" data-i18n="roll">Roll</button><br>			
 						<label class="sheet-skilllabel" data-i18n="conditional-max">Conditional Max</label><input type="number" name="attr_vitality_max_vis" class="sheet-number" value="0" readonly="true"/>
@@ -827,12 +827,12 @@
 			{{/pips}}
 		</div>
 		<div class="sheet-template-info">
-			{{#success}}
+			{{#rollGreater() success 0}}
 				<p><span data-i18n="success">Success!</span></p>
-			{{/success}}
-			{{^success}}
+			{{/rollGreater() success 0}}
+			{{#rollTotal() success 0}}
 				<p><span data-i18n="failure">Zut! Failure</span></p>
-			{{/success}}
+			{{/rollTotal() success 0}}
 			<p><span data-i18n="initiative">ini</span> <b>{{ini}}</b></p>
 		</div>
 		<div class="sheet-template-flip">
@@ -1366,13 +1366,18 @@ function rollIni(event, iType) {
 		startRoll(getRollString("npc-ini-fix",mRollParams), (results) => {
 			getAttrs(["npcinitiative"], function(values){
 				var iIni = parseInt(values["npcinitiative"]);
+			
+				//safe results for a flip
+				safeFlipResults(results,new Map([
+					["last-roll-ini",			iIni],
+				]));
 
 				finishRoll(results.rollId,{ini: iIni});
 			});
 		});
 	} else {
 		var skill = "alertness";
-		if (iType == 3) {skill = "general";} //npcs use general skill
+		if (iType == 3) {skill = "npcinitiative";} //npcs use general skill
 
 		const mRollParams = new Map([
 			["skill",	skill],

@@ -151,6 +151,7 @@
 	"non-exploding-pool" : "n WP",
 	"notes" : "Notizen",
 	"npc" : "NPC",
+	"npcinitiative" : "Initiative",
 	"npc-attack" : "Charakter der Einsatzleitung greift an",
 	"npc-defence" : "Charakter der Einsatzleitung verteidigt sich",
 	"npc-fixed-initiative" : "Charakter der Einsatzleitung festgelegte Initiative",
