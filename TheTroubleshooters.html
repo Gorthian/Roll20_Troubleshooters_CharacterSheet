@@ -199,7 +199,7 @@
 						<label class="sheet-skilllabel" data-i18n="vitality">Vitality</label><input type="number" name="attr_vitality" class="sheet-number" min="0" max="20"/>
 						<label class="sheet-skilllabel" data-i18n="initiative">Initiative</label><input type="number" class="sheet-npcskill" name="attr_npcinitiative" value="0"/>
 						<br/>
-						<button type="action" class="sheet-npcroll btn ui-draggable" name="act_init_npcfix" title="NPC fixed initiative" data-i18n-title="npc-fixed-initiative" value="3" data-i18n="fixed">Fixed</button>		
+						<button type="action" class="sheet-npcroll btn ui-draggable" name="act_npc_ini_fix" title="NPC fixed initiative" data-i18n-title="npc-fixed-initiative" value="3" data-i18n="fixed">Fixed</button>		
 						<button type="action" class="sheet-npcroll btn ui-draggable" name="act_init_npc" title="NPC rolled initiative" data-i18n-title="npc-rolled-initiative" value="2" data-i18n="roll">Roll</button><br>			
 						<label class="sheet-skilllabel" data-i18n="conditional-max">Conditional Max</label><input type="number" name="attr_vitality_max_vis" class="sheet-number" value="0" readonly="true"/>
 						<label class="sheet-skilllabel" data-i18n="defence">Defence</label><input type="number" class="sheet-npcskill" name="attr_npcdefence" value="0"/>
@@ -770,6 +770,18 @@
 	</div>
 </rolltemplate>
 
+<rolltemplate class="sheet-rolltemplate-npc-ini-fix">
+    <div class="sheet-template-container">
+		<p>{{name}}</p>
+		<div class="sheet-template-info">		
+			<p><span data-i18n="initiative">ini</span> <b>{{computed::ini}}</b></p>
+		</div>
+		<div class="sheet-template-flip">
+			[<span data-i18n="add-to-ini">INI</span>](~{{charname}}|settracker)
+		</div>
+	</div>	
+</rolltemplate>
+
 <rolltemplate class="sheet-rolltemplate-d100-ini">
     <div class="sheet-template-container">
 		<p>{{name}}</p>
@@ -940,62 +952,9 @@ on("sheet:opened", function(eventInfo){
         });
     });
 
-	on('clicked:d100-ini', (event) => {	
-		const skill = "alertness";
-		const mRollParams = new Map([
-			["skill",	skill],
-			["target",	"[[@{"+skill+"}]]"],
-			["outcome",	"[[0]]"],
-			["karma",	"[[0]]"],
-			["ini",		"[[0]]"],
-			["pips",	"[[?{"+getTranslationByKey("total-pips")+"|0}]]"],
-		]);
-
-		startRoll(getRollString("d100-ini",mRollParams), (results) => {
-            const tens = results.results.tens.result;
-			const ones = results.results.ones.result;
-			const target = results.results.target.result;
-			const pips = results.results.pips.result;
-			var total = calcTotal(tens,ones,0);
-			var totalfliped = calcTotal(tens,ones,1);
-			var krm = calcKarma(tens,ones);
-			var out = getSuccessOrFailure(tens,ones,pips,target,0);
-			var outfliped = getSuccessOrFailure(tens,ones,pips,target,1);
-			var ini = 0;
-			var inifliped = 0;
-			
-			//Ini
-			if (out == 2 && krm == 1) {ini=0}
-			if (out == 2 && krm == 0) {ini=ones}
-			if (out == 1 && krm == 1) {ini=ones+tens+10}
-			if (out == 1 && krm == 0) {ini=ones+tens}
-			
-			//Inifliped
-			if (outfliped == "" && krm == 1) {inifliped=0}
-			if (outfliped == "" && krm == 0) {inifliped=tens}
-			if (outfliped == 1 && krm == 1) {inifliped=ones+tens+10}
-			if (outfliped == 1 && krm == 0) {inifliped=ones+tens}
-
-			//safe results for a flip
-			safeFlipResults(results,new Map([
-				["last-roll-fliped",		outfliped],
-				["last-roll-skill",			skill],
-				["last-roll-pips",			pips],
-				["last-roll-target",		target],
-				["last-roll-ini",			ini],
-				["last-roll-ini-fliped",	inifliped],
-			]));			
-
-            finishRoll(
-                results.rollId,
-                {
-					outcome: out,
-					karma: krm,
-					ini: ini
-                }
-            );
-        });
-    });
+//INI Rolls
+	on('clicked:d100-ini', (event) => {rollIni(event,1)});
+	on('clicked:npc_ini_fix', (event) => {rollIni(event,2)});
 
 //NPC skill rolls
 	on('clicked:repeating_skills:skillnpc', (event) => {
@@ -1390,5 +1349,81 @@ function rollMeleeAttack(event, iType){
 			}
 		);
 	});
+}
+
+function rollIni(event, iType) {
+	// iType
+	// 1 - pc ini
+	// 2 - npc ini fixed
+	// 3 - npc ini rolled
+
+	if (iType == 2)
+	{
+		const mRollParams = new Map([
+			["ini",		"[[0]]"],		
+		]);
+		startRoll(getRollString("npc-ini-fix",mRollParams), (results) => {
+			getAttrs(["npcinitiative"], function(values){
+				var iIni = parseInt(values["npcinitiative"]);
+
+				finishRoll(results.rollId,{ini: iIni});
+			});
+		});
+	} else {
+		const skill = "alertness";
+		const mRollParams = new Map([
+			["skill",	skill],
+			["target",	"[[@{"+skill+"}]]"],
+			["outcome",	"[[0]]"],
+			["karma",	"[[0]]"],
+			["ini",		"[[0]]"],
+			["pips",	"[[?{"+getTranslationByKey("total-pips")+"|0}]]"],
+		]);
+
+		startRoll(getRollString("d100-ini",mRollParams), (results) => {
+			const tens = results.results.tens.result;
+			const ones = results.results.ones.result;
+			const target = results.results.target.result;
+			const pips = results.results.pips.result;
+			var total = calcTotal(tens,ones,0);
+			var totalfliped = calcTotal(tens,ones,1);
+			var krm = calcKarma(tens,ones);
+			var out = getSuccessOrFailure(tens,ones,pips,target,0);
+			var outfliped = getSuccessOrFailure(tens,ones,pips,target,1);
+			var ini = 0;
+			var inifliped = 0;
+			
+			//Ini
+			if (out == 2 && krm == 1) {ini=0}
+			if (out == 2 && krm == 0) {ini=ones}
+			if (out == 1 && krm == 1) {ini=ones+tens+10}
+			if (out == 1 && krm == 0) {ini=ones+tens}
+			
+			//Inifliped
+			if (outfliped == "" && krm == 1) {inifliped=0}
+			if (outfliped == "" && krm == 0) {inifliped=tens}
+			if (outfliped == 1 && krm == 1) {inifliped=ones+tens+10}
+			if (outfliped == 1 && krm == 0) {inifliped=ones+tens}
+
+			//safe results for a flip
+			safeFlipResults(results,new Map([
+				["last-roll-fliped",		outfliped],
+				["last-roll-skill",			skill],
+				["last-roll-pips",			pips],
+				["last-roll-target",		target],
+				["last-roll-ini",			ini],
+				["last-roll-ini-fliped",	inifliped],
+			]));			
+
+			finishRoll(
+				results.rollId,
+				{
+					outcome: out,
+					karma: krm,
+					ini: ini
+				}
+			);
+		});
+	}
 }
 </script>

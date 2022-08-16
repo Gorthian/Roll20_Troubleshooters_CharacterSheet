@@ -507,6 +507,7 @@ input.sheet-gearcheck:checked {
  background-color:#eee;
 }
 
+.sheet-rolltemplate-ini-npc-fix div.sheet-template-container,
 .sheet-rolltemplate-basic div.sheet-template-container,
 .sheet-rolltemplate-damage div.sheet-template-container,
 .sheet-rolltemplate-soaks div.sheet-template-container,
@@ -524,31 +525,32 @@ input.sheet-gearcheck:checked {
 	padding-top				: 25px;	
 }
 
-.sheet-rolltemplate-recovers div, .sheet-rolltemplate-soaks div, .sheet-rolltemplate-basic div, .sheet-rolltemplate-d100 div, .sheet-rolltemplate-d100-flip div, .sheet-rolltemplate-d100-flip-ini div, .sheet-rolltemplate-d100-ini div, .sheet-rolltemplate-damage div,
-.sheet-rolltemplate-recovers p, .sheet-rolltemplate-soaks p, .sheet-rolltemplate-basic p, .sheet-rolltemplate-d100 p, .sheet-rolltemplate-d100-flip p, .sheet-rolltemplate-d100-flip-ini p, .sheet-rolltemplate-d100-ini p, .sheet-rolltemplate-damage p {
+.sheet-rolltemplate-npc-ini-fix div, .sheet-rolltemplate-recovers div, .sheet-rolltemplate-soaks div, .sheet-rolltemplate-basic div, .sheet-rolltemplate-d100 div, .sheet-rolltemplate-d100-flip div, .sheet-rolltemplate-d100-flip-ini div, .sheet-rolltemplate-d100-ini div, .sheet-rolltemplate-damage div,
+.sheet-rolltemplate-npc-ini-fix p, .sheet-rolltemplate-recovers p, .sheet-rolltemplate-soaks p, .sheet-rolltemplate-basic p, .sheet-rolltemplate-d100 p, .sheet-rolltemplate-d100-flip p, .sheet-rolltemplate-d100-flip-ini p, .sheet-rolltemplate-d100-ini p, .sheet-rolltemplate-damage p {
 	font-family				: 'Edu NSW ACT Foundation', cursive;
 	font-size				: 18px;
   	text-align				: center;
   	color					: #000;
 }
 
-.sheet-rolltemplate-recovers li, .sheet-rolltemplate-soaks p, .sheet-rolltemplate-basic p, .sheet-rolltemplate-damage p, .sheet-rolltemplate-d100 p, .sheet-rolltemplate-d100-flip p, .sheet-rolltemplate-d100-flip-ini p, .sheet-rolltemplate-d100-ini p {
+.sheet-rolltemplate-npc-ini-fix li, .sheet-rolltemplate-recovers li, .sheet-rolltemplate-soaks p, .sheet-rolltemplate-basic p, .sheet-rolltemplate-damage p, .sheet-rolltemplate-d100 p, .sheet-rolltemplate-d100-flip p, .sheet-rolltemplate-d100-flip-ini p, .sheet-rolltemplate-d100-ini p {
 	margin-left				: 15px;
 	margin-right			: 15px;
 }
 
-.sheet-rolltemplate-recovers li, .sheet-rolltemplate-soaks li, .sheet-rolltemplate-basic li, .sheet-rolltemplate-damage li,.sheet-rolltemplate-d100 li, .sheet-rolltemplate-d100-flip li, .sheet-rolltemplate-d100-flip-ini li, .sheet-rolltemplate-d100-ini li {
+.sheet-rolltemplate-npc-ini-fix li, .sheet-rolltemplate-recovers li, .sheet-rolltemplate-soaks li, .sheet-rolltemplate-basic li, .sheet-rolltemplate-damage li,.sheet-rolltemplate-d100 li, .sheet-rolltemplate-d100-flip li, .sheet-rolltemplate-d100-flip-ini li, .sheet-rolltemplate-d100-ini li {
 	line-height				: 30px;
 	font-size				: 15px;
 	text-align				: left;
 	margin-left				: 10px;
 }
 
-.sheet-rolltemplate-recovers h1, .sheet-rolltemplate-soaks h1, .sheet-rolltemplate-basic h1, .sheet-rolltemplate-damage h1, .sheet-rolltemplate-d100 h1, .sheet-rolltemplate-d100-flip h1, .sheet-rolltemplate-d100-flip-ini h1, .sheet-rolltemplate-d100-ini h1 {
+.sheet-rolltemplate-npc-ini-fix h1, .sheet-rolltemplate-recovers h1, .sheet-rolltemplate-soaks h1, .sheet-rolltemplate-basic h1, .sheet-rolltemplate-damage h1, .sheet-rolltemplate-d100 h1, .sheet-rolltemplate-d100-flip h1, .sheet-rolltemplate-d100-flip-ini h1, .sheet-rolltemplate-d100-ini h1 {
 	font-size				: 20px;
 	text-decoration			: underline;
 }
 
+.sheet-rolltemplate-npc-ini-fix div.sheet-template-container div.sheet-template-result,
 .sheet-rolltemplate-basic div.sheet-template-container div.sheet-template-result,
 .sheet-rolltemplate-damage div.sheet-template-container div.sheet-template-result,
 .sheet-rolltemplate-soaks div.sheet-template-container div.sheet-template-result,
@@ -594,6 +596,7 @@ input.sheet-gearcheck:checked {
 	line-height				: 200px;
 }
 
+.sheet-rolltemplate-npc-ini-fix div.sheet-template-container div.sheet-template-result,
 .sheet-rolltemplate-d100 div.sheet-template-container div.sheet-template-result,
 .sheet-rolltemplate-d100-ini div.sheet-template-container div.sheet-template-result,
 .sheet-rolltemplate-d100-flip div.sheet-template-container div.sheet-template-result,
@@ -606,6 +609,7 @@ input.sheet-gearcheck:checked {
 	grid-template-columns	: repeat(2, 50%);
 }
 
+.sheet-rolltemplate-npc-ini-fix div.sheet-template-result .inlinerollresult,
 .sheet-rolltemplate-basic div.sheet-template-result .inlinerollresult,
 .sheet-rolltemplate-damage div.sheet-template-result .inlinerollresult,
 .sheet-rolltemplate-recovers div.sheet-template-result .inlinerollresult,
