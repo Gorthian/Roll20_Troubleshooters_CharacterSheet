@@ -184,10 +184,10 @@
 					</fieldset>
 				</div>
 				<div class="sheet-npc-view">
-					<input type="text" name="attr_character_name" placeholder="Name" data-i18n-placeholder="name" style="width:25%"/>
-					<input type="text" name="attr_name" placeholder="Chat Name" data-i18n-placeholder="chatname" style="width:15%"/>
-					<input type="text" name="attr_npcaffiliation" placeholder="Affiliation" data-i18n-placeholder="affiliation" style="width:15%"/>
-					<select name="attr_npclevel" style="width:15%">
+					<input type="text" name="attr_character_name" placeholder="Name" data-i18n-placeholder="name" style="width:30%"/>
+					<input type="text" name="attr_name" placeholder="Chat Name" data-i18n-placeholder="chatname" style="width:20%"/>
+					<input type="text" name="attr_npcaffiliation" placeholder="Affiliation" data-i18n-placeholder="affiliation" style="width:20%"/>
+					<select name="attr_npclevel" style="width:20%">
 						<option value="" data-i18n="rank" hidden>Rank</option>
 						<option value="Mook" data-i18n="mook">Mook</option>
 						<option value="Underling" data-i18n="underling">Underling</option>
@@ -198,8 +198,9 @@
 						<label data-i18n="stats">Stats</label>
 						<label class="sheet-skilllabel" data-i18n="vitality">Vitality</label><input type="number" name="attr_vitality" class="sheet-number" min="0" max="20"/>
 						<label class="sheet-skilllabel" data-i18n="initiative">Initiative</label><input type="number" class="sheet-npcskill" name="attr_npcinitiative" value="0"/>
-						<button type="action" class="sheet-npcroll" name="act_init_npcfix" title="NPC fixed initiative" data-i18n-title="npc-fixed-initiative" value="3" data-i18n="fixed">Fixed</button>		
-						<button type="action" class="sheet-npcroll" name="act_init_npc" title="NPC rolled initiative" data-i18n-title="npc-rolled-initiative" value="2" data-i18n="roll">Roll</button><br>			
+						<br/>
+						<button type="action" class="sheet-npcroll btn ui-draggable" name="act_init_npcfix" title="NPC fixed initiative" data-i18n-title="npc-fixed-initiative" value="3" data-i18n="fixed">Fixed</button>		
+						<button type="action" class="sheet-npcroll btn ui-draggable" name="act_init_npc" title="NPC rolled initiative" data-i18n-title="npc-rolled-initiative" value="2" data-i18n="roll">Roll</button><br>			
 						<label class="sheet-skilllabel" data-i18n="conditional-max">Conditional Max</label><input type="number" name="attr_vitality_max_vis" class="sheet-number" value="0" readonly="true"/>
 						<label class="sheet-skilllabel" data-i18n="defence">Defence</label><input type="number" class="sheet-npcskill" name="attr_npcdefence" value="0"/>
 						<button type="action" class="sheet-npcroll" name="act_def_npc" title="NPC defence" data-i18n-title="npc-defence" value="3" data-i18n="roll">Roll</button><br>
