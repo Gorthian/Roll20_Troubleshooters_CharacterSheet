@@ -507,7 +507,7 @@ input.sheet-gearcheck:checked {
  background-color:#eee;
 }
 
-.sheet-rolltemplate-ini-npc-fix div.sheet-template-container,
+.sheet-rolltemplate-npc-ini-fix div.sheet-template-container,
 .sheet-rolltemplate-basic div.sheet-template-container,
 .sheet-rolltemplate-damage div.sheet-template-container,
 .sheet-rolltemplate-soaks div.sheet-template-container,
@@ -609,7 +609,7 @@ input.sheet-gearcheck:checked {
 	grid-template-columns	: repeat(2, 50%);
 }
 
-.sheet-rolltemplate-npc-ini-fix div.sheet-template-result .inlinerollresult,
+.sheet-rolltemplate-npc-ini-fix div.sheet-template-info .inlinerollresult,
 .sheet-rolltemplate-basic div.sheet-template-result .inlinerollresult,
 .sheet-rolltemplate-damage div.sheet-template-result .inlinerollresult,
 .sheet-rolltemplate-recovers div.sheet-template-result .inlinerollresult,

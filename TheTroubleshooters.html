@@ -200,7 +200,7 @@
 						<label class="sheet-skilllabel" data-i18n="initiative">Initiative</label><input type="number" class="sheet-npcskill" name="attr_npcinitiative" value="0"/>
 						<br/>
 						<button type="action" class="sheet-npcroll btn ui-draggable" name="act_npc_ini_fix" title="NPC fixed initiative" data-i18n-title="npc-fixed-initiative" value="3" data-i18n="fixed">Fixed</button>		
-						<button type="action" class="sheet-npcroll btn ui-draggable" name="act_init_npc" title="NPC rolled initiative" data-i18n-title="npc-rolled-initiative" value="2" data-i18n="roll">Roll</button><br>			
+						<button type="action" class="sheet-npcroll btn ui-draggable" name="act_npc_ini" title="NPC rolled initiative" data-i18n-title="npc-rolled-initiative" value="2" data-i18n="roll">Roll</button><br>			
 						<label class="sheet-skilllabel" data-i18n="conditional-max">Conditional Max</label><input type="number" name="attr_vitality_max_vis" class="sheet-number" value="0" readonly="true"/>
 						<label class="sheet-skilllabel" data-i18n="defence">Defence</label><input type="number" class="sheet-npcskill" name="attr_npcdefence" value="0"/>
 						<button type="action" class="sheet-npcroll" name="act_def_npc" title="NPC defence" data-i18n-title="npc-defence" value="3" data-i18n="roll">Roll</button><br>
@@ -955,6 +955,7 @@ on("sheet:opened", function(eventInfo){
 //INI Rolls
 	on('clicked:d100-ini', (event) => {rollIni(event,1)});
 	on('clicked:npc_ini_fix', (event) => {rollIni(event,2)});
+	on('clicked:npc_ini', (event) => {rollIni(event,3)});
 
 //NPC skill rolls
 	on('clicked:repeating_skills:skillnpc', (event) => {
@@ -1370,7 +1371,9 @@ function rollIni(event, iType) {
 			});
 		});
 	} else {
-		const skill = "alertness";
+		var skill = "alertness";
+		if (iType == 3) {skill = "general";} //npcs use general skill
+
 		const mRollParams = new Map([
 			["skill",	skill],
 			["target",	"[[@{"+skill+"}]]"],
