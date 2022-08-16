@@ -770,17 +770,17 @@
 </rolltemplate>
 
 <rolltemplate class="sheet-rolltemplate-d100-ini">
-	{{#pips}}
-	<div class="sheet-template-pips">
-		{{pips}} <span data-i18n="pips"></span>
-	</div>
-	{{/pips}}
     <div class="sheet-template-container">
 		<p>{{name}}</p>
 		<p><span data-i18n="{{skill}}">Skill</span> <span data-i18n="of">of</span> {{target}}</p>
 		<div class="sheet-template-result">
 			<div class="sheet-template-tens">{{tens}}</div>
-			<div class="sheet-template-ones">{{ones}}</div>			
+			<div class="sheet-template-ones">{{ones}}</div>
+			{{#pips}}
+			<div class="sheet-template-pips">
+				{{pips}} <span data-i18n="pips"></span>
+			</div>
+			{{/pips}}		
 		</div>
 		<div class="sheet-template-info">
 			{{#rollTotal() computed::outcome 1}}
@@ -801,17 +801,17 @@
 </rolltemplate>
 
 <rolltemplate class="sheet-rolltemplate-d100-flip-ini">
-	{{#pips}}
-	<div class="sheet-template-pips">
-		{{pips}} <span data-i18n="pips"></span>
-	</div>
-	{{/pips}}
     <div class="sheet-template-container">
 		<p>{{name}}</p>
 		<p><span data-i18n="flips">flip</span></p>
 		<div class="sheet-template-result">
 			<div class="sheet-template-tens">{{tens}}</div>
 			<div class="sheet-template-ones">{{ones}}</div>
+			{{#pips}}
+			<div class="sheet-template-pips">
+				{{pips}} <span data-i18n="pips"></span>
+			</div>
+			{{/pips}}
 		</div>
 		<div class="sheet-template-info">
 			{{#success}}
