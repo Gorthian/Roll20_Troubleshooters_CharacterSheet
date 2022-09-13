@@ -1,8 +1,8 @@
 <!--
 	CREATED by 			Richard M
 	EDITED by 			Gorthian
-	Version				3.0a
-	Letzte Änderung		2022-08-16
+	Version				CF Preview
+	Letzte Änderung		2022-09-13
 	
 	GitHub				https://github.com/Gorthian/Roll20_Troubleshooters_CharacterSheet
 	Wiki				https://github.com/Gorthian/Roll20_Troubleshooters_CharacterSheet/wiki
@@ -887,18 +887,15 @@ on("sheet:opened", function(eventInfo){
 	});
 
 //Modify max Vitality if exhausted	
-    on("change:exhausted1 change:exhausted2 change:exhausted3 change:vitality_max sheet:opened", function() {
-        getAttrs(["exhausted1","exhausted2","exhausted3","vitality_max"], function(values) {
-			var ex1 = parseInt(values.exhausted1)||0;
-			var ex2 = parseInt(values.exhausted2)||0;
-			var ex3 = parseInt(values.exhausted3)||0;
+    on("change:exhausted change:vitality_max sheet:opened", function() {
+        getAttrs(["exhausted","vitality_max"], function(values) {
+			var exhausted = parseInt(values.exhausted)||0;			
 			var vmax = parseInt(values.vitality_max)||0;
 			
-			let ex = ex1 + ex2 + ex3;
 			let newmax = vmax
-			if(ex == 3) newmax = Math.ceil(vmax/2);
-			else if(ex == 6) newmax = Math.ceil(vmax / 4);			
-			else if(ex == 9) newmax = Math.ceil(vmax / 8);			
+			if(exhausted == 1) newmax = Math.ceil(vmax/2);
+			else if(exhausted == 2) newmax = Math.ceil(vmax / 4);			
+			else if(exhausted == 3) newmax = Math.ceil(vmax / 8);			
 						
 			setAttrs({
                 vitality_max_vis: newmax

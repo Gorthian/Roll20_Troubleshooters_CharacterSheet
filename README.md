@@ -12,9 +12,10 @@ This sheet can be edited and improved as long as the copyright statement is reta
 
 # Versions / History 
 
-**3.0** 
+**CF Preview** 
 
 - Added multilanguage support
+- Redesign
 
 **2.1** 
 
