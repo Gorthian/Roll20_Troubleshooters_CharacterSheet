@@ -687,11 +687,9 @@
 			{{#rollBetween() computed::reload 1 1}}<p><span data-i18n="out-of-ammo">Out of ammo!</span></p>{{/rollBetween() computed::reload 1 1}}
 			{{#rollTotal() computed::type 1}}<span data-i18n="reduce-ini">Reduce initiative score by 2</span>{{/rollTotal() computed::type 1}}
 		</div>
-		{{#rollGreater() computed::outcome 1}}
 		<div class="sheet-template-flip">
 			[<span data-i18n="flip">Flip</span>](~{{charname}}|flip)
 		</div>
-		{{/rollGreater() computed::outcome 1}}
 	</div>	
 </rolltemplate>
 
