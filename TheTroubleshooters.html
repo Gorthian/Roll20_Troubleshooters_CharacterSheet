@@ -2,7 +2,7 @@
 	CREATED by 			Richard M
 	EDITED by 			Gorthian
 	Version				CF Preview
-	Letzte Änderung		2022-09-13
+	Letzte Änderung		2022-09-22
 	
 	GitHub				https://github.com/Gorthian/Roll20_Troubleshooters_CharacterSheet
 	Wiki				https://github.com/Gorthian/Roll20_Troubleshooters_CharacterSheet/wiki
@@ -687,9 +687,11 @@
 			{{#rollBetween() computed::reload 1 1}}<p><span data-i18n="out-of-ammo">Out of ammo!</span></p>{{/rollBetween() computed::reload 1 1}}
 			{{#rollTotal() computed::type 1}}<span data-i18n="reduce-ini">Reduce initiative score by 2</span>{{/rollTotal() computed::type 1}}
 		</div>
+		{{#rollGreater() computed::outcome 1}}
 		<div class="sheet-template-flip">
 			[<span data-i18n="flip">Flip</span>](~{{charname}}|flip)
 		</div>
+		{{/rollGreater() computed::outcome 1}}
 	</div>	
 </rolltemplate>
 
@@ -924,6 +926,7 @@ on("sheet:opened", function(eventInfo){
 			["outcome",	"[[0]]"],
 			["karma",	"[[0]]"],
 			["pips",	"[[?{"+getTranslationByKey("total-pips")+"|0}]]"],
+			["type",	"[[0]]"]
 		]);
 		startRoll(getRollString("d100",mRollParams), (results) => {
             const tens = results.results.tens.result;
@@ -974,6 +977,7 @@ on("sheet:opened", function(eventInfo){
 			["outcome",		"[[0]]"],
 			["karma",		"[[0]]"],
 			["pips",		"[[?{"+getTranslationByKey("total-pips")+"|0}]]"],
+			["type",		"[[0]]"]
 		]);		
 
 		startRoll(getRollString("d100",mRollParams), (results) => {
@@ -1142,7 +1146,7 @@ function getRollString(sTemplate,mRollParams) {
 	let sRoll = "";
 	
 	sRoll = "&{template:"+sTemplate+"} {{name=@{name}}} {{charname=@{character_name}}} {{tens=[[1d10-1]]}} {{ones=[[1d10-1]]}} {{dicetype=d%}} {{dicecount=1}}"
-	//sRoll = "&{template:"+sTemplate+"} {{name=@{name}}} {{charname=@{character_name}}} {{tens=[[6]]}} {{ones=[[1]]}} {{dicetype=d%}} {{dicecount=1}}"
+	//sRoll = "&{template:"+sTemplate+"} {{name=@{name}}} {{charname=@{character_name}}} {{tens=[[7]]}} {{ones=[[7]]}} {{dicetype=d%}} {{dicecount=1}}"
 	mRollParams.forEach((value, key) => sRoll = sRoll + " {{"+key+"="+value+"}}");
 	
 	return sRoll;
