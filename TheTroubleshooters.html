@@ -719,8 +719,7 @@
 			</div>
 			{{/pips}}
 		</div>
-		{{#skill}}
-				<div class="sheet-template-info">
+		<div class="sheet-template-info">
 			{{#rollTotal() outcome 1}}
 				{{^type}}<p><span data-i18n="success">Success!</span></p>{{/type}}
 				{{#rollLess() type 2}}<p><span data-i18n="success">Success!</span></p>{{/rollLess() type 2}}
@@ -768,7 +767,6 @@
 			{{#rollBetween() reload 1 1}}<p><span data-i18n="out-of-ammo">Out of ammo!</span></p>{{/rollBetween() reload 1 1}}
 			{{#rollTotal() type 1}}<span data-i18n="reduce-ini">Reduce initiative score by 2</span>{{/rollTotal() type 1}}
 		</div>
-		{{/skill}}
 	</div>
 </rolltemplate>
 
@@ -1058,7 +1056,7 @@ on("sheet:opened", function(eventInfo){
 
 			mFlipResults = new Map([
 				["last-roll-fliped",	outfliped],
-				["last-roll-skill-raw",		txtPart],
+				["last-roll-skill-raw",	txtPart],
 				["last-roll-pips",		pips],
 				["last-roll-target",	target],
 				["last-roll-outcome",	out],
@@ -1226,7 +1224,7 @@ function getSuccessOrFailure(iTens, iOnes, iPips, iTarget, iFliped) {
 		iOut = 2;
 	}
 	
-	if (iOut == 2 && iFliped == 1) {iOut = ""}
+	//if (iOut == 2 && iFliped == 1) {iOut = ""} //Warum habe ich das gemacht?? Flips bei NPC-Attacken zeigen damit jedenfalls Misserfolge nicht an
 	
 	return iOut;
 }
