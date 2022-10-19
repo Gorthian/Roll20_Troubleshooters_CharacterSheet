@@ -1029,8 +1029,8 @@ on("sheet:opened", function(eventInfo){
 		let txtVal = "@{npcatktxt}";
 		let txtPart = txtVal.replaceAll('@{', `@{${prefix}`);
 		const mRollParams = new Map([
-			["skill",	txtVal],
-			["target",	"[["+tgtVal+"]]"],
+			["skill_raw",	txtPart],
+			["target",	"[["+tgtPart+"]]"],
 			["outcome",	"[[0]]"],
 			["karma",	"[[0]]"],
 			["ini",		"[[0]]"],
@@ -1058,7 +1058,7 @@ on("sheet:opened", function(eventInfo){
 
 			mFlipResults = new Map([
 				["last-roll-fliped",	outfliped],
-				["last-roll-skill",		skill],
+				["last-roll-skill-raw",		txtPart],
 				["last-roll-pips",		pips],
 				["last-roll-target",	target],
 				["last-roll-outcome",	out],
@@ -1146,7 +1146,6 @@ function getRollString(sTemplate,mRollParams) {
 	sRoll = "&{template:"+sTemplate+"} {{name=@{name}}} {{charname=@{character_name}}} {{tens=[[1d10-1]]}} {{ones=[[1d10-1]]}} {{dicetype=d%}} {{dicecount=1}}"
 	//sRoll = "&{template:"+sTemplate+"} {{name=@{name}}} {{charname=@{character_name}}} {{tens=[[7]]}} {{ones=[[7]]}} {{dicetype=d%}} {{dicecount=1}}"
 	mRollParams.forEach((value, key) => sRoll = sRoll + " {{"+key+"="+value+"}}");
-	
 	return sRoll;
 }
 
