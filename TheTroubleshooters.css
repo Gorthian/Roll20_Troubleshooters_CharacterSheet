@@ -95,7 +95,7 @@ div.sheet-skills, div.sheet-character, div.sheet-gear, div.sheet-journal, div.sh
 div.sheet-cover {
 	width		: var(--min-width);
 	min-height	: var(--min-height);
-	background-image: url(https://greengorilla.de/vtt/Pass_Back.png), url(https://greengorilla.de/vtt/Pass_Front.png);
+	background-image: url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/The%20Troubleshooters/images/Pass_Back.png), url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/The%20Troubleshooters/images/Pass_Front.png);
 	background-position: left top, right top;
 	background-repeat: no-repeat, no-repeat;
 	background-size: 425px 100%;
@@ -117,6 +117,10 @@ div.sheet-cover {
 .sheet-ts div.sheet-passport div.sheet-passport-page:first-child {
 	border-right			: 1px solid gray;
 	height					: 100%;
+}
+
+.sheet-ts div.sheet-cover div.sheet-cover-centered {
+	padding-top				: 120px;
 }
 
 .sheet-ts div.sheet-passport div.sheet-passport-page:nth-child(2) {
