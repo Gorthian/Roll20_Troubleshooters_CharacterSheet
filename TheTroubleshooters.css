@@ -39,6 +39,10 @@ h2 {
 	text-align: center;
 }
 
+div.sheet-cover h2, div.sheet-cover h3 {
+	color: goldenrod;
+}
+
 summary {
 	font-weight: 600;
 	font-size: 2em;
@@ -83,6 +87,15 @@ div.sheet-skills, div.sheet-character, div.sheet-gear, div.sheet-journal, div.sh
 	width		: var(--min-width);
 	min-height	: var(--min-height);
 	background-image: url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/The%20Troubleshooters/images/The-Troubleshooters-Pass-Hintergrund-linke-Seite.jpg), url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/The%20Troubleshooters/images/The-Troubleshooters-Pass-Hintergrund-rechte-Seite.jpg);
+	background-position: left top, right top;
+	background-repeat: no-repeat, no-repeat;
+	background-size: 425px 100%;
+}
+
+div.sheet-cover {
+	width		: var(--min-width);
+	min-height	: var(--min-height);
+	background-image: url(https://greengorilla.de/vtt/Pass_Back.png), url(https://greengorilla.de/vtt/Pass_Front.png);
 	background-position: left top, right top;
 	background-repeat: no-repeat, no-repeat;
 	background-size: 425px 100%;
@@ -273,10 +286,10 @@ select.sheet-shorter {
 }
 
 .sheet-coverfluff {
-	width:425px;
-	font-size: 1.5em;
-	border: none;
-	border-bottom: 2px dotted black;
+	width			: 95%;
+	font-size		: 1.5em;
+	border			: none;
+	border-bottom	: 2px dotted black;
 }
 
 .sheet-fluff {
@@ -287,7 +300,7 @@ select.sheet-shorter {
 }
 
 .sheet-cover {
-	text-align: center;
+	text-align		: center;
 }
 
 /*Configure the tabs*/
