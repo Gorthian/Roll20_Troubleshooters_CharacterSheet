@@ -607,3 +607,7 @@ select.sheet-shorter {
 	order				: 2;
 	background-color	: black;
 }
+
+footer {
+	color: whitesmoke;
+}
