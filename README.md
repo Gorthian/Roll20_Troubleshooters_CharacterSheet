@@ -12,6 +12,10 @@ This sheet can be edited and improved as long as the copyright statement is reta
 
 # Versions / History 
 
+**CF 1.0**
+
+- Schriftgröße bei W6-Würfen erhöht
+
 **CF Preview** 
 
 - Added multilanguage support
