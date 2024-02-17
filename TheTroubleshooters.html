@@ -631,11 +631,11 @@
 		<div class="sheet-template-result">
 			<div class="sheet-template-tens">{{tens}}</div>
 			<div class="sheet-template-ones">{{ones}}</div>
-			{{#pips}}
+			{{#rollGreater() pips 0}}
 			<div class="sheet-template-pips">
-				{{pips}} <span data-i18n="pips"></span>
+				{{pips}}<span data-i18n="pips"></span>
 			</div>
-			{{/pips}}
+			{{/rollGreater() pips 0}}
 		</div>
 		<div class="sheet-template-info">			
 			{{#rollTotal() computed::outcome 1}}
@@ -714,11 +714,11 @@
 		<div class="sheet-template-result">
 			<div class="sheet-template-tens">{{tens}}</div>
 			<div class="sheet-template-ones">{{ones}}</div>
-			{{#pips}}
+			{{#rollGreater() pips 0}}
 			<div class="sheet-template-pips">
 				{{pips}} <span data-i18n="pips"></span>
 			</div>
-			{{/pips}}
+			{{/rollGreater() pips 0}}
 		</div>
 		<div class="sheet-template-info">
 			{{#rollTotal() outcome 1}}
@@ -790,11 +790,11 @@
 		<div class="sheet-template-result">
 			<div class="sheet-template-tens">{{tens}}</div>
 			<div class="sheet-template-ones">{{ones}}</div>
-			{{#pips}}
+			{{#rollGreater() pips 0}}
 			<div class="sheet-template-pips">
 				{{pips}} <span data-i18n="pips"></span>
 			</div>
-			{{/pips}}		
+			{{/rollGreater() pips 0}}		
 		</div>
 		<div class="sheet-template-info">
 			{{#rollTotal() computed::outcome 1}}
@@ -821,11 +821,11 @@
 		<div class="sheet-template-result">
 			<div class="sheet-template-tens">{{tens}}</div>
 			<div class="sheet-template-ones">{{ones}}</div>
-			{{#pips}}
+			{{#rollGreater() pips 0}}
 			<div class="sheet-template-pips">
 				{{pips}} <span data-i18n="pips"></span>
 			</div>
-			{{/pips}}
+			{{/rollGreater() pips 0}}
 		</div>
 		<div class="sheet-template-info">
 			{{#rollGreater() success 0}}
@@ -883,18 +883,22 @@ on("sheet:opened", function(eventInfo){
 	});
 
 //Modify max Vitality if exhausted	
-    on("change:exhausted change:vitality_max sheet:opened", function() {
-        getAttrs(["exhausted","vitality_max"], function(values) {
+    on("change:exhausted change:vitality_max change:vitality sheet:opened", function() {
+        getAttrs(["exhausted","vitality_max","vitality"], function(values) {
 			var exhausted = parseInt(values.exhausted)||0;			
 			var vmax = parseInt(values.vitality_max)||0;
+			var v = parseInt(values.vitality)||0;
 			
 			let newmax = vmax
 			if(exhausted == 1) newmax = Math.ceil(vmax/2);
 			else if(exhausted == 2) newmax = Math.ceil(vmax / 4);			
-			else if(exhausted == 3) newmax = Math.ceil(vmax / 8);			
+			else if(exhausted == 3) newmax = Math.ceil(vmax / 8);
+
+			if (v>vmax) v=vmax;
 						
 			setAttrs({
-                vitality_max_vis: newmax
+                vitality_max_vis: newmax,
+				vitality: v
             });
         });
 	});
@@ -925,8 +929,8 @@ on("sheet:opened", function(eventInfo){
 		startRoll(getRollString("d100",mRollParams), (results) => {
             const tens = results.results.tens.result;
 			const ones = results.results.ones.result;
-			const target = results.results.target.result;
-			const pips = results.results.pips.result;
+			const target = results.results.target.result;			
+			const pips = results.results.pips.result;				
 			var total = calcTotal(tens,ones,0);
 			var totalfliped = calcTotal(tens,ones,1);
 			var krm = calcKarma(tens,ones);
@@ -940,8 +944,7 @@ on("sheet:opened", function(eventInfo){
 				["last-roll-pips",		pips],
 				["last-roll-target",	target],
 			]));
-            
-			finishRoll(
+			finishRoll(				
                 results.rollId,
                 {
 					outcome: out,
@@ -1164,7 +1167,7 @@ function safeFlipResults(results,mFlipParams) {
 		["last-roll-ini-fliped"]: 	mFlipParams.get("last-roll-ini-fliped")||0,
 		["last-roll-skill"]: 		mFlipParams.get("last-roll-skill")||"",
 		["last-roll-skill-raw"]: 	mFlipParams.get("last-roll-skill-raw")||"",
-		["last-roll-pips"]: 		mFlipParams.get("last-roll-pips")||0,
+		["last-roll-pips"]: 		mFlipParams.get("last-roll-pips")||"",
 		["last-roll-target"]: 		mFlipParams.get("last-roll-target")||0,
 		["last-roll-wdamage"]: 		mFlipParams.get("last-roll-wdamage")||0,
 		["damage-dices"]: 			mFlipParams.get("damage-dices")||0

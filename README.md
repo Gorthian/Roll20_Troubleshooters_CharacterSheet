@@ -15,6 +15,7 @@ This sheet can be edited and improved as long as the copyright statement is reta
 **CF 1.0**
 
 - Schriftgröße bei W6-Würfen erhöht
+- Pips bei Würfen nur noch anzeigen wenn sie größer 0 sind
 
 **CF Preview** 
 
