@@ -16,6 +16,9 @@ This sheet can be edited and improved as long as the copyright statement is reta
 
 - Schriftgröße bei W6-Würfen erhöht
 - Pips bei Würfen nur noch anzeigen wenn sie größer 0 sind
+- Texte angepasst
+- Plotaufhänger und Kontakte getrennt
+- Maximale Vitalität auswerten
 
 **CF Preview** 
 

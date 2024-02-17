@@ -296,14 +296,14 @@ select.sheet-shorter {
 
 .sheet-coverfluff {
 	width			: 95%;
-	font-size		: 1.3em;
+	font-size		: initial;
 	border			: none;
 	border-bottom	: 2px dotted black;
 }
 
 .sheet-fluff {
-	width			: 95%;
-	font-size		: 1.2em;
+	width			: 92%;
+	font-size		: initial;
 	border			: none;
 	border-bottom	: 2px dotted black;
 }
