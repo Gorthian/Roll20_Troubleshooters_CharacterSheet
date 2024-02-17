@@ -39,6 +39,10 @@ h2 {
 	text-align: center;
 }
 
+h3 {
+	font-size: 1.4em;
+}
+
 div.sheet-cover h2, div.sheet-cover h3 {
 	color: goldenrod;
 }
@@ -121,6 +125,7 @@ div.sheet-cover {
 
 .sheet-ts div.sheet-cover div.sheet-cover-centered {
 	padding-top				: 120px;
+	padding-right			: 10px;
 }
 
 .sheet-ts div.sheet-passport div.sheet-passport-page:nth-child(2) {
@@ -291,7 +296,7 @@ select.sheet-shorter {
 
 .sheet-coverfluff {
 	width			: 95%;
-	font-size		: 1.5em;
+	font-size		: 1.3em;
 	border			: none;
 	border-bottom	: 2px dotted black;
 }
